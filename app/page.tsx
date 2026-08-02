@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="py-8">
-      <section className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600 via-pink-500 to-yellow-400 p-8 text-white shadow-2xl sm:p-12">
+      <section className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600 via-pink-500 to-yellow-400 p-8 text-white shadow-2xl sm:p-12 fluid-animate-bg">
         <div className="md:flex md:items-center md:justify-between">
           <div className="md:flex-1 md:pr-8">
             <div className="inline-flex items-center gap-3 rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
@@ -28,12 +28,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-8 md:mt-0 md:w-1/3">
-            <div className="rounded-2xl bg-white/10 p-4">
-              <div className="h-48 w-full rounded-lg bg-white/20" />
-              <p className="mt-4 text-sm opacity-90">Quick sample: paste text into the analyzer to get an instant grade-level estimate and breakdown.</p>
-            </div>
-          </div>
+          {/* right-side quick sample removed per request */}
         </div>
       </section>
 
