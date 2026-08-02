@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { passages, Passage } from "@/lib/passages";
 import {
@@ -30,21 +30,30 @@ export default function AssessmentPage() {
   const [answers, setAnswers] = useState<number[]>([]);
   const [result, setResult] = useState<AssessmentResult | null>(null);
   const [wordInfo, setWordInfo] = useState<WordInfo[]>([]);
+  const [markedIncorrect, setMarkedIncorrect] = useState<Set<number>>(new Set());
   const [bookSuggestions, setBookSuggestions] = useState<BookSuggestion[]>([]);
 
   function choosePassage(p: Passage) {
     setPassage(p);
     setAnswers(new Array(p.questions.length).fill(-1));
+    setWordInfo(analyzePassageWords(p.text));
+    setMarkedIncorrect(new Set());
     setStage("reading");
     setStartTime(Date.now());
+  }
+
+  function toggleWordIncorrect(index: number) {
+    setMarkedIncorrect((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) next.delete(index);
+      else next.add(index);
+      return next;
+    });
   }
 
   function finishReading() {
     if (startTime) {
       setReadingSeconds((Date.now() - startTime) / 1000);
-    }
-    if (passage) {
-      setWordInfo(analyzePassageWords(passage.text));
     }
     setStage("questions");
   }
@@ -59,7 +68,19 @@ export default function AssessmentPage() {
     if (!passage) return;
     const correct = answers.filter((a, i) => a === passage.questions[i].correctIndex).length;
     const wc = wordCountOf(passage.text);
-    const r = scoreAssessment(passage.gradeBand, wc, readingSeconds, correct, passage.questions.length);
+    const totalWordTokens = wordInfo.filter((w) => w.type === "word").length;
+    const missedWords = Array.from(markedIncorrect)
+      .map((i) => wordInfo[i]?.text)
+      .filter((t): t is string => !!t);
+    const r = scoreAssessment(
+      passage.gradeBand,
+      wc,
+      readingSeconds,
+      correct,
+      passage.questions.length,
+      missedWords,
+      totalWordTokens || wc
+    );
     setResult(r);
     setBookSuggestions(getBookSuggestions(passage.gradeBand, r));
     setStage("results");
@@ -73,8 +94,12 @@ export default function AssessmentPage() {
     setAnswers([]);
     setResult(null);
     setWordInfo([]);
+    setMarkedIncorrect(new Set());
     setBookSuggestions([]);
   }
+
+  const skillSuggestions = bookSuggestions.filter((s) => s.category === "skill");
+  const enjoymentSuggestions = bookSuggestions.filter((s) => s.category === "enjoyment");
 
   return (
     <main className="space-y-6">
@@ -137,30 +162,43 @@ export default function AssessmentPage() {
             {stage === "reading" && passage && (
               <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h2 className="text-xl font-semibold text-slate-900">{passage.title}</h2>
-                <div className="mt-4 text-base leading-8 text-slate-700">
-                  {wordInfo.length > 0 ? (
-                    <p className="whitespace-pre-wrap">
-                      {wordInfo.map((token, index) =>
-                        token.type === "word" ? (
-                          <span
-                            key={index}
-                            className={`rounded px-0.5 ${
-                              token.difficulty === "challenge"
-                                ? "bg-rose-100 text-rose-900"
-                                : "bg-slate-100 text-slate-900"
-                            }`}
-                          >
-                            {token.text}
-                          </span>
-                        ) : (
-                          <span key={index}>{token.text}</span>
-                        )
-                      )}
-                    </p>
-                  ) : (
-                    <p className="whitespace-pre-line">{passage.text}</p>
-                  )}
+
+                <div className="mt-3 rounded-2xl border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-900">
+                  Listening to the child read aloud? Click any word they read incorrectly, skipped, or needed
+                  help with. Marked words feed into the accuracy score and the skill-focused suggestions below.
                 </div>
+
+                <div className="mt-4 text-base leading-8 text-slate-700">
+                  <p className="whitespace-pre-wrap">
+                    {wordInfo.map((token, index) =>
+                      token.type === "word" ? (
+                        <button
+                          type="button"
+                          key={index}
+                          onClick={() => toggleWordIncorrect(index)}
+                          className={`rounded px-0.5 transition ${
+                            markedIncorrect.has(index)
+                              ? "bg-rose-200 text-rose-900 underline decoration-rose-600 decoration-2 underline-offset-2"
+                              : token.difficulty === "challenge"
+                              ? "bg-slate-100 text-slate-900 hover:bg-rose-100"
+                              : "text-slate-900 hover:bg-rose-100"
+                          }`}
+                        >
+                          {token.text}
+                        </button>
+                      ) : (
+                        <span key={index}>{token.text}</span>
+                      )
+                    )}
+                  </p>
+                </div>
+
+                {markedIncorrect.size > 0 && (
+                  <p className="mt-3 text-xs font-medium text-rose-700">
+                    {markedIncorrect.size} word{markedIncorrect.size === 1 ? "" : "s"} marked incorrect.
+                  </p>
+                )}
+
                 <button
                   onClick={finishReading}
                   className="mt-6 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
@@ -220,6 +258,26 @@ export default function AssessmentPage() {
                   <p className="mt-2 text-4xl font-semibold">Grade {result.estimatedGradeLevel}</p>
                 </div>
 
+                <div className="grid gap-4 sm:grid-cols-3">
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">Guided reading (A–Z)</p>
+                    <p className="mt-2 text-xl font-semibold text-slate-900">Level {result.guidedReadingLevel}</p>
+                    <p className="mt-1 text-xs text-slate-500">Approximate Fountas &amp; Pinnell-style equivalent</p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">Approx. Lexile</p>
+                    <p className="mt-2 text-xl font-semibold text-slate-900">{result.lexileDisplay}</p>
+                    <p className="mt-1 text-xs text-slate-500">Estimate only — not an official Lexile measure</p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">Word reading accuracy</p>
+                    <p className="mt-2 text-xl font-semibold text-slate-900">{result.wordReadingAccuracyPercent}%</p>
+                    <p className="mt-1 text-xs text-slate-500">
+                      {result.missedWordCount} of {result.totalWordCount} words marked incorrect · {result.decodingRating}
+                    </p>
+                  </div>
+                </div>
+
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
                     <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">Reading speed</p>
@@ -233,21 +291,50 @@ export default function AssessmentPage() {
                   </div>
                 </div>
 
+                {result.missedWords.length > 0 && (
+                  <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-rose-700">Words marked incorrect</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {result.missedWords.map((w) => (
+                        <span key={w} className="rounded-full border border-rose-300 bg-white px-3 py-1 text-sm text-rose-800">
+                          {w}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                   <p className="text-sm leading-7 text-slate-700">{result.recommendation}</p>
                 </div>
 
-                <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">Reading suggestions</p>
-                  <div className="mt-4 space-y-4">
-                    {bookSuggestions.map((suggestion) => (
-                      <div key={suggestion.title} className="rounded-2xl border border-slate-200 bg-white p-4">
-                        <p className="font-semibold text-slate-900">{suggestion.title}</p>
-                        <p className="mt-1 text-sm text-slate-600">{suggestion.reason}</p>
-                      </div>
-                    ))}
+                {skillSuggestions.length > 0 && (
+                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">To build the missing skill</p>
+                    <div className="mt-4 space-y-4">
+                      {skillSuggestions.map((suggestion) => (
+                        <div key={suggestion.title} className="rounded-2xl border border-slate-200 bg-white p-4">
+                          <p className="font-semibold text-slate-900">{suggestion.title}</p>
+                          <p className="mt-1 text-sm text-slate-600">{suggestion.reason}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
+
+                {enjoymentSuggestions.length > 0 && (
+                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">For enjoyment at this level</p>
+                    <div className="mt-4 space-y-4">
+                      {enjoymentSuggestions.map((suggestion) => (
+                        <div key={suggestion.title} className="rounded-2xl border border-slate-200 bg-white p-4">
+                          <p className="font-semibold text-slate-900">{suggestion.title}</p>
+                          <p className="mt-1 text-sm text-slate-600">{suggestion.reason}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 <button
                   onClick={reset}
@@ -257,7 +344,10 @@ export default function AssessmentPage() {
                 </button>
 
                 <p className="text-xs leading-5 text-slate-500">
-                  This is an informal estimate based on a single short passage. For a thorough reading evaluation, consult a teacher or specialist.
+                  This is an informal estimate based on a single short passage. The grade level, guided
+                  reading (A–Z) level, and Lexile figure are all approximations derived from the same
+                  reading and comprehension data — they do not substitute for a real, standardized reading
+                  assessment. For a thorough reading evaluation, consult a teacher or reading specialist.
                 </p>
               </div>
             )}
@@ -268,8 +358,8 @@ export default function AssessmentPage() {
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">Progress</p>
               <div className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">Choose a passage to begin the assessment flow.</div>
-                <div className="rounded-2xl border border-slate-200 bg-white p-3">Read at a normal pace and then answer the questions.</div>
-                <div className="rounded-2xl border border-slate-200 bg-white p-3">Review the estimated reading level and next-step guidance.</div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-3">Read at a normal pace, clicking any word read incorrectly.</div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-3">Answer the questions, then review the full score report.</div>
               </div>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-emerald-50 p-5 text-emerald-900">
