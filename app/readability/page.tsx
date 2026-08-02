@@ -23,118 +23,124 @@ export default function ReadabilityPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 px-6 py-12">
-      <div className="max-w-3xl mx-auto">
-        <Link href="/" className="text-sm text-blue-600 hover:underline">
-          ← Back home
-        </Link>
-
-        <h1 className="text-3xl font-bold text-slate-800 mt-4 mb-2">
-          Text Readability Analyzer
-        </h1>
-        <p className="text-slate-600 mb-6">
-          Paste in a passage below to estimate its reading grade level using
-          several standard readability formulas.
-        </p>
-
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Paste or type text here (at least a few sentences for an accurate estimate)..."
-          className="w-full h-56 rounded-xl border border-slate-300 p-4 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-y"
-        />
-
-        <div className="flex gap-3 mt-4">
-          <button
-            onClick={handleAnalyze}
-            disabled={text.trim().length === 0}
-            className="bg-blue-600 disabled:bg-slate-300 text-white font-medium px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Analyze Text
-          </button>
-          <button
-            onClick={loadSample}
-            className="bg-white border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg hover:bg-slate-100 transition-colors"
-          >
-            Try a Sample
-          </button>
+    <main className="space-y-6">
+      <div className="rounded-[2rem] border border-white/70 bg-white/80 p-6 shadow-[0_25px_60px_-20px_rgba(15,23,42,0.2)] backdrop-blur sm:p-8">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <Link href="/" className="inline-flex items-center text-sm font-medium text-sky-700 transition hover:text-sky-800">
+              ← Back home
+            </Link>
+            <div className="mt-3 space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-600">Text analyzer</p>
+              <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                Estimate how complex a passage feels.
+              </h1>
+            </div>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
+            Use this panel to review readability in a structured, dashboard-style view.
+          </div>
         </div>
 
-        {touched && !result && (
-          <p className="mt-6 text-slate-500 text-sm">
-            Please enter some text to analyze.
-          </p>
-        )}
-
-        {result && (
-          <div className="mt-8 space-y-6">
-            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-              <p className="text-sm text-slate-500 mb-1">
-                Estimated Reading Level
-              </p>
-              <p className="text-3xl font-bold text-blue-700">
-                {result.readingLevelLabel}
-              </p>
-              <p className="text-sm text-slate-500 mt-1">
-                Average grade estimate: {result.averageGradeLevel}
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <StatCard label="Words" value={result.words} />
-              <StatCard label="Sentences" value={result.sentences} />
-              <StatCard
-                label="Flesch Reading Ease"
-                value={`${result.fleschReadingEase} (${fleschEaseLabel(
-                  result.fleschReadingEase
-                )})`}
+        <div className="mt-8 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+          <div className="space-y-6">
+            <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-4 sm:p-5">
+              <textarea
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                placeholder="Paste or type text here (at least a few sentences for an accurate estimate)..."
+                className="min-h-64 w-full resize-y rounded-2xl border border-slate-200 bg-white p-4 text-slate-800 shadow-inner outline-none ring-0 transition focus:border-sky-400"
               />
-              <StatCard
-                label="Complex Words (3+ syllables)"
-                value={result.complexWords}
-              />
-            </div>
 
-            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-              <h3 className="font-semibold text-slate-800 mb-3">
-                Grade Level by Formula
-              </h3>
-              <div className="space-y-2 text-sm">
-                <MetricRow label="Flesch-Kincaid Grade Level" value={result.fleschKincaidGrade} />
-                <MetricRow label="Gunning Fog Index" value={result.gunningFog} />
-                <MetricRow label="SMOG Index" value={result.smog} />
-                <MetricRow label="Automated Readability Index" value={result.automatedReadabilityIndex} />
-                <MetricRow label="Coleman-Liau Index" value={result.colemanLiauIndex} />
+              <div className="mt-4 flex flex-wrap gap-3">
+                <button
+                  onClick={handleAnalyze}
+                  disabled={text.trim().length === 0}
+                  className="rounded-full bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                >
+                  Analyze text
+                </button>
+                <button
+                  onClick={loadSample}
+                  className="rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+                >
+                  Try a sample
+                </button>
               </div>
             </div>
 
-            <p className="text-xs text-slate-400">
-              These formulas estimate difficulty using sentence length and
-              syllable/word complexity. They're a useful guide, not an exact
-              measurement — the same text can score differently depending on
-              topic familiarity and formatting.
-            </p>
+            {touched && !result && (
+              <p className="text-sm text-slate-500">Please enter some text to analyze.</p>
+            )}
+
+            {result && (
+              <div className="space-y-6">
+                <div className="rounded-3xl border border-slate-200 bg-gradient-to-r from-sky-600 to-blue-700 p-6 text-white shadow-lg">
+                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-100">Estimated reading level</p>
+                  <p className="mt-2 text-3xl font-semibold sm:text-4xl">{result.readingLevelLabel}</p>
+                  <p className="mt-2 text-sm text-sky-100">Average grade estimate: {result.averageGradeLevel}</p>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <StatCard label="Words" value={result.words} />
+                  <StatCard label="Sentences" value={result.sentences} />
+                  <StatCard
+                    label="Flesch Reading Ease"
+                    value={`${result.fleschReadingEase} (${fleschEaseLabel(result.fleschReadingEase)})`}
+                  />
+                  <StatCard label="Complex words (3+ syllables)" value={result.complexWords} />
+                </div>
+
+                <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-6">
+                  <h3 className="text-lg font-semibold text-slate-900">Grade level by formula</h3>
+                  <div className="mt-4 space-y-3 text-sm">
+                    <MetricRow label="Flesch-Kincaid Grade Level" value={result.fleschKincaidGrade} />
+                    <MetricRow label="Gunning Fog Index" value={result.gunningFog} />
+                    <MetricRow label="SMOG Index" value={result.smog} />
+                    <MetricRow label="Automated Readability Index" value={result.automatedReadabilityIndex} />
+                    <MetricRow label="Coleman-Liau Index" value={result.colemanLiauIndex} />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-        )}
+
+          <div className="space-y-4">
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">Quick tips</p>
+              <div className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
+                <div className="rounded-2xl border border-slate-200 bg-white p-3">Try a longer passage for a steadier estimate.</div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-3">Short, simple sentences usually score easier.</div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-3">Very technical words can raise the complexity score.</div>
+              </div>
+            </div>
+            <div className="rounded-3xl border border-slate-200 bg-slate-900 p-5 text-slate-100">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">Note</p>
+              <p className="mt-3 text-sm leading-6 text-slate-300">
+                These formulas are useful guides, not exact measures. They work best when combined with context and real-world reading experience.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
 
 function StatCard({ label, value }: { label: string; value: string | number }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-4">
-      <p className="text-xs text-slate-500">{label}</p>
-      <p className="text-xl font-semibold text-slate-800">{value}</p>
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">{label}</p>
+      <p className="mt-2 text-xl font-semibold text-slate-900">{value}</p>
     </div>
   );
 }
 
 function MetricRow({ label, value }: { label: string; value: number }) {
   return (
-    <div className="flex justify-between border-b border-slate-100 pb-2">
+    <div className="flex items-center justify-between border-b border-slate-200 pb-2 last:border-b-0">
       <span className="text-slate-600">{label}</span>
-      <span className="font-medium text-slate-800">{value}</span>
+      <span className="font-semibold text-slate-900">{value}</span>
     </div>
   );
 }
