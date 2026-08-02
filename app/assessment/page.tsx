@@ -7,6 +7,13 @@ import { scoreAssessment, wordCountOf, AssessmentResult } from "@/lib/scoring";
 
 type Stage = "select" | "reading" | "questions" | "results";
 
+const stageLabels: Record<Stage, string> = {
+  select: "Choose passage",
+  reading: "Read passage",
+  questions: "Answer questions",
+  results: "Review results",
+};
+
 export default function AssessmentPage() {
   const [stage, setStage] = useState<Stage>("select");
   const [passage, setPassage] = useState<Passage | null>(null);
@@ -37,17 +44,9 @@ export default function AssessmentPage() {
 
   function submitAnswers() {
     if (!passage) return;
-    const correct = answers.filter(
-      (a, i) => a === passage.questions[i].correctIndex
-    ).length;
+    const correct = answers.filter((a, i) => a === passage.questions[i].correctIndex).length;
     const wc = wordCountOf(passage.text);
-    const r = scoreAssessment(
-      passage.gradeBand,
-      wc,
-      readingSeconds,
-      correct,
-      passage.questions.length
-    );
+    const r = scoreAssessment(passage.gradeBand, wc, readingSeconds, correct, passage.questions.length);
     setResult(r);
     setStage("results");
   }
@@ -62,163 +61,175 @@ export default function AssessmentPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 px-6 py-12">
-      <div className="max-w-2xl mx-auto">
-        <Link href="/" className="text-sm text-emerald-700 hover:underline">
-          ← Back home
-        </Link>
+    <main className="space-y-6">
+      <div className="rounded-[2rem] border border-white/70 bg-white/80 p-6 shadow-[0_25px_60px_-20px_rgba(15,23,42,0.22)] backdrop-blur sm:p-8">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <Link href="/" className="inline-flex items-center text-sm font-medium text-emerald-700 transition hover:text-emerald-800">
+              ← Back home
+            </Link>
+            <div className="mt-3 space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600">Reading assessment</p>
+              <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                Practice reading with a guided, calm flow.
+              </h1>
+            </div>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
+            Follow the steps below to move from reading to insight.
+          </div>
+        </div>
 
-        <h1 className="text-3xl font-bold text-slate-800 mt-4 mb-2">
-          Student Reading Assessment
-        </h1>
-        <p className="text-slate-600 mb-8">
-          Pick a starting passage, read it at a normal pace, then answer a
-          few questions about what you read.
-        </p>
+        <div className="mt-8 grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+          <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-4">
+            <div className="flex flex-wrap gap-2">
+              {(Object.keys(stageLabels) as Stage[]).map((key) => (
+                <div
+                  key={key}
+                  className={`rounded-full px-3 py-1 text-sm font-medium ${
+                    stage === key ? "bg-emerald-600 text-white" : "bg-white text-slate-600"
+                  }`}
+                >
+                  {stageLabels[key]}
+                </div>
+              ))}
+            </div>
 
-        {stage === "select" && (
-          <div className="grid gap-4">
-            {passages.map((p) => (
-              <button
-                key={p.id}
-                onClick={() => choosePassage(p)}
-                className="text-left bg-white rounded-xl border border-slate-200 p-5 hover:border-emerald-300 hover:shadow-sm transition-all"
-              >
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="font-semibold text-slate-800">{p.title}</p>
-                    <p className="text-sm text-slate-500">
-                      Approx. grade {p.gradeBand} level
+            {stage === "select" && (
+              <div className="mt-6 grid gap-4">
+                {passages.map((p) => (
+                  <button
+                    key={p.id}
+                    onClick={() => choosePassage(p)}
+                    className="text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-emerald-300 hover:shadow-md"
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <div>
+                        <p className="font-semibold text-slate-900">{p.title}</p>
+                        <p className="mt-1 text-sm text-slate-500">Approx. grade {p.gradeBand} level</p>
+                      </div>
+                      <span className="text-sm font-semibold text-emerald-700">Start →</span>
+                    </div>
+                  </button>
+                ))}
+                <p className="text-xs leading-5 text-slate-500">
+                  Pick the passage closest to your current reading level. You can always try another one afterward.
+                </p>
+              </div>
+            )}
+
+            {stage === "reading" && passage && (
+              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 className="text-xl font-semibold text-slate-900">{passage.title}</h2>
+                <div className="mt-4 whitespace-pre-line text-base leading-8 text-slate-700">{passage.text}</div>
+                <button
+                  onClick={finishReading}
+                  className="mt-6 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                >
+                  I’m done reading
+                </button>
+                <p className="mt-3 text-xs leading-5 text-slate-500">
+                  Read at your normal pace. The timer is running in the background to help estimate reading speed.
+                </p>
+              </div>
+            )}
+
+            {stage === "questions" && passage && (
+              <div className="mt-6 space-y-4">
+                {passage.questions.map((q, qi) => (
+                  <div key={qi} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <p className="font-medium text-slate-900">
+                      {qi + 1}. {q.question}
                     </p>
+                    <div className="mt-3 space-y-2">
+                      {q.options.map((opt, oi) => (
+                        <label
+                          key={oi}
+                          className={`flex items-center gap-3 rounded-xl border p-3 transition ${
+                            answers[qi] === oi
+                              ? "border-emerald-400 bg-emerald-50"
+                              : "border-slate-200 hover:bg-slate-50"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name={`q-${qi}`}
+                            checked={answers[qi] === oi}
+                            onChange={() => selectAnswer(qi, oi)}
+                            className="accent-emerald-600"
+                          />
+                          <span className="text-sm text-slate-700">{opt}</span>
+                        </label>
+                      ))}
+                    </div>
                   </div>
-                  <span className="text-emerald-700 text-sm font-medium">
-                    Start →
-                  </span>
-                </div>
-              </button>
-            ))}
-            <p className="text-xs text-slate-400 mt-2">
-              Not sure where to start? Pick the passage closest to your
-              current grade — you can always try another level afterward.
-            </p>
-          </div>
-        )}
-
-        {stage === "reading" && passage && (
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-slate-800 mb-4">
-              {passage.title}
-            </h2>
-            <div className="prose prose-slate whitespace-pre-line text-slate-700 leading-relaxed mb-6">
-              {passage.text}
-            </div>
-            <button
-              onClick={finishReading}
-              className="bg-emerald-600 text-white font-medium px-5 py-2.5 rounded-lg hover:bg-emerald-700 transition-colors"
-            >
-              I'm Done Reading
-            </button>
-            <p className="text-xs text-slate-400 mt-3">
-              Read at your normal pace — the timer is running in the
-              background to help estimate reading speed.
-            </p>
-          </div>
-        )}
-
-        {stage === "questions" && passage && (
-          <div className="space-y-6">
-            {passage.questions.map((q, qi) => (
-              <div
-                key={qi}
-                className="bg-white rounded-xl border border-slate-200 p-5"
-              >
-                <p className="font-medium text-slate-800 mb-3">
-                  {qi + 1}. {q.question}
-                </p>
-                <div className="space-y-2">
-                  {q.options.map((opt, oi) => (
-                    <label
-                      key={oi}
-                      className={`flex items-center gap-3 p-2.5 rounded-lg border cursor-pointer transition-colors ${
-                        answers[qi] === oi
-                          ? "border-emerald-400 bg-emerald-50"
-                          : "border-slate-200 hover:bg-slate-50"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name={`q-${qi}`}
-                        checked={answers[qi] === oi}
-                        onChange={() => selectAnswer(qi, oi)}
-                        className="accent-emerald-600"
-                      />
-                      <span className="text-sm text-slate-700">{opt}</span>
-                    </label>
-                  ))}
-                </div>
+                ))}
+                <button
+                  onClick={submitAnswers}
+                  disabled={answers.some((a) => a === -1)}
+                  className="rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                >
+                  See my results
+                </button>
               </div>
-            ))}
-            <button
-              onClick={submitAnswers}
-              disabled={answers.some((a) => a === -1)}
-              className="bg-emerald-600 disabled:bg-slate-300 text-white font-medium px-5 py-2.5 rounded-lg hover:bg-emerald-700 transition-colors"
-            >
-              See My Results
-            </button>
-          </div>
-        )}
+            )}
 
-        {stage === "results" && result && (
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm text-center">
-              <p className="text-sm text-slate-500 mb-1">
-                Estimated Reading Level
-              </p>
-              <p className="text-4xl font-bold text-emerald-700">
-                Grade {result.estimatedGradeLevel}
+            {stage === "results" && result && (
+              <div className="mt-6 space-y-5">
+                <div className="rounded-3xl border border-emerald-200 bg-gradient-to-r from-emerald-600 to-teal-600 p-6 text-center text-white shadow-lg">
+                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-100">Estimated reading level</p>
+                  <p className="mt-2 text-4xl font-semibold">Grade {result.estimatedGradeLevel}</p>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">Reading speed</p>
+                    <p className="mt-2 text-xl font-semibold text-slate-900">{result.wpm} wpm</p>
+                    <p className="mt-1 text-xs text-slate-500">{result.fluencyRating} grade-level pace</p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">Comprehension</p>
+                    <p className="mt-2 text-xl font-semibold text-slate-900">{result.accuracyPercent}%</p>
+                    <p className="mt-1 text-xs text-slate-500">{result.comprehensionRating}</p>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <p className="text-sm leading-7 text-slate-700">{result.recommendation}</p>
+                </div>
+
+                <button
+                  onClick={reset}
+                  className="rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+                >
+                  Try another passage
+                </button>
+
+                <p className="text-xs leading-5 text-slate-500">
+                  This is an informal estimate based on a single short passage. For a thorough reading evaluation, consult a teacher or specialist.
+                </p>
+              </div>
+            )}
+          </div>
+
+          <div className="space-y-4">
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">Progress</p>
+              <div className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
+                <div className="rounded-2xl border border-slate-200 bg-white p-3">Choose a passage to begin the assessment flow.</div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-3">Read at a normal pace and then answer the questions.</div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-3">Review the estimated reading level and next-step guidance.</div>
+              </div>
+            </div>
+            <div className="rounded-3xl border border-slate-200 bg-emerald-50 p-5 text-emerald-900">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-700">Tip</p>
+              <p className="mt-3 text-sm leading-6 text-emerald-800">
+                A single short passage gives a quick estimate, so use it as a starting point rather than a final judgment.
               </p>
             </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-xl border border-slate-200 p-4">
-                <p className="text-xs text-slate-500">Reading Speed</p>
-                <p className="text-xl font-semibold text-slate-800">
-                  {result.wpm} wpm
-                </p>
-                <p className="text-xs text-slate-400 mt-1">
-                  {result.fluencyRating} grade-level pace
-                </p>
-              </div>
-              <div className="bg-white rounded-xl border border-slate-200 p-4">
-                <p className="text-xs text-slate-500">Comprehension</p>
-                <p className="text-xl font-semibold text-slate-800">
-                  {result.accuracyPercent}%
-                </p>
-                <p className="text-xs text-slate-400 mt-1">
-                  {result.comprehensionRating}
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl border border-slate-200 p-5">
-              <p className="text-sm text-slate-700">{result.recommendation}</p>
-            </div>
-
-            <button
-              onClick={reset}
-              className="bg-white border border-slate-300 text-slate-700 font-medium px-5 py-2.5 rounded-lg hover:bg-slate-100 transition-colors"
-            >
-              Try Another Passage
-            </button>
-
-            <p className="text-xs text-slate-400">
-              This is an informal estimate based on a single short passage.
-              For a thorough evaluation of reading ability, consult a
-              teacher or reading specialist.
-            </p>
           </div>
-        )}
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
