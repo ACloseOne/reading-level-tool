@@ -1,9 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { passages, Passage } from "@/lib/passages";
-import { scoreAssessment, wordCountOf, AssessmentResult } from "@/lib/scoring";
+import {
+  scoreAssessment,
+  wordCountOf,
+  analyzePassageWords,
+  getBookSuggestions,
+  AssessmentResult,
+  WordInfo,
+  BookSuggestion,
+} from "@/lib/scoring";
 
 type Stage = "select" | "reading" | "questions" | "results";
 
@@ -21,6 +29,8 @@ export default function AssessmentPage() {
   const [readingSeconds, setReadingSeconds] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [result, setResult] = useState<AssessmentResult | null>(null);
+  const [wordInfo, setWordInfo] = useState<WordInfo[]>([]);
+  const [bookSuggestions, setBookSuggestions] = useState<BookSuggestion[]>([]);
 
   function choosePassage(p: Passage) {
     setPassage(p);
@@ -32,6 +42,9 @@ export default function AssessmentPage() {
   function finishReading() {
     if (startTime) {
       setReadingSeconds((Date.now() - startTime) / 1000);
+    }
+    if (passage) {
+      setWordInfo(analyzePassageWords(passage.text));
     }
     setStage("questions");
   }
@@ -48,6 +61,7 @@ export default function AssessmentPage() {
     const wc = wordCountOf(passage.text);
     const r = scoreAssessment(passage.gradeBand, wc, readingSeconds, correct, passage.questions.length);
     setResult(r);
+    setBookSuggestions(getBookSuggestions(passage.gradeBand, r));
     setStage("results");
   }
 
@@ -58,6 +72,8 @@ export default function AssessmentPage() {
     setReadingSeconds(0);
     setAnswers([]);
     setResult(null);
+    setWordInfo([]);
+    setBookSuggestions([]);
   }
 
   return (
@@ -121,7 +137,30 @@ export default function AssessmentPage() {
             {stage === "reading" && passage && (
               <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h2 className="text-xl font-semibold text-slate-900">{passage.title}</h2>
-                <div className="mt-4 whitespace-pre-line text-base leading-8 text-slate-700">{passage.text}</div>
+                <div className="mt-4 text-base leading-8 text-slate-700">
+                  {wordInfo.length > 0 ? (
+                    <p className="whitespace-pre-wrap">
+                      {wordInfo.map((token, index) =>
+                        token.type === "word" ? (
+                          <span
+                            key={index}
+                            className={`rounded px-0.5 ${
+                              token.difficulty === "challenge"
+                                ? "bg-rose-100 text-rose-900"
+                                : "bg-slate-100 text-slate-900"
+                            }`}
+                          >
+                            {token.text}
+                          </span>
+                        ) : (
+                          <span key={index}>{token.text}</span>
+                        )
+                      )}
+                    </p>
+                  ) : (
+                    <p className="whitespace-pre-line">{passage.text}</p>
+                  )}
+                </div>
                 <button
                   onClick={finishReading}
                   className="mt-6 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
@@ -196,6 +235,18 @@ export default function AssessmentPage() {
 
                 <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                   <p className="text-sm leading-7 text-slate-700">{result.recommendation}</p>
+                </div>
+
+                <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">Reading suggestions</p>
+                  <div className="mt-4 space-y-4">
+                    {bookSuggestions.map((suggestion) => (
+                      <div key={suggestion.title} className="rounded-2xl border border-slate-200 bg-white p-4">
+                        <p className="font-semibold text-slate-900">{suggestion.title}</p>
+                        <p className="mt-1 text-sm text-slate-600">{suggestion.reason}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <button
