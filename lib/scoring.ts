@@ -2,10 +2,16 @@
 // Based on commonly cited oral/silent reading fluency norm ranges (e.g. Hasbrouck & Tindal),
 // simplified here for a self-check estimate — not a clinical diagnostic tool.
 const WPM_NORMS: Record<number, { low: number; high: number }> = {
+  0: { low: 15, high: 40 },
+  1: { low: 30, high: 65 },
   2: { low: 60, high: 100 },
+  3: { low: 75, high: 115 },
   4: { low: 100, high: 140 },
+  5: { low: 110, high: 150 },
   6: { low: 140, high: 170 },
+  7: { low: 150, high: 180 },
   8: { low: 150, high: 180 },
+  9: { low: 155, high: 190 },
   10: { low: 160, high: 195 },
 };
 
