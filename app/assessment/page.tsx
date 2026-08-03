@@ -8,11 +8,8 @@ import {
   scoreAssessment,
   wordCountOf,
   analyzePassageWords,
-  getBookSuggestions,
-  getBooksForGradeBand,
   AssessmentResult,
   WordInfo,
-  BookSuggestion,
 } from "@/lib/scoring";
 
 type Stage = "select" | "reading" | "questions" | "results";
@@ -35,8 +32,6 @@ export default function AssessmentPage() {
   const [result, setResult] = useState<AssessmentResult | null>(null);
   const [wordInfo, setWordInfo] = useState<WordInfo[]>([]);
   const [markedIncorrect, setMarkedIncorrect] = useState<Set<number>>(new Set());
-  const [bookSuggestions, setBookSuggestions] = useState<BookSuggestion[]>([]);
-  const [selectedGradeBand, setSelectedGradeBand] = useState<number | null>(null);
 
   function choosePassage(p: Passage) {
     setPassage(p);
@@ -88,8 +83,6 @@ export default function AssessmentPage() {
       totalWordTokens || wc
     );
     setResult(r);
-    setBookSuggestions(getBookSuggestions(passage.gradeBand, r));
-    setSelectedGradeBand(Math.min(10, Math.max(0, Math.round(r.estimatedGradeLevel))));
     setStage("results");
   }
 
@@ -102,15 +95,8 @@ export default function AssessmentPage() {
     setResult(null);
     setWordInfo([]);
     setMarkedIncorrect(new Set());
-    setBookSuggestions([]);
-    setSelectedGradeBand(null);
   }
 
-  const skillSuggestions = bookSuggestions.filter((s) => s.category === "skill");
-  const enjoymentSuggestions = bookSuggestions.filter((s) => s.category === "enjoyment");
-  const selectedGradeBooks = getBooksForGradeBand(
-    selectedGradeBand !== null ? selectedGradeBand : passage?.gradeBand ?? 0
-  );
 
   const sourcePassages = useMemo<Passage[]>(() => importedPassages, []);
 
@@ -390,70 +376,8 @@ export default function AssessmentPage() {
                   <p className="text-sm leading-7 text-slate-700">{result.recommendation}</p>
                 </div>
 
-                {skillSuggestions.length > 0 && (
-                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">To build the missing skill</p>
-                    <div className="mt-4 space-y-4">
-                      {skillSuggestions.map((suggestion) => (
-                        <div key={suggestion.title} className="rounded-2xl border border-slate-200 bg-white p-4">
-                          <p className="font-semibold text-slate-900">{suggestion.title}</p>
-                          <p className="mt-1 text-sm text-slate-600">{suggestion.reason}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {enjoymentSuggestions.length > 0 && (
-                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">For enjoyment at this level</p>
-                    <div className="mt-4 space-y-4">
-                      {enjoymentSuggestions.map((suggestion) => (
-                        <div key={suggestion.title} className="rounded-2xl border border-slate-200 bg-white p-4">
-                          <p className="font-semibold text-slate-900">{suggestion.title}</p>
-                          <p className="mt-1 text-sm text-slate-600">{suggestion.reason}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">Books by level</p>
-                      <p className="mt-2 text-sm text-slate-600">Choose a grade band to see books that match this approximate level.</p>
-                    </div>
-                    <select
-                      value={selectedGradeBand ?? 0}
-                      onChange={(event) => setSelectedGradeBand(Number(event.target.value))}
-                      className="mt-2 rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 shadow-sm"
-                    >
-                      <option value={0}>K</option>
-                      <option value={1}>1</option>
-                      <option value={2}>2</option>
-                      <option value={3}>3</option>
-                      <option value={4}>4</option>
-                      <option value={5}>5</option>
-                      <option value={6}>6</option>
-                      <option value={7}>7</option>
-                      <option value={8}>8</option>
-                      <option value={9}>9</option>
-                      <option value={10}>10</option>
-                      <option value={11}>11</option>
-                      <option value={12}>12</option>
-                    </select>
-                  </div>
-
-                  <div className="mt-4 space-y-4">
-                    {selectedGradeBooks.map((book) => (
-                      <div key={`${book.title}-${book.gradeBand}`} className="rounded-2xl border border-slate-200 bg-white p-4">
-                        <p className="font-semibold text-slate-900">{book.title}</p>
-                        <p className="mt-1 text-sm text-slate-600">{book.author}</p>
-                        <p className="mt-2 text-sm text-slate-600">{book.description}</p>
-                      </div>
-                    ))}
-                  </div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <p className="text-sm leading-7 text-slate-700">{result.recommendation}</p>
                 </div>
 
                 <button
