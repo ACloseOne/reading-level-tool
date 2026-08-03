@@ -1,0 +1,797 @@
+{
+  "reading_comprehension_tests": [
+    {
+      "grade": "K",
+      "target_age": "5-6",
+      "metadata": {
+        "book_title": "The Three Little Pigs",
+        "author": "Traditional",
+        "lexile_estimated": "BR (Beginning Reader)",
+        "focus_standard": "Counting details / Basic Recall"
+      },
+      "excerpt": "Once upon a time, there were three little pigs. The first little pig built a house of straw. The second little pig built a house of sticks. The third little pig built a house of bricks. A big bad wolf lived down the road.",
+      "questions": [
+        {
+          "id": "K_V2_Q1",
+          "question_text": "How many little pigs are in the story?",
+          "options": {
+            "A": "One pig",
+            "B": "Two pigs",
+            "C": "Three pigs",
+            "D": "Four pigs"
+          },
+          "correct_answer": "C",
+          "explanation": "The text directly states that 'there were three little pigs.'"
+        },
+        {
+          "id": "K_V2_Q2",
+          "question_text": "What did the first little pig use to build his house?",
+          "options": {
+            "A": "Sticks",
+            "B": "Straw",
+            "C": "Bricks",
+            "D": "Mud"
+          },
+          "correct_answer": "B",
+          "explanation": "The text explicitly says 'The first little pig built a house of straw.'"
+        },
+        {
+          "id": "K_V2_Q3",
+          "question_text": "What did the third little pig use to build his house?",
+          "options": {
+            "A": "Straw",
+            "B": "Paper",
+            "C": "Bricks",
+            "D": "Leaves"
+          },
+          "correct_answer": "C",
+          "explanation": "The text says 'The third little pig built a house of bricks.'"
+        },
+        {
+          "id": "K_V2_Q4",
+          "question_text": "What kind of animal lived down the road?",
+          "options": {
+            "A": "A big bad wolf",
+            "B": "A friendly bear",
+            "C": "A little dog",
+            "D": "A fast horse"
+          },
+          "correct_answer": "A",
+          "explanation": "The final sentence notes that 'A big bad wolf lived down the road.'"
+        }
+      ]
+    },
+    {
+      "grade": "1",
+      "target_age": "6-7",
+      "metadata": {
+        "book_title": "The Velveteen Rabbit",
+        "author": "Margery Williams",
+        "lexile_estimated": "450L",
+        "focus_standard": "Literal detail matching & Textual comprehension"
+      },
+      "excerpt": "There was once a velveteen rabbit, and in the beginning he was really splendid. He was fat and bunchy, as a rabbit should be; his coat was spotted with brown and white, he had real thread whiskers, and his ears were lined with pink satin. On Christmas morning, when he sat wedged in the top of the Boy’s stocking, with a sprig of holly between his paws, the effect was charming.",
+      "questions": [
+        {
+          "id": "G1_V2_Q1",
+          "question_text": "What was the rabbit toy made out of?",
+          "options": {
+            "A": "Soft brown leather",
+            "B": "Shiny green plastic",
+            "C": "Painted wood",
+            "D": "Velveteen fabric"
+          },
+          "correct_answer": "D",
+          "explanation": "The opening line names the character as a 'velveteen rabbit.'"
+        },
+        {
+          "id": "G1_V2_Q2",
+          "question_text": "What did the rabbit have for whiskers?",
+          "options": {
+            "A": "Real animal hair",
+            "B": "Thin pieces of wire",
+            "C": "Real thread",
+            "D": "Long white feathers"
+          },
+          "correct_answer": "C",
+          "explanation": "The text details that 'he had real thread whiskers.'"
+        },
+        {
+          "id": "G1_V2_Q3",
+          "question_text": "On what holiday morning does the Boy find the rabbit?",
+          "options": {
+            "A": "Thanksgiving morning",
+            "B": "Christmas morning",
+            "C": "Easter morning",
+            "D": "His birthday morning"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states the scene takes place on 'Christmas morning.'"
+        },
+        {
+          "id": "G1_V2_Q4",
+          "question_text": "Where was the rabbit tucked when the Boy found him?",
+          "options": {
+            "A": "Inside a large box under the tree",
+            "B": "Wedged in the top of a stocking",
+            "C": "Hiding behind a living room chair",
+            "D": "Sitting on top of the fireplace"
+          },
+          "correct_answer": "B",
+          "explanation": "The text says 'he sat wedged in the top of the Boy’s stocking.'"
+        }
+      ]
+    },
+    {
+      "grade": "2",
+      "target_age": "7-8",
+      "metadata": {
+        "book_title": "Cinderella",
+        "author": "Charles Perrault",
+        "lexile_estimated": "550L",
+        "focus_standard": "Character contrast & Ancestral tracing clues"
+      },
+      "excerpt": "There was once a gentleman who married, for his second wife, the proudest and most haughty woman that was ever seen. She had, by a former husband, two daughters of her own, who were, indeed, exactly like her in all things. The gentleman had likewise a young daughter, but of unparalleled goodness and sweetness of temper, which she took from her mother, who was the best creature in the world.",
+      "questions": [
+        {
+          "id": "G2_V2_Q1",
+          "question_text": "How does the author describe the gentleman's new wife?",
+          "options": {
+            "A": "As a kind and gentle helper",
+            "B": "As the proudest and most haughty woman ever seen",
+            "C": "As a quiet woman who loved to read books",
+            "D": "As a wealthy queen from a faraway land"
+          },
+          "correct_answer": "B",
+          "explanation": "The text explicitly introduces her as 'the proudest and most haughty woman that was ever seen.'"
+        },
+        {
+          "id": "G2_V2_Q2",
+          "question_text": "Who did the new wife bring with her to the marriage?",
+          "options": {
+            "A": "Two daughters of her own",
+            "B": "Three friendly pets",
+            "C": "A family of hard workers",
+            "D": "Two young sons"
+          },
+          "correct_answer": "A",
+          "explanation": "The author notes 'She had, by a former husband, two daughters of her own.'"
+        },
+        {
+          "id": "G2_V2_Q3",
+          "question_text": "What personality traits does the gentleman’s own daughter have?",
+          "options": {
+            "A": "Pride and a bad temper",
+            "B": "Great beauty but a lot of laziness",
+            "C": "Unparalleled goodness and sweetness of temper",
+            "D": "Fear and sadness all the time"
+          },
+          "correct_answer": "C",
+          "explanation": "The gentleman's daughter is described as having 'unparalleled goodness and sweetness of temper.'"
+        },
+        {
+          "id": "G2_V2_Q4",
+          "question_text": "Who did the gentleman's daughter get her good personality from?",
+          "options": {
+            "A": "Her two new stepsisters",
+            "B": "Her new stepmother",
+            "C": "Her busy father",
+            "D": "Her own mother"
+          },
+          "correct_answer": "D",
+          "explanation": "The passage highlights that she inherited these traits from 'her mother, who was the best creature in the world.'"
+        }
+      ]
+    },
+    {
+      "grade": "3",
+      "target_age": "8-9",
+      "metadata": {
+        "book_title": "The Wind in the Willows",
+        "author": "Kenneth Grahame",
+        "lexile_estimated": "630L",
+        "focus_standard": "Event tracking & Physical-state context clues"
+      },
+      "excerpt": "The Mole had been working very hard all the morning, spring-cleaning his little home. First with brooms, then with dusters; then on ladders and steps and chairs, with a brush and a pail of whitewash; till he had dust in his throat and eyes, and splashes of whitewash all over his black fur, and an aching back and weary arms. Spring was moving in the air above and in the earth below and around him.",
+      "questions": [
+        {
+          "id": "G3_V2_Q1",
+          "question_text": "What chore was the Mole busy doing all morning?",
+          "options": {
+            "A": "Cooking a large breakfast for his animal friends",
+            "B": "Spring-cleaning his little home",
+            "C": "Gathering firewood from the deep forest",
+            "D": "Planting flowers in his front yard"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states 'The Mole had been working very hard all the morning, spring-cleaning his little home.'"
+        },
+        {
+          "id": "G3_V2_Q2",
+          "question_text": "What covers the Mole's black fur by the end of his work?",
+          "options": {
+            "A": "Mud from the riverbank",
+            "B": "Wet paint from a fence",
+            "C": "Splashes of whitewash",
+            "D": "Green grass stains"
+          },
+          "correct_answer": "C",
+          "explanation": "The passage details that he ended up with 'splashes of whitewash all over his black fur.'"
+        },
+        {
+          "id": "G3_V2_Q3",
+          "question_text": "How does the Mole physically feel after his hard work?",
+          "options": {
+            "A": "Energetic and ready to go for a run",
+            "B": "Sick and in need of medicine",
+            "C": "Hungry for a very large meal",
+            "D": "Aching in his back with tired arms"
+          },
+          "correct_answer": "D",
+          "explanation": "The chore left him with 'an aching back and weary arms.'"
+        },
+        {
+          "id": "G3_V2_Q4",
+          "question_text": "What seasonal presence is moving in the air and earth around him?",
+          "options": {
+            "A": "Winter",
+            "B": "Autumn",
+            "C": "Spring",
+            "D": "Summer"
+          },
+          "correct_answer": "C",
+          "explanation": "The text concludes by saying 'Spring was moving in the air above and in the earth below...'"
+        }
+      ]
+    },
+    {
+      "grade": "4",
+      "target_age": "9-10",
+      "metadata": {
+        "book_title": "The Wonderful Wizard of Oz",
+        "author": "L. Frank Baum",
+        "lexile_estimated": "740L",
+        "focus_standard": "Geographical setting extraction & Object description"
+      },
+      "excerpt": "Dorothy lived in the midst of the great Kansas prairies, with Uncle Henry, who was a farmer, and Aunt Em, who was the farmer’s wife. Their house was small, for the lumber to build it had to be carried by wagon many miles. There were four walls, a floor and a roof, which made one room; and this room contained a rusty looking cookstove, a cupboard for the dishes, a table, three or four chairs, and the beds.",
+      "questions": [
+        {
+          "id": "G4_V2_Q1",
+          "question_text": "In what geographical setting does Dorothy live at the start of the story?",
+          "options": {
+            "A": "On a high mountain in Colorado",
+            "B": "Near a deep forest in Maine",
+            "C": "In the midst of the Kansas prairies",
+            "D": "Along the sunny coast of California"
+          },
+          "correct_answer": "C",
+          "explanation": "The opening sentence explicitly places Dorothy 'in the midst of the great Kansas prairies.'"
+        },
+        {
+          "id": "G4_V2_Q2",
+          "question_text": "Why was Dorothy's family house so small?",
+          "options": {
+            "A": "They did not have enough money to buy furniture",
+            "B": "The building lumber had to be carried by wagon for many miles",
+            "C": "They preferred to live in a single small tent",
+            "D": "A recent storm had destroyed half of their building"
+          },
+          "correct_answer": "B",
+          "explanation": "The text reads 'Their house was small, for the lumber to build it had to be carried by wagon many miles.'"
+        },
+        {
+          "id": "G4_V2_Q3",
+          "question_text": "How many rooms made up Dorothy's home?",
+          "options": {
+            "A": "One single room",
+            "B": "Two rooms split by a curtain",
+            "C": "Three rooms including a kitchen",
+            "D": "Four rooms for the whole family"
+          },
+          "correct_answer": "A",
+          "explanation": "The text explains 'There were four walls, a floor and a roof, which made one room.'"
+        },
+        {
+          "id": "G4_V2_Q4",
+          "question_text": "Which appliance inside the house is explicitly described as 'rusty looking'?",
+          "options": {
+            "A": "The dish cupboard",
+            "B": "The wooden kitchen table",
+            "C": "The water pump",
+            "D": "The cookstove"
+          },
+          "correct_answer": "D",
+          "explanation": "The passage details that the single room contained a 'rusty looking cookstove.'"
+        }
+      ]
+    },
+    {
+      "grade": "5",
+      "target_age": "10-11",
+      "metadata": {
+        "book_title": "Swiss Family Robinson",
+        "author": "Johann David Wyss",
+        "lexile_estimated": "850L",
+        "focus_standard": "Core plot conflict, figurative language, & POV deduction"
+      },
+      "excerpt": "For many days we had been tempest-tossed. Six times had the darkness closed over us, and yet the storm raged with unabated fury. We had lost our position, our masts were split, and our ship leaked ominously. Every man on board was worn out with long watching and hard labor. The crew were at their wits' end, and even my own brave heart began to sink as I looked upon my beloved wife and four helpless boys.",
+      "questions": [
+        {
+          "id": "G5_V2_Q1",
+          "question_text": "What is the primary conflict confronting the characters?",
+          "options": {
+            "A": "A mutiny by a hostile shipboard crew",
+            "B": "A severe, unrelenting storm at sea",
+            "C": "A sudden shortage of food and drinking water",
+            "D": "An unexpected attack by an enemy navy"
+          },
+          "correct_answer": "B",
+          "explanation": "The narrator highlights that they are 'tempest-tossed' and that 'the storm raged with unabated fury.'"
+        },
+        {
+          "id": "G5_V2_Q2",
+          "question_text": "What does the phrase 'unabated fury' tell the reader about the storm?",
+          "options": {
+            "A": "It was slowly coming to an end",
+            "B": "It was weak and caused little damage",
+            "C": "It continued with full, unyielding strength",
+            "D": "It changed directions multiple times"
+          },
+          "correct_answer": "C",
+          "explanation": "'Unabated' means without any reduction in intensity or strength, meaning the storm continued with full force."
+        },
+        {
+          "id": "G5_V2_Q3",
+          "question_text": "What is the physical condition of the ship?",
+          "options": {
+            "A": "Perfect safe but moving very slowly",
+            "B": "The masts are split and the hull is leaking",
+            "C": "It caught fire during the chaotic weather",
+            "D": "It was completely trapped in solid ice"
+          },
+          "correct_answer": "B",
+          "explanation": "The text documents: 'our masts were split, and our ship leaked ominously.'"
+        },
+        {
+          "id": "G5_V2_Q4",
+          "question_text": "Who is the narrator of this harrowing experience?",
+          "options": {
+            "A": "A young sailor working on the deck",
+            "B": "The captain of a passing rescue vessel",
+            "C": "A mother protecting her small children",
+            "D": "A father traveling with his wife and four sons"
+          },
+          "correct_answer": "D",
+          "explanation": "The narrator refers to looking upon 'my beloved wife and four helpless boys,' indicating a father's perspective."
+        }
+      ]
+    },
+    {
+      "grade": "6",
+      "target_age": "11-12",
+      "metadata": {
+        "book_title": "The Adventures of Tom Sawyer",
+        "author": "Mark Twain",
+        "lexile_estimated": "950L",
+        "focus_standard": "Idiomatic character analysis & Setting lifestyle details"
+      },
+      "excerpt": "Huckleberry came and went, at his own free will. He slept on doorsteps in fine weather and in empty hogsheads in wet; he did not have to go to school or to church, or call any man master, or obey anybody; he could go fishing or swimming when and where he chose, and stay as long as it suited him; nobody forbade him to fight; he could sit up as late as he pleased; he was always the first boy that went barefoot in the spring and the last that put on leather shoes in the fall...",
+      "questions": [
+        {
+          "id": "G6_V2_Q1",
+          "question_text": "What lifestyle dynamic defines Huckleberry Finn in this passage?",
+          "options": {
+            "A": "Strict punishment and constant supervision",
+            "B": "Absolute personal freedom and lack of institutional rules",
+            "C": "A deep desire to excel in his academic schoolwork",
+            "D": "Employment as a servant for a wealthy town master"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage outlines that Huck operates entirely 'at his own free will' without obeying anyone or attending school."
+        },
+        {
+          "id": "G6_V2_Q2",
+          "question_text": "Where does Huckleberry sleep when the weather is rainy or wet?",
+          "options": {
+            "A": "Inside a warm schoolhouse",
+            "B": "On the doorsteps of local homes",
+            "C": "Inside empty hogsheads (large wooden barrels)",
+            "D": "In a tent down by the riverbank"
+          },
+          "correct_answer": "C",
+          "explanation": "The text notes that he slept 'in empty hogsheads in wet' weather."
+        },
+        {
+          "id": "G6_V2_Q3",
+          "question_text": "How does the community structure apply to Huckleberry?",
+          "options": {
+            "A": "He is forced to attend church service every Sunday",
+            "B": "He operates entirely outside the typical expectations placed on children",
+            "C": "He is strictly forbidden from engaging in physical fights",
+            "D": "He must ask permission before going fishing or swimming"
+          },
+          "correct_answer": "B",
+          "explanation": "Huck doesn't have to go to school or church and can fish, swim, or stay up as late as he wants, living independently from social structures."
+        },
+        {
+          "id": "G6_V2_Q4",
+          "question_text": "What does the passage suggest about Huckleberry's seasonal clothing habits?",
+          "options": {
+            "A": "He wears heavy leather boots all year round",
+            "B": "He refuses to wear clothes in the hot summer months",
+            "C": "He transitions to going barefoot as early as possible in the spring",
+            "D": "He gets new clothes from townspeople every autumn"
+          },
+          "correct_answer": "C",
+          "explanation": "The text remarks that 'he was always the first boy that went barefoot in the spring.'"
+        }
+      ]
+    },
+    {
+      "grade": "7",
+      "target_age": "12-13",
+      "metadata": {
+        "book_title": "The Time Machine",
+        "author": "H. G. Wells",
+        "lexile_estimated": "1040L",
+        "focus_standard": "High-level vocabulary decoding, text inference, & environment design"
+      },
+      "excerpt": "The Time Traveller (for so it will be convenient to speak of him) was expounding a recondite matter to us. His grey eyes shone and twinkled, and his usually pale face was flushed and animated. The fire burned brightly, and the soft radiance of the incandescent lights in the lilies of silver caught the bubbles that flashed and passed in our glasses. Our chairs, being his patents, embraced and caressed us rather than submitted to be sat upon...",
+      "questions": [
+        {
+          "id": "G7_V2_Q1",
+          "question_text": "What is the Time Traveller actively doing at the start of the passage?",
+          "options": {
+            "A": "Testing a physical prototype of a machine",
+            "B": "Explaining a highly complex or obscure topic",
+            "C": "Arguing with his guests about a business patent",
+            "D": "Sleeping quietly in a large silver chair"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage opens with the Time Traveller 'expounding a recondite matter to us.'"
+        },
+        {
+          "id": "G7_V2_Q2",
+          "question_text": "What does the word 'recondite' mean as used in this context?",
+          "options": {
+            "A": "Simple and easy to understand",
+            "B": "Dangerous and completely forbidden",
+            "C": "Little known, deep, or difficult to comprehend",
+            "D": "Boring and repetitive"
+          },
+          "correct_answer": "C",
+          "explanation": "'Recondite' describes knowledge or subject matter that is obscure, highly technical, or difficult for an average person to grasp."
+        },
+        {
+          "id": "G7_V2_Q3",
+          "question_text": "What detail suggests the Time Traveller is an inventor?",
+          "options": {
+            "A": "He has grey eyes that shine and twinkle",
+            "B": "The chairs his guests are sitting in are his own patents",
+            "C": "He serves expensive drinks in flashing silver glasses",
+            "D": "He knows how to repair incandescent light structures"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states 'Our chairs, being his patents,' which explicitly connects him to the invention and ownership of custom technology."
+        },
+        {
+          "id": "G7_V2_Q4",
+          "question_text": "What kind of atmosphere is established in the room?",
+          "options": {
+            "A": "Cold, sterile, and uncomfortable",
+            "B": "Tense, chaotic, and aggressive",
+            "C": "Warm, sophisticated, and intellectually luxurious",
+            "D": "Dark, spooky, and mysterious"
+          },
+          "correct_answer": "C",
+          "explanation": "The combination of a bright fire, incandescent lighting, flashing glasses, comfortable patented chairs, and intellectual discussion constructs a luxurious, warm room dynamic."
+        }
+      ]
+    },
+    {
+      "grade": "8",
+      "target_age": "13-14",
+      "metadata": {
+        "book_title": "The Legend of Sleepy Hollow",
+        "author": "Washington Irving",
+        "lexile_estimated": "1120L",
+        "focus_standard": "Resourceful detail identification, nuance analysis, & architectural inference"
+      },
+      "excerpt": "Ichabod Crane’s schoolhouse was a low building of one large room, rudely constructed of logs; the windows partly glazed, and partly patched with leaves of old copybooks. It was most ingeniously secured at vacant hours, by a withe twisted in the handle of the door, and stakes turned against the window shutters; so that though a thief might get in with perfect ease, he would find some embarrassment in getting out.",
+      "questions": [
+        {
+          "id": "G8_V2_Q1",
+          "question_text": "What materials are used to repair the broken window panes of the schoolhouse?",
+          "options": {
+            "A": "Thick sheets of clear modern glass",
+            "B": "Heavy pieces of wooden board",
+            "C": "Leaves torn from old copybooks",
+            "D": "Bundles of fresh green moss"
+          },
+          "correct_answer": "C",
+          "explanation": "The author explicitly describes the windows as 'partly patched with leaves of old copybooks.'"
+        },
+        {
+          "id": "G8_V2_Q2",
+          "question_text": "What does the word 'rudely' imply about the construction of the schoolhouse?",
+          "options": {
+            "A": "Built in a rough, basic, and unpolished manner",
+            "B": "Designed to look deliberately offensive",
+            "C": "Constructed using stolen town materials",
+            "D": "Built by people who were mean to the community"
+          },
+          "correct_answer": "A",
+          "explanation": "In 19th-century literature, 'rudely' frequently meant roughly, crudely, or without fine workmanship, pointing to simple structural methods."
+        },
+        {
+          "id": "G8_V2_Q3",
+          "question_text": "What is unique about the method used to lock up the schoolhouse when it is empty?",
+          "options": {
+            "A": "It features an expensive metal lock imported from Europe",
+            "B": "It is completely impossible for any thief to slip inside",
+            "C": "It uses a complex system of hidden keys and traps",
+            "D": "It allows a thief to enter easily but makes it very difficult to leave"
+          },
+          "correct_answer": "D",
+          "explanation": "The text highlights the security trick: 'though a thief might get in with perfect ease, he would find some embarrassment in getting out.'"
+        },
+        {
+          "id": "G8_V2_Q4",
+          "question_text": "What does the description of the building reveal about Ichabod Crane's environment?",
+          "options": {
+            "A": "It is a wealthy, highly advanced academic center",
+            "B": "It is a rural, rustic, and resource-strapped setting",
+            "C": "It is a dangerous fortress built to withstand an army",
+            "D": "It is a temporary camp set up during a war"
+          },
+          "correct_answer": "B",
+          "explanation": "A log building made of a single room, patched with scrap paper windows and secured by twisted twigs ('withe'), clearly illustrates a rustic, low-budget rural environment."
+        }
+      ]
+    },
+    {
+      "grade": "9",
+      "target_age": "14-15",
+      "metadata": {
+        "book_title": "Dracula",
+        "author": "Bram Stoker",
+        "lexile_estimated": "1180L",
+        "focus_standard": "Landscape color tracking, structural limits, & tone calibration"
+      },
+      "excerpt": "Beyond the green swelling hills of the Mittelland rose mighty slopes of forest up to the lofty steeps of the Carpathians themselves. Right and left of us they towered, with the afternoon sun striking full upon them and bringing out the glorious colors of this beautiful range, deep blue and purple in the shadows of the peaks, green and brown where grass and rock mingled, and an endless perspective of jagged rock and pointed crags, till these were lost in the distance, where the snowy peaks rose in grand solemnity.",
+      "questions": [
+        {
+          "id": "G9_V2_Q1",
+          "question_text": "How does the afternoon sun interact with the mountain landscape?",
+          "options": {
+            "A": "It hides the true height of the slopes behind dense fog",
+            "B": "It illuminates the terrain, emphasizing its vibrant and glorious colors",
+            "C": "It melts the snow caps on the highest peaks very rapidly",
+            "D": "It creates an unbearable heat that forces the travelers to stop"
+          },
+          "correct_answer": "B",
+          "explanation": "The excerpt states that the 'afternoon sun striking full upon them... bringing out the glorious colors of this beautiful range.'"
+        },
+        {
+          "id": "G9_V2_Q2",
+          "question_text": "What colors dominate the shadows cast by the mountain peaks?",
+          "options": {
+            "A": "Green and brown",
+            "B": "Bright red and orange",
+            "C": "Deep blue and purple",
+            "D": "Solid grey and black"
+          },
+          "correct_answer": "C",
+          "explanation": "The author flags the visual composition as 'deep blue and purple in the shadows of the peaks.'"
+        },
+        {
+          "id": "G9_V2_Q3",
+          "question_text": "What visual feature brings an end to the 'endless perspective' of rock and crags?",
+          "options": {
+            "A": "A dense, black forest slope",
+            "B": "The green swelling hills of the Mittelland",
+            "C": "A wide, fast-flowing river",
+            "D": "Faroff snowy peaks rising in grand solemnity"
+          },
+          "correct_answer": "D",
+          "explanation": "The rock perspectives stretch forward 'till these were lost in the distance, where the snowy peaks rose in grand solemnity.'"
+        },
+        {
+          "id": "G9_V2_Q4",
+          "question_text": "What tone is struck by the author's description of this scenery?",
+          "options": {
+            "A": "Intimate, domestic, and reassuring",
+            "B": "Majestic, vast, and awe-inspiring",
+            "C": "Claustrophobic, dark, and terrifying",
+            "D": "Industrial, changing, and busy"
+          },
+          "correct_answer": "B",
+          "explanation": "Elevated descriptors like 'mighty slopes,' 'lofty steeps,' 'glorious colors,' 'endless perspective,' and 'grand solemnity' collectively curate a majestic, awe-inspiring tone."
+        }
+      ]
+    },
+    {
+      "grade": "10",
+      "target_age": "15-16",
+      "metadata": {
+        "book_title": "Treasure Island",
+        "author": "Robert Louis Stevenson",
+        "lexile_estimated": "1240L",
+        "focus_standard": "Tactical crisis management tracking, skill matching, & cost mapping"
+      },
+      "excerpt": "Council we held and took running meat aboard for our lives, but the captain, he says, “We are short of hands, and we must make the best of what we have.” To pull a rope or to stand a watch was past my power, but I could carry bread and cheese, and help the doctor with his bandages. All the time, the mutineers were busy on the shore, preparing their attack, and we knew that if they reached the stockade before we were ready, our lives would not be worth a farthing.",
+      "questions": [
+        {
+          "id": "G10_V2_Q1",
+          "question_text": "What immediate personnel crisis does the captain identify?",
+          "options": {
+            "A": "The navigation maps have been completely lost",
+            "B": "The ship is critically short of crew members",
+            "C": "The doctors have run out of clean medical bandages",
+            "D": "The food supply has completely rotted on board"
+          },
+          "correct_answer": "B",
+          "explanation": "The captain states explicitly that 'We are short of hands,' meaning they lack an adequate number of crewmen to safely run the operation."
+        },
+        {
+          "id": "G10_V2_Q2",
+          "question_text": "What specific contributions is the narrator capable of making?",
+          "options": {
+            "A": "Steering the ship and managing the sails in a storm",
+            "B": "Firing the cannons and leading a counter-attack",
+            "C": "Transporting rations and assisting with medical care",
+            "D": "Infiltrating the mutineer camp to gather intelligence"
+          },
+          "correct_answer": "C",
+          "explanation": "The narrator states that while heavy labor was past their power, 'I could carry bread and cheese, and help the doctor with his bandages.'"
+        },
+        {
+          "id": "G10_V2_Q3",
+          "question_text": "What are the antagonists on the shore actively doing during this passage?",
+          "options": {
+            "A": "Fleeing into the jungle to escape the captain",
+            "B": "Preparing to launch a coordinated attack",
+            "C": "Surrendering their weapons to the doctor",
+            "D": "Building a new ship to leave the island"
+          },
+          "correct_answer": "B",
+          "explanation": "The narrator observes that 'the mutineers were busy on the shore, preparing their attack.'"
+        },
+        {
+          "id": "G10_V2_Q4",
+          "question_text": "What does the phrase 'not be worth a farthing' express about their situation?",
+          "options": {
+            "A": "They will lose all of their stored monetary wealth",
+            "B": "Their chance of survival will be close to zero if outpaced",
+            "C": "The mutineers are seeking a cash ransom for their release",
+            "D": "The stockade is a cheap building that offers little protection"
+          },
+          "correct_answer": "B",
+          "explanation": "A 'farthing' was a British coin of extremely low value. Saying their lives wouldn't be worth a farthing if the mutineers outpace them is an idiom highlighting total destruction / fatal stakes."
+        }
+      ]
+    },
+    {
+      "grade": "11",
+      "target_age": "16-17",
+      "metadata": {
+        "book_title": "The Picture of Dorian Gray",
+        "author": "Oscar Wilde",
+        "lexile_estimated": "1290L",
+        "focus_standard": "Advanced sensory structure mapping, habitual parsing, & aesthetic mood analysis"
+      },
+      "excerpt": "The studio was filled with the rich odor of roses, and when the light summer wind stirred amidst the trees of the garden, there came through the open door the heavy scent of the lilac, or the more delicate perfume of the pink-flowered thorn. From the corner of the divan of Persian saddlebags on which he was lying, smoking, as was his custom, innumerable cigarettes, Lord Henry Wotton could just catch the gleam of the honey-sweet and honey-colored blossoms of a laburnum, whose tremulous branches seemed hardly able to bear so flaming a burden...",
+      "questions": [
+        {
+          "id": "G11_V2_Q1",
+          "question_text": "How does the author use sensory language to initialize the setting?",
+          "options": {
+            "A": "By focusing on harsh mechanical sounds echoing from a nearby city street",
+            "B": "By creating an intense, layered olfactory experience dominated by floral scents",
+            "C": "By detailing a freezing winter wind that traps the characters indoors",
+            "D": "By emphasizing the bitter taste of exotic foods served to the guests"
+          },
+          "correct_answer": "B",
+          "explanation": "The text cascades through multiple scent vectors ('rich odor of roses,' 'heavy scent of the lilac,' 'delicate perfume of the pink-flowered thorn'), centering the scene in complex olfactory imagery."
+        },
+        {
+          "id": "G11_V2_Q2",
+          "question_text": "What character habit is explicitly noted for Lord Henry Wotton?",
+          "options": {
+            "A": "Painting large portraits of his friends in the garden",
+            "B": "Pacing nervously across the room while debating philosophy",
+            "C": "Smoking an endless succession of cigarettes while reclining",
+            "D": "Tending to the delicate laburnum blossoms outside the door"
+          },
+          "correct_answer": "C",
+          "explanation": "The text documents him reclining on a divan 'smoking, as was his custom, innumerable cigarettes.'"
+        },
+        {
+          "id": "G11_V2_Q3",
+          "question_text": "What paradox is implied by describing the laburnum branches as bearing a 'flaming a burden'?",
+          "options": {
+            "A": "The tree is physically on fire despite the summer rain",
+            "B": "The delicate branches are overloaded with a massive, vibrant wealth of blossoms",
+            "C": "The plant is toxic and dangerous to touch despite its sweet smell",
+            "D": "The tree was imported from a desert environment to a cold studio garden"
+          },
+          "correct_answer": "B",
+          "explanation": "The text tracks 'honey-sweet and honey-colored blossoms' so thick that the 'tremulous branches seemed hardly able to bear so flaming a burden,' contrasting delicate structure with heavy visual abundance."
+        },
+        {
+          "id": "G11_V2_Q4",
+          "question_text": "What mood is cultivated by this highly decorative prose?",
+          "options": {
+            "A": "Austere, disciplined, and minimalist",
+            "B": "Indulgent, languid, and aesthetically saturated",
+            "C": "Anxious, hurried, and emotionally turbulent",
+            "D": "Scientific, analytical, and objective"
+          },
+          "correct_answer": "B",
+          "explanation": "The emphasis on heavy perfumes, lounging on Persian divans, constant smoking, and elegant flora breeds a slow-paced, decadent, and intensely aesthetic setting."
+        }
+      ]
+    },
+    {
+      "grade": "12",
+      "target_age": "17-18",
+      "metadata": {
+        "book_title": "The Invisible Man",
+        "author": "H. G. Wells",
+        "lexile_estimated": "1360L",
+        "focus_standard": "Chronological setting mechanics, visual concealment theory, & physiological distress tracing"
+      },
+      "excerpt": "The stranger came early in February, out of a biting wind and a driving snow, the last snowfall of the year, over the down, walking from Bramblehurst railway station, and carrying a little black portmanteau in his thickly gloved hand. He was wrapped up from head to foot, and the brim of his soft felt hat hid every inch of his face but the shiny tip of his nose; the snow had piled itself against his shoulders and chest, and added a white crest to the burden he carried. He staggered into the 'Coach and Horses' more dead than alive, and flung his portmanteau down.",
+      "questions": [
+        {
+          "id": "G12_V2_Q1",
+          "question_text": "How does the structural timing of the stranger's arrival reflect his isolation?",
+          "options": {
+            "A": "He arrives during a busy midsummer festival when the inn is overcrowded",
+            "B": "He appears at dawn on a clear spring day when everyone is working in the fields",
+            "C": "He emerges from a brutal, season-ending winter storm, moving on foot from a transit station",
+            "D": "He travels late at night in autumn to avoid encountering local law enforcement"
+          },
+          "correct_answer": "C",
+          "explanation": "Arriving 'early in February' amidst 'a biting wind and a driving snow' on foot from a railway station establishes immediate theme points of severe isolation and vulnerability to nature."
+        },
+        {
+          "id": "G12_V2_Q2",
+          "question_text": "What visual impression does the stranger's clothing communicate to the reader?",
+          "options": {
+            "A": "He is a wealthy aristocrat wearing flashy, colorful garments to draw attention",
+            "B": "He is a soldier returning from a campaign in standard military dress",
+            "C": "He is completely covered and obscured, creating an immediate sense of mystery and concealment",
+            "D": "He is a poor laborer whose ragged clothes offer zero protection from the frost"
+          },
+          "correct_answer": "C",
+          "explanation": "The text emphasizes extreme concealment: 'wrapped up from head to foot' and a hat brim that 'hid every inch of his face but the shiny tip of his nose.'"
+        },
+        {
+          "id": "G12_V2_Q3",
+          "question_text": "What does the phrase 'added a white crest to the burden he carried' describe?",
+          "options": {
+            "A": "The growing weight of a severe psychological guilt he suffers from",
+            "B": "Physical snow accumulating on top of the bag he is holding",
+            "C": "A family crest painted onto his expensive travel luggage",
+            "D": "The grey hairs showing on his head as he grows older"
+          },
+          "correct_answer": "B",
+          "explanation": "The text links environment to his property, tracking how 'snow had piled itself against his shoulders and chest, and added a white crest to the burden [the portmanteau/bag] he carried.'"
+        },
+        {
+          "id": "G12_V2_Q4",
+          "question_text": "What state of physical being is conveyed when he enters the 'Coach and Horses'?",
+          "options": {
+            "A": "Boisterous, energetic, and demanding immediate service",
+            "B": "Terrified, paranoid, and looking for a place to hide from pursuers",
+            "C": "Deeply calm, contemplative, and ignoring his surroundings",
+            "D": "Severely exhausted and physically broken by the harsh elements"
+          },
+          "correct_answer": "D",
+          "explanation": "The text specifies that he 'staggered' into the inn 'more dead than alive,' detailing a condition of complete physiological exhaustion from battling the storm."
+        }
+      ]
+    }
+  ]
+}
