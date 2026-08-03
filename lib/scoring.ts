@@ -456,7 +456,7 @@ export function getBookSuggestions(
   result: AssessmentResult
 ): BookSuggestion[] {
   const suggestions: BookSuggestion[] = [];
-  const level = Math.round(result.estimatedGradeLevel);
+  const roundedLevel = Math.round(result.estimatedGradeLevel);
 
   // Skill-building suggestion(s) based on the words marked incorrect.
   const skillBreakdown = analyzeMissedWordSkills(result.missedWords);
@@ -472,14 +472,32 @@ export function getBookSuggestions(
   // specific skill pattern stood out.
   if (result.fluencyRating === "Below" && topSkills.length === 0) {
     suggestions.push({
-      title: "Magic Tree House: Dinosaurs Before Dark",
-      reason: "Short sentences and familiar words can help improve reading speed without extra frustration.",
+      title: "Bob Books, Set 1: Beginning Readers",
+      reason: "Very short, highly predictable stories that help improve accuracy and confidence when reading aloud.",
       category: "skill",
     });
   }
 
-  // Enjoyment suggestions at the child's estimated comfort level.
-  if (result.comprehensionRating === "Needs Practice") {
+  const level = Math.min(10, Math.max(0, roundedLevel));
+  const enjoymentLevel = result.comprehensionRating === "Needs Practice" ? Math.max(0, level - 1) : level;
+  const gradeBooks = getBooksForGradeBand(enjoymentLevel).slice(0, 2);
+
+  if (gradeBooks.length > 0) {
+    const reason =
+      result.comprehensionRating === "Needs Practice"
+        ? "A comfortable, confidence-building story at an easier level while reading skills strengthen."
+        : result.comprehensionRating === "Developing"
+        ? "A level-appropriate title with clear language and a strong story to support continued growth."
+        : "A rewarding title for readers who are ready to deepen comprehension with strong pacing and themes.";
+
+    for (const book of gradeBooks) {
+      suggestions.push({
+        title: `${book.title} (${book.author})`,
+        reason,
+        category: "enjoyment",
+      });
+    }
+  } else if (result.comprehensionRating === "Needs Practice") {
     suggestions.push({
       title: "Charlotte's Web",
       reason: "Short chapters and clear story structure are great for building confidence.",
