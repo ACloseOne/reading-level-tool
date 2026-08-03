@@ -25,7 +25,7 @@ export default function RootLayout({
                 <img src="/mountain.svg" alt="TrailHead" className="h-10 w-10" />
                 <div>
                   <p className="text-lg font-semibold tracking-tight">TrailHead</p>
-                  <p className="text-xs text-slate-500">Reading-level insight</p>
+                  <p className="text-xs text-slate-500">Free Reading-level insight</p>
                 </div>
               </Link>
 
