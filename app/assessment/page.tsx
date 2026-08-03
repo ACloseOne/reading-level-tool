@@ -28,6 +28,8 @@ export default function AssessmentPage() {
   const [passage, setPassage] = useState<Passage | null>(null);
   const [selectedPassageId, setSelectedPassageId] = useState<string | null>(null);
   const [passageGradeFilter, setPassageGradeFilter] = useState<number | "all">("all");
+  const [passageSet, setPassageSet] = useState<'builtin' | 'import' | 'placeholders'>('builtin');
+  const [customPassages, setCustomPassages] = useState<Passage[] | null>(null);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [readingSeconds, setReadingSeconds] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -111,12 +113,13 @@ export default function AssessmentPage() {
     selectedGradeBand !== null ? selectedGradeBand : passage?.gradeBand ?? 0
   );
 
+  const sourcePassages = customPassages ?? passages;
   const filteredPassages = useMemo(
     () =>
-      passages.filter((p) => passageGradeFilter === "all" || p.gradeBand === passageGradeFilter),
-    [passageGradeFilter]
+      sourcePassages.filter((p) => passageGradeFilter === "all" || p.gradeBand === passageGradeFilter),
+    [passageGradeFilter, sourcePassages]
   );
-  const selectedPassage = passages.find((p) => p.id === selectedPassageId) ?? null;
+  const selectedPassage = sourcePassages.find((p) => p.id === selectedPassageId) ?? null;
 
   return (
     <main className="space-y-6">
@@ -182,6 +185,80 @@ export default function AssessmentPage() {
                       <option value={9}>9</option>
                       <option value={10}>10</option>
                     </select>
+                  </label>
+                  <label className="space-y-2">
+                    <span className="text-sm font-medium text-slate-700">Passage source</span>
+                    <div className="flex gap-2">
+                      <select
+                        value={passageSet}
+                        onChange={(e) => setPassageSet(e.target.value as any)}
+                        className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 shadow-sm"
+                      >
+                        <option value="builtin">Built-in passages</option>
+                        <option value="import">Import (JSON)</option>
+                        <option value="placeholders">Generate placeholders</option>
+                      </select>
+                    </div>
+                    {passageSet === 'import' && (
+                      <div className="mt-2">
+                        <input
+                          type="file"
+                          accept="application/json"
+                          onChange={(ev) => {
+                            const file = ev.target.files?.[0];
+                            if (!file) return;
+                            const reader = new FileReader();
+                            reader.onload = () => {
+                              try {
+                                const parsed = JSON.parse(String(reader.result));
+                                if (Array.isArray(parsed)) {
+                                  // Basic validation
+                                  const valid = parsed.filter((p) => p && typeof p.id === 'string' && typeof p.text === 'string');
+                                  setCustomPassages(valid as Passage[]);
+                                  setSelectedPassageId(valid[0]?.id ?? null);
+                                } else {
+                                  alert('Imported JSON must be an array of passages.');
+                                }
+                              } catch (e) {
+                                alert('Failed to parse JSON file.');
+                              }
+                            };
+                            reader.readAsText(file);
+                          }}
+                          className="w-full text-sm"
+                        />
+                      </div>
+                    )}
+                    {passageSet === 'placeholders' && (
+                      <div className="mt-2 flex gap-2">
+                        <button
+                          onClick={() => {
+                            // generate 10 placeholder passages for the current filter (or grade 1 default)
+                            const grade = passageGradeFilter === 'all' ? 1 : passageGradeFilter;
+                            const generated: Passage[] = Array.from({ length: 10 }).map((_, i) => ({
+                              id: `placeholder-${grade}-${i}`,
+                              gradeBand: typeof grade === 'number' ? grade : 1,
+                              title: `Practice passage ${i + 1}`,
+                              text: `This is a short placeholder passage for grade ${grade}. Replace with real content when ready.`,
+                              questions: [
+                                { question: 'What is this passage about?', options: ['A', 'B', 'C', 'D'], correctIndex: 0 },
+                                { question: 'Who is mentioned?', options: ['X', 'Y', 'Z', 'None'], correctIndex: 3 },
+                                { question: 'Where does it take place?', options: ['Here', 'There', 'Everywhere', 'Nowhere'], correctIndex: 0 },
+                                { question: 'Did something happen?', options: ['Yes', 'No', 'Maybe', 'Not sure'], correctIndex: 0 },
+                              ],
+                            }));
+                            setCustomPassages(generated);
+                            setSelectedPassageId(generated[0].id);
+                            setPassageGradeFilter(typeof grade === 'number' ? grade : 'all');
+                            setPassageSet('import');
+                          }}
+                          className="rounded-2xl bg-emerald-600 px-4 py-2 text-white text-sm"
+                        >
+                          Generate 10 placeholders for this grade
+                        </button>
+                        <p className="text-xs text-slate-500 self-center">Use placeholders for quick testing; replace with real passages later.</p>
+                      </div>
+                    )}
                   </label>
                   <label className="space-y-2">
                     <span className="text-sm font-medium text-slate-700">Choose a reading passage</span>
@@ -462,6 +539,18 @@ export default function AssessmentPage() {
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">Choose a passage to begin the assessment flow.</div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">Read at a normal pace, clicking any word read incorrectly.</div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">Answer the questions, then review the full score report.</div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-3">
+                  <p className="font-semibold">Importing passages from K12Reader</p>
+                  <ol className="mt-2 list-decimal pl-5 text-xs text-slate-600">
+                    <li>Open <a className="text-emerald-700 underline" href="https://www.k12reader.com/subject/reading-skills/reading-comprehension/" target="_blank" rel="noreferrer">k12reader reading comprehension</a>.</li>
+                    <li>Select the grade level and choose a worksheet. Note: do not copy or import copyrighted worksheets unless you have permission.</li>
+                    <li>Copy the passage text (or download it if available) and create a JSON file with an array of passages matching the app's shape: <span className="font-mono">{`[{ id, gradeBand, title, text, questions }]`}</span>.</li>
+                    <li>Each question should include <span className="font-mono">question</span>, <span className="font-mono">options</span> (array of 4), and <span className="font-mono">correctIndex</span> (0-3).</li>
+                    <li>In this tool select <strong>Import (JSON)</strong> above and upload the file. The imported passages will appear in the passage dropdown.</li>
+                    <li>Alternatively, use the <strong>Generate placeholders</strong> option to create 10 quick test passages per grade.</li>
+                  </ol>
+                  <p className="mt-2 text-xs text-rose-700">Reminder: Only import or distribute material you have the right to use. For classroom use, check the worksheet's license.</p>
+                </div>
               </div>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-emerald-50 p-5 text-emerald-900">
