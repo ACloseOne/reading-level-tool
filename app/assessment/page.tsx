@@ -8,6 +8,7 @@ import {
   scoreAssessment,
   wordCountOf,
   analyzePassageWords,
+  getBooksForGradeBand,
   AssessmentResult,
   WordInfo,
 } from "@/lib/scoring";
@@ -32,6 +33,7 @@ export default function AssessmentPage() {
   const [result, setResult] = useState<AssessmentResult | null>(null);
   const [wordInfo, setWordInfo] = useState<WordInfo[]>([]);
   const [markedIncorrect, setMarkedIncorrect] = useState<Set<number>>(new Set());
+  const [selectedGradeBand, setSelectedGradeBand] = useState<number | null>(null);
 
   function choosePassage(p: Passage) {
     setPassage(p);
@@ -83,6 +85,7 @@ export default function AssessmentPage() {
       totalWordTokens || wc
     );
     setResult(r);
+    setSelectedGradeBand(Math.min(10, Math.max(0, Math.round(r.estimatedGradeLevel))));
     setStage("results");
   }
 
@@ -95,6 +98,7 @@ export default function AssessmentPage() {
     setResult(null);
     setWordInfo([]);
     setMarkedIncorrect(new Set());
+    setSelectedGradeBand(null);
   }
 
 
@@ -106,6 +110,9 @@ export default function AssessmentPage() {
     [passageGradeFilter, sourcePassages]
   );
   const selectedPassage = sourcePassages.find((p) => p.id === selectedPassageId) ?? null;
+  const selectedGradeBooks = getBooksForGradeBand(
+    selectedGradeBand !== null ? selectedGradeBand : passage?.gradeBand ?? 0
+  );
 
   useEffect(() => {
     if (!selectedPassageId && sourcePassages.length > 0) {
@@ -223,6 +230,9 @@ export default function AssessmentPage() {
 
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-600">
                   Pick a grade band and a passage to practice reading comprehension with more than one passage per level.
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-600">
+                  Try the assessment more than once over time to track improvement and get a clearer sense of the right reading level.
                 </div>
               </div>
             )}
@@ -376,8 +386,42 @@ export default function AssessmentPage() {
                   <p className="text-sm leading-7 text-slate-700">{result.recommendation}</p>
                 </div>
 
-                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                  <p className="text-sm leading-7 text-slate-700">{result.recommendation}</p>
+                <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">Books by level</p>
+                      <p className="mt-2 text-sm text-slate-600">Choose a grade band to see books that match this approximate level.</p>
+                    </div>
+                    <select
+                      value={selectedGradeBand ?? 0}
+                      onChange={(event) => setSelectedGradeBand(Number(event.target.value))}
+                      className="mt-2 rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 shadow-sm"
+                    >
+                      <option value={0}>K</option>
+                      <option value={1}>1</option>
+                      <option value={2}>2</option>
+                      <option value={3}>3</option>
+                      <option value={4}>4</option>
+                      <option value={5}>5</option>
+                      <option value={6}>6</option>
+                      <option value={7}>7</option>
+                      <option value={8}>8</option>
+                      <option value={9}>9</option>
+                      <option value={10}>10</option>
+                      <option value={11}>11</option>
+                      <option value={12}>12</option>
+                    </select>
+                  </div>
+
+                  <div className="mt-4 space-y-4">
+                    {selectedGradeBooks.map((book) => (
+                      <div key={`${book.title}-${book.gradeBand}`} className="rounded-2xl border border-slate-200 bg-white p-4">
+                        <p className="font-semibold text-slate-900">{book.title}</p>
+                        <p className="mt-1 text-sm text-slate-600">{book.author}</p>
+                        <p className="mt-2 text-sm text-slate-600">{book.description}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <button

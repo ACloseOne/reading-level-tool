@@ -19,11 +19,11 @@ export default function Home() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/readability" className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-purple-700 shadow-md">
-                Analyze text
-              </Link>
-              <Link href="/assessment" className="rounded-full border border-white/40 px-5 py-2.5 text-sm font-semibold text-white/90">
+              <Link href="/assessment" className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-purple-700 shadow-md">
                 Try an assessment
+              </Link>
+              <Link href="/readability" className="rounded-full border border-white/40 px-5 py-2.5 text-sm font-semibold text-white/90">
+                Analyze text
               </Link>
             </div>
           </div>

@@ -29,9 +29,19 @@ export default function RootLayout({
                 </div>
               </Link>
 
-              <nav className="hidden gap-4 md:flex">
-                <Link href="/readability" className="text-sm text-slate-700 hover:text-slate-900">Analyze</Link>
-                <Link href="/assessment" className="text-sm text-slate-700 hover:text-slate-900">Assess</Link>
+              <nav className="hidden items-center gap-3 md:flex">
+                <Link
+                  href="/readability"
+                  className="rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-700"
+                >
+                  Analyze
+                </Link>
+                <Link
+                  href="/assessment"
+                  className="rounded-full bg-amber-300 px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-amber-400"
+                >
+                  Assess
+                </Link>
               </nav>
             </div>
           </header>
