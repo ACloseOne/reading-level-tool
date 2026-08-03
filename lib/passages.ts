@@ -15,6 +15,68 @@ export interface Passage {
 // All passages are original content written for this tool.
 export const passages: Passage[] = [
   {
+    id: "level-k",
+    gradeBand: 0,
+    title: "The Busy Ant",
+    text: `An ant walked to the picnic blanket. The ant saw a crumb of bread. The ant picked it up and marched home.
+
+The ant took the bread to the ant hill. The ant shared the crumb with friends. Everyone was happy.`,
+    questions: [
+      {
+        question: "What did the ant find?",
+        options: ["A leaf", "A crumb", "A toy", "A flower"],
+        correctIndex: 1,
+      },
+      {
+        question: "Where did the ant take the bread?",
+        options: ["The hill", "The tree", "The pond", "The store"],
+        correctIndex: 0,
+      },
+      {
+        question: "Was the ant happy or sad?",
+        options: ["Happy", "Sad", "Angry", "Tired"],
+        correctIndex: 0,
+      },
+      {
+        question: "Who shared the crumb?",
+        options: ["The ant", "The bird", "The cat", "The dog"],
+        correctIndex: 0,
+      },
+    ],
+  },
+  {
+    id: "level-1",
+    gradeBand: 1,
+    title: "A Rainy Day",
+    text: `Lily put on her yellow rain boots. She opened her red umbrella and stepped outside.
+
+Rain pattered on the street. Lily jumped in puddles. She laughed as the water splashed.
+
+At home, Lily drank warm cocoa. She wrote a rainy-day drawing for her mom.`,
+    questions: [
+      {
+        question: "What color were Lily's boots?",
+        options: ["Blue", "Green", "Yellow", "Black"],
+        correctIndex: 2,
+      },
+      {
+        question: "What did Lily do in the rain?",
+        options: ["Ride a bike", "Jump in puddles", "Fly a kite", "Build a snowman"],
+        correctIndex: 1,
+      },
+      {
+        question: "What did Lily drink at home?",
+        options: ["Water", "Lemonade", "Warm cocoa", "Milk"],
+        correctIndex: 2,
+      },
+      {
+        question: "Why did Lily use an umbrella?",
+        options: ["Because it was sunny", "Because it was rainy", "Because it was windy", "Because it was snowy"],
+        correctIndex: 1,
+      },
+    ],
+  },
+  {
     id: "level-2",
     gradeBand: 2,
     title: "The Lost Kite",
@@ -55,6 +117,38 @@ Sam was so happy. He gave Biscuit a big hug. "You are the best dog ever!" Sam sa
           "Bought a new kite",
         ],
         correctIndex: 1,
+      },
+    ],
+  },
+  {
+    id: "level-3",
+    gradeBand: 3,
+    title: "The Science Fair",
+    text: `Marcus entered the gym carrying his model volcano. The school science fair had tables filled with projects. Some students showed solar ovens, others explained how plants grow.
+
+Marcus's volcano bubbled red foam when he poured vinegar inside. Judges asked him why the foam was hot and asked what the liquid represented.
+
+Marcus was proud when his teacher said he had a strong explanation. He smiled and waved to his parents in the audience.`,
+    questions: [
+      {
+        question: "What did Marcus bring to the science fair?",
+        options: ["A robot", "A model volcano", "A weather chart", "A plant"],
+        correctIndex: 1,
+      },
+      {
+        question: "What did the judges ask Marcus?",
+        options: ["How old he was", "Why the foam was hot", "What his favorite color was", "Where he lives"],
+        correctIndex: 1,
+      },
+      {
+        question: "What did some students show at the fair?",
+        options: ["Solar ovens", "Pirate ships", "Space rockets", "Magical spells"],
+        correctIndex: 0,
+      },
+      {
+        question: "How did Marcus feel at the end?",
+        options: ["Sad", "Tired", "Proud", "Sleepy"],
+        correctIndex: 2,
       },
     ],
   },
@@ -106,6 +200,38 @@ The plan worked well. Within two weeks, the vegetables were growing strong again
           "Tomatoes grow better than peppers",
           "Potlucks are more fun than gardening",
         ],
+        correctIndex: 1,
+      },
+    ],
+  },
+  {
+    id: "level-5",
+    gradeBand: 5,
+    title: "The Secret Garden Club",
+    text: `A group of classmates formed the Secret Garden Club after school. They cleared out a small plot behind the library and planted vegetables, herbs, and flowers.
+
+Every week they met to pull weeds, water the soil, and plant seeds. When the plants grew tall, the club shared fresh lettuce and basil with the cafeteria cooks.
+
+The club learned that gardening takes patience and teamwork. They also enjoyed watching butterflies and bees visit the bright blossoms.`,
+    questions: [
+      {
+        question: "Where did the Secret Garden Club plant their garden?",
+        options: ["In a park", "Behind the library", "On the roof", "In a classroom"],
+        correctIndex: 1,
+      },
+      {
+        question: "What did the club share with the cafeteria?",
+        options: ["Cookies", "Fresh lettuce and basil", "Paintings", "Books"],
+        correctIndex: 1,
+      },
+      {
+        question: "What did the club learn about gardening?",
+        options: ["It is easy and quick", "It takes patience and teamwork", "It costs a lot of money", "It only works indoors"],
+        correctIndex: 1,
+      },
+      {
+        question: "Which creatures visited the garden?",
+        options: ["Monkeys and lions", "Butterflies and bees", "Fish and frogs", "Bats and owls"],
         correctIndex: 1,
       },
     ],
@@ -163,6 +289,38 @@ Scientists still do not fully understand how monarchs navigate such vast distanc
     ],
   },
   {
+    id: "level-7",
+    gradeBand: 7,
+    title: "Saving the River",
+    text: `The river near Eastwood had once been clear enough for children to spot fish. Over time, run-off from roads and nearby farms left the water cloudy and the riverbanks littered with trash.
+
+A group of students decided to act. They organized a clean-up day, planted native grasses along the bank, and asked drivers to reduce oil leaks. They also tested the water and shared their results with the town council.
+
+By the end of the year, the river was healthier, more plants were growing along the shore, and families could once again enjoy the walking path without seeing garbage in the water.`,
+    questions: [
+      {
+        question: "What caused the river to become cloudy?",
+        options: ["Mountain storms", "Run-off from roads and farms", "Too much sunlight", "Falling leaves"],
+        correctIndex: 1,
+      },
+      {
+        question: "What did the students do first?",
+        options: ["Built a bridge", "Organized a clean-up day", "Moved to another town", "Started a garden"],
+        correctIndex: 1,
+      },
+      {
+        question: "Who received the water test results?",
+        options: ["The school principal", "The town council", "The mayor's family", "A sports team"],
+        correctIndex: 1,
+      },
+      {
+        question: "What was one result by the end of the year?",
+        options: ["The river disappeared", "The walking path was closed", "The water was healthier", "The trash doubled"],
+        correctIndex: 2,
+      },
+    ],
+  },
+  {
     id: "level-8",
     gradeBand: 8,
     title: "The Rise of Renewable Energy",
@@ -213,6 +371,38 @@ Nevertheless, many energy analysts argue that the trajectory is clear: renewable
           "Dismissive of renewable energy's potential",
         ],
         correctIndex: 1,
+      },
+    ],
+  },
+  {
+    id: "level-9",
+    gradeBand: 9,
+    title: "The Story Behind Photojournalism",
+    text: `A powerful photo can tell a story without words. Photojournalists travel to events, schools, neighborhoods, and protests to capture moments that help people understand what is happening around the world.
+
+They work quickly, choosing angles, light, and timing to show emotion and context. After the photo is taken, editors decide how the image will appear in print or online.
+
+Good photojournalism respects the people in the picture, avoids staging scenes, and aims to be truthful. When readers see a strong image, they can feel a connection to the story in a deeper way than facts alone often allow.`,
+    questions: [
+      {
+        question: "What can a powerful photo do?",
+        options: ["Make people laugh", "Tell a story without words", "Hide information", "Create a fantasy"],
+        correctIndex: 1,
+      },
+      {
+        question: "What do photojournalists need to consider?",
+        options: ["Angles, light, and timing", "Only the weather", "Their favorite colors", "How to avoid people"],
+        correctIndex: 0,
+      },
+      {
+        question: "What should good photojournalism avoid?",
+        options: ["Showing emotion", "Using natural light", "Staging scenes", "Telling the truth"],
+        correctIndex: 2,
+      },
+      {
+        question: "Why do readers connect with strong images?",
+        options: ["Because facts are always boring", "Because images are always true", "Because images can show emotion and context", "Because pictures are colorful"],
+        correctIndex: 2,
       },
     ],
   },
