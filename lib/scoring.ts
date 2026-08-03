@@ -99,6 +99,13 @@ export type BookSuggestion = {
   category: "skill" | "enjoyment";
 };
 
+export interface GradeLevelBook {
+  title: string;
+  author: string;
+  description: string;
+  gradeBand: number;
+}
+
 export type SkillTag =
   | "sightWords"
   | "multisyllabic"
@@ -224,6 +231,79 @@ export function estimateLexile(grade: number): string {
     LEXILE_BY_GRADE[lower] + (LEXILE_BY_GRADE[upper] - LEXILE_BY_GRADE[lower]) * frac
   );
   return `${val}L`;
+}
+
+const GRADE_LEVEL_BOOKS: GradeLevelBook[] = [
+  {
+    gradeBand: 0,
+    title: "Goodnight Moon",
+    author: "Margaret Wise Brown",
+    description: "A gentle bedtime story with simple, repetitive language perfect for beginning readers.",
+  },
+  {
+    gradeBand: 1,
+    title: "The Very Hungry Caterpillar",
+    author: "Eric Carle",
+    description: "A playful counting and reading experience with bright, engaging illustrations.",
+  },
+  {
+    gradeBand: 2,
+    title: "Frog and Toad Are Friends",
+    author: "Arnold Lobel",
+    description: "Short stories about friendship and everyday adventures with simple vocabulary.",
+  },
+  {
+    gradeBand: 3,
+    title: "Junie B. Jones and the Stupid Smelly Bus",
+    author: "Barbara Park",
+    description: "A humorous early chapter book that keeps young readers engaged with lively narration.",
+  },
+  {
+    gradeBand: 4,
+    title: "The Lemonade War",
+    author: "Jacqueline Davies",
+    description: "A gripping story about sibling rivalry, money, and strategy for upper elementary readers.",
+  },
+  {
+    gradeBand: 5,
+    title: "Because of Winn-Dixie",
+    author: "Kate DiCamillo",
+    description: "A warm story about family, friendship, and community with accessible yet rich language.",
+  },
+  {
+    gradeBand: 6,
+    title: "Holes",
+    author: "Louis Sachar",
+    description: "A clever mystery with layered plot and relatable characters for middle-grade readers.",
+  },
+  {
+    gradeBand: 7,
+    title: "The Giver",
+    author: "Lois Lowry",
+    description: "A thoughtful dystopian novel that introduces more complex themes and vocabulary.",
+  },
+  {
+    gradeBand: 8,
+    title: "The Outsiders",
+    author: "S.E. Hinton",
+    description: "A coming-of-age story with strong characters and real-world emotional themes.",
+  },
+  {
+    gradeBand: 9,
+    title: "The Hunger Games",
+    author: "Suzanne Collins",
+    description: "A fast-paced young adult novel that blends action, character growth, and moral conflict.",
+  },
+  {
+    gradeBand: 10,
+    title: "The Book Thief",
+    author: "Markus Zusak",
+    description: "A literary historical novel with evocative language and mature themes suitable for advanced readers.",
+  },
+];
+
+export function getBooksForGradeBand(gradeBand: number): GradeLevelBook[] {
+  return GRADE_LEVEL_BOOKS.filter((book) => book.gradeBand === gradeBand);
 }
 
 export function wordCountOf(text: string): number {
