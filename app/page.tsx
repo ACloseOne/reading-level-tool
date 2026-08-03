@@ -11,7 +11,7 @@ export default function Home() {
               TrailHead
             </div>
             <h1 className="mt-6 text-4xl font-extrabold leading-tight sm:text-5xl">
-              Unleashing confident reading
+              Building Confident Readers
             </h1>
             <p className="mt-4 max-w-2xl text-lg opacity-90">
               TrailHead gives you fast readability analysis and guided assessments
