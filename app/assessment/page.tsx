@@ -540,16 +540,14 @@ export default function AssessmentPage() {
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">Read at a normal pace, clicking any word read incorrectly.</div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">Answer the questions, then review the full score report.</div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">
-                  <p className="font-semibold">Importing passages from K12Reader</p>
-                  <ol className="mt-2 list-decimal pl-5 text-xs text-slate-600">
-                    <li>Open <a className="text-emerald-700 underline" href="https://www.k12reader.com/subject/reading-skills/reading-comprehension/" target="_blank" rel="noreferrer">k12reader reading comprehension</a>.</li>
-                    <li>Select the grade level and choose a worksheet. Note: do not copy or import copyrighted worksheets unless you have permission.</li>
-                    <li>Copy the passage text (or download it if available) and create a JSON file with an array of passages matching the app's shape: <span className="font-mono">{`[{ id, gradeBand, title, text, questions }]`}</span>.</li>
-                    <li>Each question should include <span className="font-mono">question</span>, <span className="font-mono">options</span> (array of 4), and <span className="font-mono">correctIndex</span> (0-3).</li>
-                    <li>In this tool select <strong>Import (JSON)</strong> above and upload the file. The imported passages will appear in the passage dropdown.</li>
-                    <li>Alternatively, use the <strong>Generate placeholders</strong> option to create 10 quick test passages per grade.</li>
-                  </ol>
-                  <p className="mt-2 text-xs text-rose-700">Reminder: Only import or distribute material you have the right to use. For classroom use, check the worksheet's license.</p>
+                  <p className="font-semibold">Passage population options</p>
+                  <p className="mt-2 text-xs text-slate-600">I can't automatically scrape or import copyrighted worksheets from external sites without permission. Choose one of the options below:</p>
+                  <ul className="mt-2 list-disc pl-5 text-xs text-slate-600">
+                    <li>Provide a JSON file of passages (use the <strong>Import (JSON)</strong> control) containing only content you have rights to use.</li>
+                    <li>Use the <strong>Generate placeholders</strong> option to create synthetic test passages for development and testing.</li>
+                    <li>Ask me to preload public-domain or synthetic passages for each grade band; I can add those directly into the app instead.</li>
+                  </ul>
+                  <p className="mt-2 text-xs text-rose-700">If you want, I can generate or preload passages for K–10 from public-domain sources or create synthetic passages approximating grade bands — tell me which you'd prefer.</p>
                 </div>
               </div>
             </div>
