@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { passages, Passage } from "@/lib/passages";
+import { Passage } from "@/lib/passages";
+import { importedPassages } from "@/lib/importedPassages";
 import {
   scoreAssessment,
   wordCountOf,
@@ -28,8 +29,6 @@ export default function AssessmentPage() {
   const [passage, setPassage] = useState<Passage | null>(null);
   const [selectedPassageId, setSelectedPassageId] = useState<string | null>(null);
   const [passageGradeFilter, setPassageGradeFilter] = useState<number | "all">("all");
-  const [passageSet, setPassageSet] = useState<'builtin' | 'import' | 'placeholders'>('builtin');
-  const [customPassages, setCustomPassages] = useState<Passage[] | null>(null);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [readingSeconds, setReadingSeconds] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -113,13 +112,20 @@ export default function AssessmentPage() {
     selectedGradeBand !== null ? selectedGradeBand : passage?.gradeBand ?? 0
   );
 
-  const sourcePassages = customPassages ?? passages;
+  const sourcePassages = useMemo<Passage[]>(() => importedPassages, []);
+
   const filteredPassages = useMemo(
     () =>
       sourcePassages.filter((p) => passageGradeFilter === "all" || p.gradeBand === passageGradeFilter),
     [passageGradeFilter, sourcePassages]
   );
   const selectedPassage = sourcePassages.find((p) => p.id === selectedPassageId) ?? null;
+
+  useEffect(() => {
+    if (!selectedPassageId && sourcePassages.length > 0) {
+      setSelectedPassageId(sourcePassages[0].id);
+    }
+  }, [selectedPassageId, sourcePassages]);
 
   return (
     <main className="space-y-6">
@@ -167,7 +173,7 @@ export default function AssessmentPage() {
                         const value = event.target.value;
                         const next = value === "all" ? "all" : Number(value);
                         setPassageGradeFilter(next);
-                        const nextPassage = passages.find((p) => next === "all" ? true : p.gradeBand === next);
+                        const nextPassage = sourcePassages.find((p) => (next === "all" ? true : p.gradeBand === next));
                         setSelectedPassageId(nextPassage?.id ?? null);
                       }}
                       className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 shadow-sm"
@@ -184,81 +190,14 @@ export default function AssessmentPage() {
                       <option value={8}>8</option>
                       <option value={9}>9</option>
                       <option value={10}>10</option>
+                      <option value={11}>11</option>
+                      <option value={12}>12</option>
                     </select>
                   </label>
                   <label className="space-y-2">
-                    <span className="text-sm font-medium text-slate-700">Passage source</span>
-                    <div className="flex gap-2">
-                      <select
-                        value={passageSet}
-                        onChange={(e) => setPassageSet(e.target.value as any)}
-                        className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 shadow-sm"
-                      >
-                        <option value="builtin">Built-in passages</option>
-                        <option value="import">Import (JSON)</option>
-                        <option value="placeholders">Generate placeholders</option>
-                      </select>
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+                      The assessment uses the imported reading comprehension passages from the attached JSON dataset.
                     </div>
-                    {passageSet === 'import' && (
-                      <div className="mt-2">
-                        <input
-                          type="file"
-                          accept="application/json"
-                          onChange={(ev) => {
-                            const file = ev.target.files?.[0];
-                            if (!file) return;
-                            const reader = new FileReader();
-                            reader.onload = () => {
-                              try {
-                                const parsed = JSON.parse(String(reader.result));
-                                if (Array.isArray(parsed)) {
-                                  // Basic validation
-                                  const valid = parsed.filter((p) => p && typeof p.id === 'string' && typeof p.text === 'string');
-                                  setCustomPassages(valid as Passage[]);
-                                  setSelectedPassageId(valid[0]?.id ?? null);
-                                } else {
-                                  alert('Imported JSON must be an array of passages.');
-                                }
-                              } catch (e) {
-                                alert('Failed to parse JSON file.');
-                              }
-                            };
-                            reader.readAsText(file);
-                          }}
-                          className="w-full text-sm"
-                        />
-                      </div>
-                    )}
-                    {passageSet === 'placeholders' && (
-                      <div className="mt-2 flex gap-2">
-                        <button
-                          onClick={() => {
-                            // generate 10 placeholder passages for the current filter (or grade 1 default)
-                            const grade = passageGradeFilter === 'all' ? 1 : passageGradeFilter;
-                            const generated: Passage[] = Array.from({ length: 10 }).map((_, i) => ({
-                              id: `placeholder-${grade}-${i}`,
-                              gradeBand: typeof grade === 'number' ? grade : 1,
-                              title: `Practice passage ${i + 1}`,
-                              text: `This is a short placeholder passage for grade ${grade}. Replace with real content when ready.`,
-                              questions: [
-                                { question: 'What is this passage about?', options: ['A', 'B', 'C', 'D'], correctIndex: 0 },
-                                { question: 'Who is mentioned?', options: ['X', 'Y', 'Z', 'None'], correctIndex: 3 },
-                                { question: 'Where does it take place?', options: ['Here', 'There', 'Everywhere', 'Nowhere'], correctIndex: 0 },
-                                { question: 'Did something happen?', options: ['Yes', 'No', 'Maybe', 'Not sure'], correctIndex: 0 },
-                              ],
-                            }));
-                            setCustomPassages(generated);
-                            setSelectedPassageId(generated[0].id);
-                            setPassageGradeFilter(typeof grade === 'number' ? grade : 'all');
-                            setPassageSet('import');
-                          }}
-                          className="rounded-2xl bg-emerald-600 px-4 py-2 text-white text-sm"
-                        >
-                          Generate 10 placeholders for this grade
-                        </button>
-                        <p className="text-xs text-slate-500 self-center">Use placeholders for quick testing; replace with real passages later.</p>
-                      </div>
-                    )}
                   </label>
                   <label className="space-y-2">
                     <span className="text-sm font-medium text-slate-700">Choose a reading passage</span>
@@ -501,6 +440,8 @@ export default function AssessmentPage() {
                       <option value={8}>8</option>
                       <option value={9}>9</option>
                       <option value={10}>10</option>
+                      <option value={11}>11</option>
+                      <option value={12}>12</option>
                     </select>
                   </div>
 
@@ -540,14 +481,8 @@ export default function AssessmentPage() {
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">Read at a normal pace, clicking any word read incorrectly.</div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">Answer the questions, then review the full score report.</div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">
-                  <p className="font-semibold">Passage population options</p>
-                  <p className="mt-2 text-xs text-slate-600">I can't automatically scrape or import copyrighted worksheets from external sites without permission. Choose one of the options below:</p>
-                  <ul className="mt-2 list-disc pl-5 text-xs text-slate-600">
-                    <li>Provide a JSON file of passages (use the <strong>Import (JSON)</strong> control) containing only content you have rights to use.</li>
-                    <li>Use the <strong>Generate placeholders</strong> option to create synthetic test passages for development and testing.</li>
-                    <li>Ask me to preload public-domain or synthetic passages for each grade band; I can add those directly into the app instead.</li>
-                  </ul>
-                  <p className="mt-2 text-xs text-rose-700">If you want, I can generate or preload passages for K–10 from public-domain sources or create synthetic passages approximating grade bands — tell me which you'd prefer.</p>
+                  <p className="font-semibold">Imported assessment content</p>
+                  <p className="mt-2 text-xs text-slate-600">This app is now using the attached reading comprehension tests exclusively, mapped to their assigned grade level.</p>
                 </div>
               </div>
             </div>
