@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { passages, Passage } from "@/lib/passages";
 import {
@@ -26,6 +26,8 @@ const stageLabels: Record<Stage, string> = {
 export default function AssessmentPage() {
   const [stage, setStage] = useState<Stage>("select");
   const [passage, setPassage] = useState<Passage | null>(null);
+  const [selectedPassageId, setSelectedPassageId] = useState<string | null>(null);
+  const [passageGradeFilter, setPassageGradeFilter] = useState<number | "all">("all");
   const [startTime, setStartTime] = useState<number | null>(null);
   const [readingSeconds, setReadingSeconds] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -37,6 +39,7 @@ export default function AssessmentPage() {
 
   function choosePassage(p: Passage) {
     setPassage(p);
+    setSelectedPassageId(p.id);
     setAnswers(new Array(p.questions.length).fill(-1));
     setWordInfo(analyzePassageWords(p.text));
     setMarkedIncorrect(new Set());
@@ -104,7 +107,16 @@ export default function AssessmentPage() {
 
   const skillSuggestions = bookSuggestions.filter((s) => s.category === "skill");
   const enjoymentSuggestions = bookSuggestions.filter((s) => s.category === "enjoyment");
-  const selectedGradeBooks = selectedGradeBand !== null ? getBooksForGradeBand(selectedGradeBand) : [];
+  const selectedGradeBooks = getBooksForGradeBand(
+    selectedGradeBand !== null ? selectedGradeBand : passage?.gradeBand ?? 0
+  );
+
+  const filteredPassages = useMemo(
+    () =>
+      passages.filter((p) => passageGradeFilter === "all" || p.gradeBand === passageGradeFilter),
+    [passageGradeFilter]
+  );
+  const selectedPassage = passages.find((p) => p.id === selectedPassageId) ?? null;
 
   return (
     <main className="space-y-6">
@@ -142,25 +154,74 @@ export default function AssessmentPage() {
             </div>
 
             {stage === "select" && (
-              <div className="mt-6 grid gap-4">
-                {passages.map((p) => (
-                  <button
-                    key={p.id}
-                    onClick={() => choosePassage(p)}
-                    className="text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-emerald-300 hover:shadow-md"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <div>
-                        <p className="font-semibold text-slate-900">{p.title}</p>
-                        <p className="mt-1 text-sm text-slate-500">Approx. grade {p.gradeBand} level</p>
-                      </div>
-                      <span className="text-sm font-semibold text-emerald-700">Start →</span>
+              <div className="mt-6 space-y-4">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="space-y-2">
+                    <span className="text-sm font-medium text-slate-700">Filter by grade level</span>
+                    <select
+                      value={passageGradeFilter}
+                      onChange={(event) => {
+                        const value = event.target.value;
+                        const next = value === "all" ? "all" : Number(value);
+                        setPassageGradeFilter(next);
+                        const nextPassage = passages.find((p) => next === "all" ? true : p.gradeBand === next);
+                        setSelectedPassageId(nextPassage?.id ?? null);
+                      }}
+                      className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 shadow-sm"
+                    >
+                      <option value="all">All levels</option>
+                      <option value={0}>K</option>
+                      <option value={1}>1</option>
+                      <option value={2}>2</option>
+                      <option value={3}>3</option>
+                      <option value={4}>4</option>
+                      <option value={5}>5</option>
+                      <option value={6}>6</option>
+                      <option value={7}>7</option>
+                      <option value={8}>8</option>
+                      <option value={9}>9</option>
+                      <option value={10}>10</option>
+                    </select>
+                  </label>
+                  <label className="space-y-2">
+                    <span className="text-sm font-medium text-slate-700">Choose a reading passage</span>
+                    <select
+                      value={selectedPassageId ?? ""}
+                      onChange={(event) => setSelectedPassageId(event.target.value)}
+                      className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 shadow-sm"
+                    >
+                      <option value="">Select a passage</option>
+                      {filteredPassages.map((p) => (
+                        <option key={p.id} value={p.id}>
+                          {`Grade ${p.gradeBand === 0 ? "K" : p.gradeBand}: ${p.title}`}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">Passage preview</p>
+                  {selectedPassage ? (
+                    <div className="mt-4 space-y-3">
+                      <p className="text-lg font-semibold text-slate-900">{selectedPassage.title}</p>
+                      <p className="text-sm text-slate-600">Approx. grade {selectedPassage.gradeBand === 0 ? "K" : selectedPassage.gradeBand}</p>
+                      <p className="mt-3 text-sm leading-6 text-slate-700">{selectedPassage.text.slice(0, 260)}...</p>
+                      <button
+                        onClick={() => choosePassage(selectedPassage)}
+                        className="mt-3 inline-flex items-center rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                      >
+                        Start this passage
+                      </button>
                     </div>
-                  </button>
-                ))}
-                <p className="text-xs leading-5 text-slate-500">
-                  Pick the passage closest to your current reading level. You can always try another one afterward.
-                </p>
+                  ) : (
+                    <p className="mt-4 text-sm leading-6 text-slate-600">Select a passage above to preview it before starting the assessment.</p>
+                  )}
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-600">
+                  Pick a grade band and a passage to practice reading comprehension with more than one passage per level.
+                </div>
               </div>
             )}
 
