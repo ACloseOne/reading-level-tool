@@ -196,7 +196,7 @@ export default function AssessmentPage() {
                   </label>
                   <label className="space-y-2">
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-                      The assessment uses the imported reading comprehension passages from the attached JSON dataset.
+                      Select your approximate reading level.
                     </div>
                   </label>
                   <label className="space-y-2">
@@ -480,10 +480,6 @@ export default function AssessmentPage() {
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">Choose a passage to begin the assessment flow.</div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">Read at a normal pace, clicking any word read incorrectly.</div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-3">Answer the questions, then review the full score report.</div>
-                <div className="rounded-2xl border border-slate-200 bg-white p-3">
-                  <p className="font-semibold">Imported assessment content</p>
-                  <p className="mt-2 text-xs text-slate-600">This app is now using the attached reading comprehension tests exclusively, mapped to their assigned grade level.</p>
-                </div>
               </div>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-emerald-50 p-5 text-emerald-900">
