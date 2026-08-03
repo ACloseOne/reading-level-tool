@@ -46,7 +46,7 @@ export default function RootLayout({
             </div>
           </header>
 
-          <main className="mx-auto w-full max-w-7xl px-6 pb-12 sm:px-8">{children}</main>
+          <main className="animate-page-fade mx-auto w-full max-w-7xl px-6 pb-12 sm:px-8">{children}</main>
         </div>
       </body>
     </html>

@@ -113,6 +113,15 @@ export default function AssessmentPage() {
   const selectedGradeBooks = getBooksForGradeBand(
     selectedGradeBand !== null ? selectedGradeBand : passage?.gradeBand ?? 0
   );
+  const questionResults = result && passage
+    ? passage.questions.map((question, index) => ({
+        question: question.question,
+        selectedIndex: answers[index],
+        selectedText: answers[index] >= 0 ? question.options[answers[index]] : "No answer",
+        correctText: question.options[question.correctIndex],
+        isCorrect: answers[index] === question.correctIndex,
+      }))
+    : [];
 
   useEffect(() => {
     if (!selectedPassageId && sourcePassages.length > 0) {
@@ -384,6 +393,30 @@ export default function AssessmentPage() {
 
                 <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                   <p className="text-sm leading-7 text-slate-700">{result.recommendation}</p>
+                </div>
+
+                <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">Correct answer review</p>
+                  <div className="mt-4 space-y-3">
+                    {questionResults.map((item, index) => (
+                      <div
+                        key={`${index}-${item.question}`}
+                        className={`rounded-2xl border p-4 transition ${
+                          item.isCorrect
+                            ? "border-emerald-200 bg-emerald-50"
+                            : "border-rose-200 bg-rose-50"
+                        } animate-answer-card`}
+                      >
+                        <p className="text-sm font-medium text-slate-900">{index + 1}. {item.question}</p>
+                        <p className="mt-2 text-sm text-slate-700">
+                          <span className="font-semibold">Your answer:</span> {item.selectedText}
+                        </p>
+                        <p className="mt-1 text-sm text-slate-700">
+                          <span className="font-semibold">Correct answer:</span> {item.correctText}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
