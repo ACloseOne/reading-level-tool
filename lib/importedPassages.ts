@@ -1,5 +1,6 @@
 import { Passage } from "./passages";
-import rawData from "./reading_comprehension_tests_v2.json";
+import rawDataV1Json from "./reading_comprehension_tests.json";
+import rawDataV2Json from "./reading_comprehension_tests_v2.json";
 
 type RawQuestion = {
   id: string;
@@ -38,9 +39,14 @@ function normalizeOptions(options: Record<string, string>): string[] {
   return LETTER_ORDER.filter((letter) => letter in options).map((letter) => options[letter]);
 }
 
-const raw = rawData as RawDataset;
+const rawDataV1 = rawDataV1Json as RawDataset;
+const rawDataV2 = rawDataV2Json as RawDataset;
+const combinedTests = [
+  ...(rawDataV1.reading_comprehension_tests ?? []),
+  ...(rawDataV2.reading_comprehension_tests ?? []),
+];
 
-export const importedPassages: Passage[] = raw.reading_comprehension_tests.map((entry, index) => {
+export const importedPassages: Passage[] = combinedTests.map((entry, index) => {
   return {
     id: `imported-${entry.grade.toLowerCase()}-${index}`,
     gradeBand: gradeToBand(entry.grade),
@@ -48,10 +54,10 @@ export const importedPassages: Passage[] = raw.reading_comprehension_tests.map((
     text: entry.excerpt,
     questions: entry.questions.map((question) => {
       const letters = Object.keys(question.options)
-        .filter((key) => LETTER_ORDER.includes(key))
+        .filter((key): key is keyof typeof question.options => LETTER_ORDER.includes(key))
         .sort((a, b) => LETTER_ORDER.indexOf(a) - LETTER_ORDER.indexOf(b));
       const options = letters.map((letter) => question.options[letter]);
-      const correctIndex = Math.max(0, letters.indexOf(question.correct_answer));
+      const correctIndex = Math.max(0, letters.indexOf(question.correct_answer as keyof typeof question.options));
       return {
         question: question.question_text,
         options,

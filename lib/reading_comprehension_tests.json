@@ -1,0 +1,797 @@
+{
+  "reading_comprehension_tests": [
+    {
+      "grade": "K",
+      "target_age": "5-6",
+      "metadata": {
+        "book_title": "Mother Goose Rhymes",
+        "author": "Traditional",
+        "lexile_estimated": "BR (Beginning Reader)",
+        "focus_standard": "Literal Identification / Recall"
+      },
+      "excerpt": "Humpty Dumpty sat on a wall,\nHumpty Dumpty had a great fall.\nAll the king\u2019s horses and all the king\u2019s men,\nCouldn\u2019t put Humpty together again.",
+      "questions": [
+        {
+          "id": "K_Q1",
+          "question_text": "Where did Humpty Dumpty sit?",
+          "options": {
+            "A": "In a green tree",
+            "B": "On a high wall",
+            "C": "On a small chair",
+            "D": "In a deep hole"
+          },
+          "correct_answer": "B",
+          "explanation": "The text directly states that 'Humpty Dumpty sat on a wall.'"
+        },
+        {
+          "id": "K_Q2",
+          "question_text": "What happened to Humpty Dumpty?",
+          "options": {
+            "A": "He fell down",
+            "B": "He went to sleep",
+            "C": "He ran away",
+            "D": "He sang a song"
+          },
+          "correct_answer": "A",
+          "explanation": "The text states that he 'had a great fall,' meaning he fell down."
+        },
+        {
+          "id": "K_Q3",
+          "question_text": "Who came to try and help Humpty Dumpty?",
+          "options": {
+            "A": "Some little birds",
+            "B": "The king's horses and men",
+            "C": "A friendly farmer",
+            "D": "His mother and father"
+          },
+          "correct_answer": "B",
+          "explanation": "The rhyme notes that 'All the king\u2019s horses and all the king\u2019s men' arrived to assist."
+        },
+        {
+          "id": "K_Q4",
+          "question_text": "How does the story end for Humpty Dumpty?",
+          "options": {
+            "A": "He was fixed and went home",
+            "B": "He climbed back up the wall",
+            "C": "They could not put him together again",
+            "D": "He walked away down the road"
+          },
+          "correct_answer": "C",
+          "explanation": "The final line states they 'Couldn\u2019t put Humpty together again.'"
+        }
+      ]
+    },
+    {
+      "grade": "1",
+      "target_age": "6-7",
+      "metadata": {
+        "book_title": "The Tale of Peter Rabbit",
+        "author": "Beatrix Potter",
+        "lexile_estimated": "420L",
+        "focus_standard": "Basic Informational Details & Character Motivation"
+      },
+      "excerpt": "Flopsy, Mopsy, and Cotton-tail, who were good little bunnies, went down the lane to gather blackberries: But Peter, who was very naughty, ran straight away to Mr. McGregor's garden, and squeezed under the gate!",
+      "questions": [
+        {
+          "id": "G1_Q1",
+          "question_text": "What did Flopsy, Mopsy, and Cotton-tail go to gather?",
+          "options": {
+            "A": "Sweet red apples",
+            "B": "Fresh green lettuce",
+            "C": "Dark blackberries",
+            "D": "Small brown nuts"
+          },
+          "correct_answer": "C",
+          "explanation": "The text states the good little bunnies went 'to gather blackberries.'"
+        },
+        {
+          "id": "G1_Q2",
+          "question_text": "Where did Peter go instead of following his sisters?",
+          "options": {
+            "A": "Into the deep woods",
+            "B": "To the baker's shop",
+            "C": "Into Mr. McGregor's garden",
+            "D": "Down to the running river"
+          },
+          "correct_answer": "C",
+          "explanation": "Peter disobeyed and 'ran straight away to Mr. McGregor's garden.'"
+        },
+        {
+          "id": "G1_Q3",
+          "question_text": "How did Peter get inside the garden?",
+          "options": {
+            "A": "He jumped over the tall fence",
+            "B": "He squeezed under the gate",
+            "C": "He walked through the open door",
+            "D": "He dug a hole in the dirt"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage states that Peter 'squeezed under the gate!'"
+        },
+        {
+          "id": "G1_Q4",
+          "question_text": "Why does the author call Peter 'naughty'?",
+          "options": {
+            "A": "Because he did not share his food",
+            "B": "Because he went where he was told not to go",
+            "C": "Because he fell asleep in the grass",
+            "D": "Because he ran too fast for his sisters"
+          },
+          "correct_answer": "B",
+          "explanation": "Peter is considered naughty because he runs off to the forbidden garden instead of gathering berries safely with his sisters."
+        }
+      ]
+    },
+    {
+      "grade": "2",
+      "target_age": "7-8",
+      "metadata": {
+        "book_title": "Aesop's Fables",
+        "author": "Aesop",
+        "lexile_estimated": "510L",
+        "focus_standard": "Theme / Central Lesson Analysis"
+      },
+      "excerpt": "The Tortoise never for a moment stopped, but went on with a slow but steady pace straight to the end of the course. The Hare, knowing himself to be fast, lay down by the wayside and fell fast asleep. At last waking up, he ran as fast as he could, but saw the Tortoise had already won the race.",
+      "questions": [
+        {
+          "id": "G2_Q1",
+          "question_text": "What did the Hare do because he knew he was fast?",
+          "options": {
+            "A": "He ran backward to show off",
+            "B": "He stopped to eat lunch",
+            "C": "He lay down and fell fast asleep",
+            "D": "He helped the Tortoise walk"
+          },
+          "correct_answer": "C",
+          "explanation": "Overconfident in his speed, the Hare 'lay down by the wayside and fell fast asleep.'"
+        },
+        {
+          "id": "G2_Q2",
+          "question_text": "How did the Tortoise move during the race?",
+          "options": {
+            "A": "He ran in quick bursts",
+            "B": "He stopped many times to rest",
+            "C": "He moved with a slow but steady pace",
+            "D": "He followed behind the Hare closely"
+          },
+          "correct_answer": "C",
+          "explanation": "The passage highlights that the Tortoise 'went on with a slow but steady pace.'"
+        },
+        {
+          "id": "G2_Q3",
+          "question_text": "What did the Hare see when he finally woke up?",
+          "options": {
+            "A": "The Tortoise had already won the race",
+            "B": "The sun was just starting to rise",
+            "C": "The Fox was waiting to start the race",
+            "D": "The Tortoise was sleeping next to him"
+          },
+          "correct_answer": "A",
+          "explanation": "Upon waking and running to the finish, the Hare 'saw the Tortoise had already won the race.'"
+        },
+        {
+          "id": "G2_Q4",
+          "question_text": "What is the main lesson of this story?",
+          "options": {
+            "A": "It is best to be as fast as possible",
+            "B": "Staying steady and not quitting can lead to success",
+            "C": "Racing against friends is dangerous",
+            "D": "Sleeping during the day makes you run faster"
+          },
+          "correct_answer": "B",
+          "explanation": "The narrative teaches that a persistent, steady effort ('slow and steady') triumphs over arrogance and lack of focus."
+        }
+      ]
+    },
+    {
+      "grade": "3",
+      "target_age": "8-9",
+      "metadata": {
+        "book_title": "Peter Pan",
+        "author": "J. M. Barrie",
+        "lexile_estimated": "600L",
+        "focus_standard": "Sequential Plot Actions & Context Clues"
+      },
+      "excerpt": "Mrs. Darling screamed, and, as if in answer to a bell, Nana entered the nursery. She growled and sprang at the boy, who leapt lightly through the window. Again Mrs. Darling screamed, this time in distress for him, for she thought he was killed, and she ran down into the street to look for his little body, but it was not there; and she looked up, and in the black night she could see nothing but what looked like a shooting star.",
+      "questions": [
+        {
+          "id": "G3_Q1",
+          "question_text": "How did the unknown boy escape from the nursery?",
+          "options": {
+            "A": "He hid inside a large closet",
+            "B": "He ran past Nana out the front door",
+            "C": "He leapt lightly out of the window",
+            "D": "He climbed up into the chimney"
+          },
+          "correct_answer": "C",
+          "explanation": "The text states the boy 'leapt lightly through the window' to escape Nana."
+        },
+        {
+          "id": "G3_Q2",
+          "question_text": "Why did Mrs. Darling scream a second time?",
+          "options": {
+            "A": "She was terrified of her dog Nana",
+            "B": "She feared the boy had fallen to his death",
+            "C": "She realized her children were missing",
+            "D": "She saw a ghost in the black night"
+          },
+          "correct_answer": "B",
+          "explanation": "Her second scream was 'in distress for him, for she thought he was killed' by falling out the high window."
+        },
+        {
+          "id": "G3_Q3",
+          "question_text": "What did Mrs. Darling find when she ran down into the street?",
+          "options": {
+            "A": "The boy waiting for her on the sidewalk",
+            "B": "A broken window pane on the ground",
+            "C": "Nothing at all where she thought he fell",
+            "D": "Nana barking at a stranger"
+          },
+          "correct_answer": "C",
+          "explanation": "When she arrived in the street to check for a body, the text states 'but it was not there.'"
+        },
+        {
+          "id": "G3_Q4",
+          "question_text": "What did the object in the sky look like to Mrs. Darling?",
+          "options": {
+            "A": "A bright full moon",
+            "B": "A dark storm cloud",
+            "C": "A large bird flying away",
+            "D": "A shooting star"
+          },
+          "correct_answer": "D",
+          "explanation": "Looking up into the dark sky, she saw 'nothing but what looked like a shooting star.'"
+        }
+      ]
+    },
+    {
+      "grade": "4",
+      "target_age": "9-10",
+      "metadata": {
+        "book_title": "The Secret Garden",
+        "author": "Frances Hodgson Burnett",
+        "lexile_estimated": "720L",
+        "focus_standard": "Character Trait Analysis & Descriptive Language"
+      },
+      "excerpt": "She had a little thin face, a little thin body, thin light hair and a sour expression. Her hair was yellow, and her face was yellow because she had been born in India and had always been ill in one way or another. Her father had held a position under the English Government and had always been busy and ill himself, and her mother had been a great beauty who cared only to go to parties and amuse herself.",
+      "questions": [
+        {
+          "id": "G4_Q1",
+          "question_text": "According to the passage, why is Mary's face yellow?",
+          "options": {
+            "A": "She spent too many hours playing in the bright sun",
+            "B": "She was born in India and was constantly sick",
+            "C": "She was wearing a yellow hat that cast a shadow",
+            "D": "She had a naturally cheerful and bright personality"
+          },
+          "correct_answer": "B",
+          "explanation": "The text explicitly connects her yellow appearance to being 'born in India and had always been ill.'"
+        },
+        {
+          "id": "G4_Q2",
+          "question_text": "How does the author describe Mary\u2019s mother?",
+          "options": {
+            "A": "As a hardworking woman who loved her home",
+            "B": "As a sickly person who stayed in bed all day",
+            "C": "As a great beauty who loved parties and amusement",
+            "D": "As a strict teacher who made Mary study constantly"
+          },
+          "correct_answer": "C",
+          "explanation": "Her mother is described as a 'great beauty who cared only to go to parties and amuse herself.'"
+        },
+        {
+          "id": "G4_Q3",
+          "question_text": "What do Mary and her father have in common?",
+          "options": {
+            "A": "They both loved to attend parties",
+            "B": "They both suffered from frequent illness",
+            "C": "They both worked for the English government",
+            "D": "They both had thick, dark hair"
+          },
+          "correct_answer": "B",
+          "explanation": "The text indicates Mary was 'always been ill' and her father was 'always been busy and ill himself.'"
+        },
+        {
+          "id": "G4_Q4",
+          "question_text": "What does the phrase 'sour expression' tell us about Mary?",
+          "options": {
+            "A": "She looked unhappy or unfriendly",
+            "B": "She smelled like sour fruit",
+            "C": "She was always tasting lemons",
+            "D": "She had a very round, soft face"
+          },
+          "correct_answer": "A",
+          "explanation": "A 'sour expression' is a physical description indicating a grumpy, unhappy, or cross facial expression."
+        }
+      ]
+    },
+    {
+      "grade": "5",
+      "target_age": "10-11",
+      "metadata": {
+        "book_title": "Black Beauty",
+        "author": "Anna Sewell",
+        "lexile_estimated": "830L",
+        "focus_standard": "Point of View & Setting-Driven Mood"
+      },
+      "excerpt": "The first place that I can well remember was a large pleasant meadow with a pond of clear water in it. Some shady trees leaned over it, and rushes and water-lilies grew at the deep end. Over the hedge on one side we looked into a plowed field, and on the other we looked over a gate at our master's house, which stood by the roadside. At the top of the meadow was a grove of fir trees, and at the bottom a running brook overhung by a steep bank.",
+      "questions": [
+        {
+          "id": "G5_Q1",
+          "question_text": "What perspective is this story narrated from?",
+          "options": {
+            "A": "A human master looking out at his property",
+            "B": "An animal describing its early home environment",
+            "C": "A visitor traveling down a rural roadside",
+            "D": "A farmer working inside a plowed field"
+          },
+          "correct_answer": "B",
+          "explanation": "The focus on the meadow lifestyle combined with referencing a 'master' implicitly signals an animal narrator (a horse) reflecting on early life."
+        },
+        {
+          "id": "G5_Q2",
+          "question_text": "What can be found growing at the deep end of the pond?",
+          "options": {
+            "A": "Fir trees and tall pines",
+            "B": "Rushes and water-lilies",
+            "C": "Green grass and wild clover",
+            "D": "Thick moss and heavy vines"
+          },
+          "correct_answer": "B",
+          "explanation": "The text plainly reads that 'rushes and water-lilies grew at the deep end' of the pond."
+        },
+        {
+          "id": "G5_Q3",
+          "question_text": "What boundary separates the meadow from the master's house?",
+          "options": {
+            "A": "A running brook with a steep bank",
+            "B": "A thick grove of fir trees",
+            "C": "A gate that looks over the roadside",
+            "D": "A large patch of plowed earth"
+          },
+          "correct_answer": "C",
+          "explanation": "The excerpt states that on one side 'we looked over a gate at our master's house.'"
+        },
+        {
+          "id": "G5_Q4",
+          "question_text": "What is the overall tone established by this description of the setting?",
+          "options": {
+            "A": "Mysterious and frightening",
+            "B": "Peaceful and comfortable",
+            "C": "Busy and industrial",
+            "D": "Lonely and neglected"
+          },
+          "correct_answer": "B",
+          "explanation": "Words like 'pleasant meadow,' 'clear water,' 'shady trees,' and a running brook cultivate a serene and comforting mood."
+        }
+      ]
+    },
+    {
+      "grade": "6",
+      "target_age": "11-12",
+      "metadata": {
+        "book_title": "The Adventures of Tom Sawyer",
+        "author": "Mark Twain",
+        "lexile_estimated": "930L",
+        "focus_standard": "Tier-2 Vocabulary & Textual Evidence Retrieval"
+      },
+      "excerpt": "Tom appeared on the sidewalk with a bucket of whitewash and a long-handled brush. He surveyed the fence, and all gladness departed from him and a deep melancholy settled down upon his spirit. Thirty yards of board fence nine feet high. It seemed to him that life was hollow, and existence but a burden. Sighing, he dipped his brush and passed it along the topmost plank...",
+      "questions": [
+        {
+          "id": "G6_Q1",
+          "question_text": "How does Tom feel when he looks at the fence he must paint?",
+          "options": {
+            "A": "Excited to show off his painting skills",
+            "B": "Deeply sad and completely discouraged",
+            "C": "Annoyed that the brush is broken",
+            "D": "Eager to finish so he can go swimming"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states that 'all gladness departed from him' and he felt life was a burden, showing heavy discouragement."
+        },
+        {
+          "id": "G6_Q2",
+          "question_text": "What does the word 'melancholy' mean as used in this passage?",
+          "options": {
+            "A": "Extreme anger",
+            "B": "Great sorrow or gloom",
+            "C": "Sudden excitement",
+            "D": "Deep confusion"
+          },
+          "correct_answer": "B",
+          "explanation": "Melancholy describes a state of deep, persistent sadness or low spirits, matching Tom's outlook on his chore."
+        },
+        {
+          "id": "G6_Q3",
+          "question_text": "What is the physical scale of the task Tom is facing?",
+          "options": {
+            "A": "A small garden gate near the sidewalk",
+            "B": "A few broken boards on a short wall",
+            "C": "Thirty yards of fence that stands nine feet high",
+            "D": "An entire house that needs multiple coats of paint"
+          },
+          "correct_answer": "C",
+          "explanation": "The author provides exact measurements: 'Thirty yards of board fence nine feet high.'"
+        },
+        {
+          "id": "G6_Q4",
+          "question_text": "Why does Tom feel that 'life was hollow'?",
+          "options": {
+            "A": "He has no friends to play with on the weekend",
+            "B": "He feels overwhelmed by the chore assigned to him",
+            "C": "He lost his favorite bucket and long-handled brush",
+            "D": "He is feeling very sick from working out in the sun"
+          },
+          "correct_answer": "B",
+          "explanation": "The dread of the immense physical task ahead makes his day feel entirely devoid of joy, making life seem 'hollow.'"
+        }
+      ]
+    },
+    {
+      "grade": "7",
+      "target_age": "12-13",
+      "metadata": {
+        "book_title": "Treasure Island",
+        "author": "Robert Louis Stevenson",
+        "lexile_estimated": "1020L",
+        "focus_standard": "Complex Characterization Analysis & Word Nuance"
+      },
+      "excerpt": "I remember him as if it were yesterday, as he came plodding to the inn door, his sea-chest following behind him in a hand-barrow\u2014a tall, strong, heavy, nut-brown man, his tarry pigtail falling over the shoulder of his soiled blue coat, his hands ragged and scarred, with black, broken nails, and the sabre-cut across one cheek, a dirty, livid white.",
+      "questions": [
+        {
+          "id": "G7_Q1",
+          "question_text": "Which detail best indicates that the newcomer has lived a rugged or violent life?",
+          "options": {
+            "A": "He arrived at the inn door with a hand-barrow",
+            "B": "He wore a blue coat that was heavily soiled",
+            "C": "He had ragged, scarred hands and a sabre-cut on his cheek",
+            "D": "He had a long pigtail falling over his shoulder"
+          },
+          "correct_answer": "C",
+          "explanation": "Scars, rugged hands, and specifically a weapon-inflicted 'sabre-cut' characterize physical conflict and heavy, rough physical labor."
+        },
+        {
+          "id": "G7_Q2",
+          "question_text": "What does the word 'plodding' suggest about how the man walked?",
+          "options": {
+            "A": "Running quickly to escape danger",
+            "B": "Walking slowly and heavily with great effort",
+            "C": "Skipping cheerfully toward the inn entrance",
+            "D": "Marching precisely like a trained soldier"
+          },
+          "correct_answer": "B",
+          "explanation": "'Plodding' means to trudge or walk with slow, heavy steps, conveying exhaustion or the physical weight of his journey."
+        },
+        {
+          "id": "G7_Q3",
+          "question_text": "What color is the scar on the man's cheek described as?",
+          "options": {
+            "A": "Nut-brown",
+            "B": "Dark blue",
+            "C": "Tarry black",
+            "D": "Livid white"
+          },
+          "correct_answer": "D",
+          "explanation": "The text tracks the scar explicitly, noting 'the sabre-cut across one cheek, a dirty, livid white.'"
+        },
+        {
+          "id": "G7_Q4",
+          "question_text": "How does the narrator characterize this memory?",
+          "options": {
+            "A": "As a blurry event that is difficult to recall",
+            "B": "As a frightening dream from childhood",
+            "C": "As an incredibly sharp, clear, and lasting image",
+            "D": "As a funny story told to him by his parents"
+          },
+          "correct_answer": "C",
+          "explanation": "The opening phrase 'I remember him as if it were yesterday' underscores a persistent, highly detailed memory."
+        }
+      ]
+    },
+    {
+      "grade": "8",
+      "target_age": "13-14",
+      "metadata": {
+        "book_title": "White Fang",
+        "author": "Jack London",
+        "lexile_estimated": "1100L",
+        "focus_standard": "Figurative Language (Personification) & Structural Mood"
+      },
+      "excerpt": "Dark spruce forest frowned on either side the frozen waterway. The trees had been stripped by a recent wind of their white covering of frost, and they seemed to lean toward each other, black and ominous, in the fading light. A vast silence reigned over the land. The land itself was a desolation, lifeless, without movement, so lone and cold that its spirit was not even that of sadness.",
+      "questions": [
+        {
+          "id": "G8_Q1",
+          "question_text": "What has caused the trees to lose their frost covering?",
+          "options": {
+            "A": "The intense heat of the afternoon sun",
+            "B": "A recent wind that stripped the branches",
+            "C": "A sudden downpour of freezing rain",
+            "D": "The heavy weight of native wildlife"
+          },
+          "correct_answer": "B",
+          "explanation": "The text documents that 'The trees had been stripped by a recent wind of their white covering.'"
+        },
+        {
+          "id": "G8_Q2",
+          "question_text": "How does the author personify the spruce forest?",
+          "options": {
+            "A": "By describing it as sleeping peacefully",
+            "B": "By stating that it frowned on either side",
+            "C": "By depicting it as reaching out to help",
+            "D": "By showing it laughing in the dark"
+          },
+          "correct_answer": "B",
+          "explanation": "Giving human actions to nature, the text writes that the 'spruce forest frowned.'"
+        },
+        {
+          "id": "G8_Q3",
+          "question_text": "What does the word 'ominous' mean in the context of this passage?",
+          "options": {
+            "A": "Bright and welcoming",
+            "B": "Giving the impression that something bad will happen",
+            "C": "Ancient and wise",
+            "D": "Quiet and completely harmless"
+          },
+          "correct_answer": "B",
+          "explanation": "'Ominous' stems from omen, suggesting a threatening, menacing presence indicating future danger or doom."
+        },
+        {
+          "id": "G8_Q4",
+          "question_text": "What is unique about the 'spirit' of this landscape?",
+          "options": {
+            "A": "It is filled with a deep, tragic human sorrow",
+            "B": "It is so intensely cold and desolate that it goes beyond mere sadness",
+            "C": "It changes rapidly whenever the wind blows",
+            "D": "It brings a feeling of comfort and safety to travelers"
+          },
+          "correct_answer": "B",
+          "explanation": "The text describes it as 'so lone and cold that its spirit was not even that of sadness,' pointing to an unfeeling, transcendent emptiness."
+        }
+      ]
+    },
+    {
+      "grade": "9",
+      "target_age": "14-15",
+      "metadata": {
+        "book_title": "The Odyssey",
+        "author": "Homer (Translated by Samuel Butter)",
+        "lexile_estimated": "1160L",
+        "focus_standard": "Advanced Translation Comprehension & Textual Inference"
+      },
+      "excerpt": "Tell me, O Muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy. Many cities did he visit, and many were the nations with whose manners and customs he was acquainted; moreover he suffered much by sea while trying to save his own life and bring his men safely home; but do what he might he could not save his men, for they perished through their own sheer folly...",
+      "questions": [
+        {
+          "id": "G9_Q1",
+          "question_text": "What adjective does the translator use to describe the central hero?",
+          "options": {
+            "A": "Famous",
+            "B": "Ingenious",
+            "C": "Safe",
+            "D": "Perished"
+          },
+          "correct_answer": "B",
+          "explanation": "The text introduces the main subject explicitly as 'that ingenious hero.'"
+        },
+        {
+          "id": "G9_Q2",
+          "question_text": "What was the primary goal of the hero during his sea travels?",
+          "options": {
+            "A": "To conquer new cities and build an empire",
+            "B": "To learn the secrets and languages of the Muses",
+            "C": "To protect his own life and return his crew safely home",
+            "D": "To find gold hidden away in the ruins of Troy"
+          },
+          "correct_answer": "C",
+          "explanation": "The narrator states he was 'trying to save his own life and bring his men safely home.'"
+        },
+        {
+          "id": "G9_Q3",
+          "question_text": "According to the narrator, why did the hero's men lose their lives?",
+          "options": {
+            "A": "Because the hero made a series of terrible mistakes",
+            "B": "Because of their own foolish actions and choices",
+            "C": "Because a violent storm destroyed their fleet",
+            "D": "Because the gods were angry at the fall of Troy"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states the crew 'perished through their own sheer folly,' with folly indicating foolishness or lack of sense."
+        },
+        {
+          "id": "G9_Q4",
+          "question_text": "What does the passage imply about the hero's experience?",
+          "options": {
+            "A": "It was a short, easy journey across familiar lands",
+            "B": "It was a deeply educational but physically agonizing ordeal",
+            "C": "It was a failed mission that ended in total obscurity",
+            "D": "It was entirely planned and directed by his soldiers"
+          },
+          "correct_answer": "B",
+          "explanation": "The narrator notes he became acquainted with many customs ('educational') yet 'suffered much by sea' ('agonizing')."
+        }
+      ]
+    },
+    {
+      "grade": "10",
+      "target_age": "15-16",
+      "metadata": {
+        "book_title": "The Call of the Wild",
+        "author": "Jack London",
+        "lexile_estimated": "1220L",
+        "focus_standard": "Authorial Intent, Irony, and Historical Setting Context"
+      },
+      "excerpt": "Buck did not read the newspapers, or he would have known that trouble was brewing, not alone for himself, but for every tide-water dog, strong of muscle and with warm, long hair, from Puget Sound to San Diego. Because men, groping in the Arctic darkness, had found a yellow metal, and because steamship and transportation companies were booming the find, thousands of men were rushing into the Northland. These men wanted dogs, and the dogs they wanted were heavy dogs, with strong muscles by which to toil, and furry coats to protect them from the frost.",
+      "questions": [
+        {
+          "id": "G10_Q1",
+          "question_text": "What structural irony opens this passage?",
+          "options": {
+            "A": "Buck knows about the gold rush but chooses to ignore it",
+            "B": "Men are searching for dogs but cannot find any near Puget Sound",
+            "C": "Buck's safety is threatened by global events he cannot read about",
+            "D": "The shipping companies are going bankrupt due to the cold weather"
+          },
+          "correct_answer": "C",
+          "explanation": "The irony lies in the fact that Buck is a dog whose life is about to change drastically due to human political/economic movements documented in media he is biologically incapable of reading."
+        },
+        {
+          "id": "G10_Q2",
+          "question_text": "What discovery triggered the massive rush of people into the Northland?",
+          "options": {
+            "A": "A new shipping route through San Diego",
+            "B": "A valuable yellow metal found in the Arctic darkness",
+            "C": "A rare breed of long-haired tide-water dogs",
+            "D": "An abundance of lumber in the spruce forests"
+          },
+          "correct_answer": "B",
+          "explanation": "The rush began because 'men, groping in the Arctic darkness, had found a yellow metal' (gold)."
+        },
+        {
+          "id": "G10_Q3",
+          "question_text": "What specific physical traits make a dog valuable to the men rushing north?",
+          "options": {
+            "A": "Speed, agility, and a quiet demeanor",
+            "B": "Small size, high intelligence, and tracking skills",
+            "C": "Strong muscles for heavy labor and a warm, furry coat",
+            "D": "Aggression, sharp vision, and loyalty to one master"
+          },
+          "correct_answer": "C",
+          "explanation": "The text explicitly states they required 'heavy dogs, with strong muscles by which to toil, and furry coats to protect them from the frost.'"
+        },
+        {
+          "id": "G10_Q4",
+          "question_text": "What does the word 'groping' imply about the men searching for gold?",
+          "options": {
+            "A": "They were working blindly or with great difficulty in harsh conditions",
+            "B": "They were celebrating their sudden and easy wealth",
+            "C": "They were carefully charting maps for future generations",
+            "D": "They were destroying the local environment out of anger"
+          },
+          "correct_answer": "A",
+          "explanation": "'Groping' in 'darkness' suggests searching uncertainly, feeling around blindly, and working through immense systemic difficulty."
+        }
+      ]
+    },
+    {
+      "grade": "11",
+      "target_age": "16-17",
+      "metadata": {
+        "book_title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "lexile_estimated": "1270L",
+        "focus_standard": "Subtext Analysis, Idiomatic Phrases, and Philosophical Frameworks"
+      },
+      "excerpt": "In my younger and more vulnerable years my father gave some advice that I\u2019ve been turning over in my mind ever since. \"Whenever you feel like criticizing any one,\" he told me, \"just remember that all the people in this world haven\u2019t had the advantages that you\u2019ve had.\" He didn\u2019t say any more, but we\u2019ve always been unusually communicative in a reserved way, and I understood that he meant a great deal more than that. In consequence, I\u2019m inclined to reserve all judgments...",
+      "questions": [
+        {
+          "id": "G11_Q1",
+          "question_text": "What core principle underlies the advice given by the narrator's father?",
+          "options": {
+            "A": "Social class distinctions are permanent and should be respected",
+            "B": "Personal fortune and privilege are unequally distributed across society",
+            "C": "Expressing direct criticism is essential for effective communication",
+            "D": "Family loyalty must supersede all commitments to outside individuals"
+          },
+          "correct_answer": "B",
+          "explanation": "The statement about others not having 'the advantages that you\u2019ve had' reminds the narrator that privilege is not universally distributed."
+        },
+        {
+          "id": "G11_Q2",
+          "question_text": "What paradox does the narrator use to describe his relationship with his father?",
+          "options": {
+            "A": "They were completely distant yet lived in the same household",
+            "B": "They spoke constantly but never truly understood one another",
+            "C": "They were unusually communicative while remaining reserved",
+            "D": "They agreed on philosophical matters but disagreed on politics"
+          },
+          "correct_answer": "C",
+          "explanation": "The text explicitly states: 'we\u2019ve always been unusually communicative in a reserved way.'"
+        },
+        {
+          "id": "G11_Q3",
+          "question_text": "What personal behavioral trait develops as a direct result of this parental advice?",
+          "options": {
+            "A": "A tendency to avoid social interactions entirely",
+            "B": "A habit of holding back personal moral condemnation of others",
+            "C": "A desire to pursue positions of high political power",
+            "D": "An obsession with tracking the financial success of his peers"
+          },
+          "correct_answer": "B",
+          "explanation": "Because of the advice, the narrator says, 'In consequence, I\u2019m inclined to reserve all judgments.'"
+        },
+        {
+          "id": "G11_Q4",
+          "question_text": "In this context, what does the phrase 'turning over in my mind' mean?",
+          "options": {
+            "A": "Forgetting a memory over a long period of time",
+            "B": "Actively debating whether an idea is factually correct",
+            "C": "Constantly reflecting on and analyzing an concept",
+            "D": "Regretting an action taken during youth"
+          },
+          "correct_answer": "C",
+          "explanation": "To 'turn something over' in one's mind is a common idiom meaning to evaluate, think deeply about, or continuously reflect on an idea."
+        }
+      ]
+    },
+    {
+      "grade": "12",
+      "target_age": "17-18",
+      "metadata": {
+        "book_title": "Frankenstein",
+        "author": "Mary Shelley",
+        "lexile_estimated": "1350L",
+        "focus_standard": "High-Level Genre Analysis (Gothicism), Syntax, and Thematic Shifts"
+      },
+      "excerpt": "It was on a dreary night of November that I beheld the accomplishment of my toils. With an anxiety that almost amounted to agony, I collected the instruments of life around me, that I might infuse a spark of being into the lifeless thing that lay at my feet. It was already one in the morning; the rain pattered dismally against the panes, and my candle was nearly burnt out, when, by the glimmer of the half-extinguished light, I saw the dull yellow eye of the creature open; it breathed hard, and a convulsive motion agitated its limbs.",
+      "questions": [
+        {
+          "id": "G12_Q1",
+          "question_text": "How does the author utilize Gothic imagery to frame the structural climax of creation?",
+          "options": {
+            "A": "By contrasting scientific progress with a warm, comforting domestic hearth",
+            "B": "By setting the event at midnight during a vibrant summer thunderstorm",
+            "C": "By combining a dying candle, dismal rain, and a dreary November night to mirror psychological dread",
+            "D": "By emphasizing the sterile, brightly lit, and highly ordered space of a modern laboratory"
+          },
+          "correct_answer": "C",
+          "explanation": "Shelley coordinates classic Gothic tropes (rainy dark night, burnout candle, dark room) to construct an external parallel to Victor's psychological anxiety."
+        },
+        {
+          "id": "G12_Q2",
+          "question_text": "What profound psychological shift does the narrator experience at the moment of success?",
+          "options": {
+            "A": "A transition from intellectual passion to immediate existential agony and horror",
+            "B": "A surge of supreme confidence and pride in his absolute triumph over mortality",
+            "C": "A feeling of profound boredom and indifference toward his completed work",
+            "D": "Sudden religious enlightenment that causes him to destroy his laboratory instruments"
+          },
+          "correct_answer": "A",
+          "explanation": "The text balances his dynamic pursuit against 'an anxiety that almost amounted to agony' immediately as the unnatural creature opens its eye."
+        },
+        {
+          "id": "G12_Q3",
+          "question_text": "What physical details signal that the animation of the creature is incomplete or unnatural?",
+          "options": {
+            "A": "The creature begins to speak fluent, complex philosophical arguments",
+            "B": "A convulsive motion agitates its limbs as its dull yellow eye opens",
+            "C": "The creature immediately stands up and flees into the pouring rain",
+            "D": "It remains completely motionless despite the spark of being infused into it"
+          },
+          "correct_answer": "B",
+          "explanation": "The creature\u2019s life is marked explicitly by a 'dull yellow eye' opening and 'a convulsive motion' disrupting its limbs, rather than a smooth, natural awakening."
+        },
+        {
+          "id": "G12_Q4",
+          "question_text": "What does the phrase 'accomplishment of my toils' signify textually?",
+          "options": {
+            "A": "The failure of a long-term economic investment",
+            "B": "The structural beginning of a peaceful new career phase",
+            "C": "The physical manifestation and culmination of intense, exhausting labor",
+            "D": "The destruction of historical instruments used in traditional medicine"
+          },
+          "correct_answer": "C",
+          "explanation": "'Toils' references exhaustive, challenging physical and mental labor; the 'accomplishment' means that work has finally yielded its physical goal."
+        }
+      ]
+    }
+  ]
+}
