@@ -1,16 +1,16 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { Passage } from "@/lib/passages";
-import { importedPassages } from "@/lib/importedPassages";
+import { passages, Passage, gradeBands, gradeLabelFor, passagesForGrade } from "@/lib/passages";
 import {
   scoreAssessment,
   wordCountOf,
   analyzePassageWords,
-  getBooksForGradeBand,
+  getBookSuggestions,
   AssessmentResult,
   WordInfo,
+  BookSuggestion,
 } from "@/lib/scoring";
 
 type Stage = "select" | "reading" | "questions" | "results";
@@ -24,20 +24,18 @@ const stageLabels: Record<Stage, string> = {
 
 export default function AssessmentPage() {
   const [stage, setStage] = useState<Stage>("select");
+  const [selectedGrade, setSelectedGrade] = useState<number | null>(null);
   const [passage, setPassage] = useState<Passage | null>(null);
-  const [selectedPassageId, setSelectedPassageId] = useState<string | null>(null);
-  const [passageGradeFilter, setPassageGradeFilter] = useState<number | "all">("all");
   const [startTime, setStartTime] = useState<number | null>(null);
   const [readingSeconds, setReadingSeconds] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [result, setResult] = useState<AssessmentResult | null>(null);
   const [wordInfo, setWordInfo] = useState<WordInfo[]>([]);
   const [markedIncorrect, setMarkedIncorrect] = useState<Set<number>>(new Set());
-  const [selectedGradeBand, setSelectedGradeBand] = useState<number | null>(null);
+  const [bookSuggestions, setBookSuggestions] = useState<BookSuggestion[]>([]);
 
   function choosePassage(p: Passage) {
     setPassage(p);
-    setSelectedPassageId(p.id);
     setAnswers(new Array(p.questions.length).fill(-1));
     setWordInfo(analyzePassageWords(p.text));
     setMarkedIncorrect(new Set());
@@ -85,12 +83,13 @@ export default function AssessmentPage() {
       totalWordTokens || wc
     );
     setResult(r);
-    setSelectedGradeBand(Math.min(10, Math.max(0, Math.round(r.estimatedGradeLevel))));
+    setBookSuggestions(getBookSuggestions(passage.gradeBand, r));
     setStage("results");
   }
 
   function reset() {
     setStage("select");
+    setSelectedGrade(null);
     setPassage(null);
     setStartTime(null);
     setReadingSeconds(0);
@@ -98,36 +97,11 @@ export default function AssessmentPage() {
     setResult(null);
     setWordInfo([]);
     setMarkedIncorrect(new Set());
-    setSelectedGradeBand(null);
+    setBookSuggestions([]);
   }
 
-
-  const sourcePassages = useMemo<Passage[]>(() => importedPassages, []);
-
-  const filteredPassages = useMemo(
-    () =>
-      sourcePassages.filter((p) => passageGradeFilter === "all" || p.gradeBand === passageGradeFilter),
-    [passageGradeFilter, sourcePassages]
-  );
-  const selectedPassage = sourcePassages.find((p) => p.id === selectedPassageId) ?? null;
-  const selectedGradeBooks = getBooksForGradeBand(
-    selectedGradeBand !== null ? selectedGradeBand : passage?.gradeBand ?? 0
-  );
-  const questionResults = result && passage
-    ? passage.questions.map((question, index) => ({
-        question: question.question,
-        selectedIndex: answers[index],
-        selectedText: answers[index] >= 0 ? question.options[answers[index]] : "No answer",
-        correctText: question.options[question.correctIndex],
-        isCorrect: answers[index] === question.correctIndex,
-      }))
-    : [];
-
-  useEffect(() => {
-    if (!selectedPassageId && sourcePassages.length > 0) {
-      setSelectedPassageId(sourcePassages[0].id);
-    }
-  }, [selectedPassageId, sourcePassages]);
+  const skillSuggestions = bookSuggestions.filter((s) => s.category === "skill");
+  const enjoymentSuggestions = bookSuggestions.filter((s) => s.category === "enjoyment");
 
   return (
     <main className="space-y-6">
@@ -164,85 +138,64 @@ export default function AssessmentPage() {
               ))}
             </div>
 
-            {stage === "select" && (
-              <div className="mt-6 space-y-4">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="space-y-2">
-                    <span className="text-sm font-medium text-slate-700">Filter by grade level</span>
-                    <select
-                      value={passageGradeFilter}
-                      onChange={(event) => {
-                        const value = event.target.value;
-                        const next = value === "all" ? "all" : Number(value);
-                        setPassageGradeFilter(next);
-                        const nextPassage = sourcePassages.find((p) => (next === "all" ? true : p.gradeBand === next));
-                        setSelectedPassageId(nextPassage?.id ?? null);
-                      }}
-                      className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 shadow-sm"
+            {stage === "select" && selectedGrade === null && (
+              <div className="mt-6">
+                <p className="text-sm text-slate-600">
+                  Choose a grade band to see passages. There are {passages.length} passages in total across grades K–10,
+                  including some longer options for a more thorough read.
+                </p>
+                <div className="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-6">
+                  {gradeBands.map((g) => (
+                    <button
+                      key={g}
+                      onClick={() => setSelectedGrade(g)}
+                      className="rounded-2xl border border-slate-200 bg-white py-4 text-center font-semibold text-slate-800 shadow-sm transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-800"
                     >
-                      <option value="all">All levels</option>
-                      <option value={0}>K</option>
-                      <option value={1}>1</option>
-                      <option value={2}>2</option>
-                      <option value={3}>3</option>
-                      <option value={4}>4</option>
-                      <option value={5}>5</option>
-                      <option value={6}>6</option>
-                      <option value={7}>7</option>
-                      <option value={8}>8</option>
-                      <option value={9}>9</option>
-                      <option value={10}>10</option>
-                      <option value={11}>11</option>
-                      <option value={12}>12</option>
-                    </select>
-                  </label>
-                  <label className="space-y-2">
-                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-                      Select your approximate reading level.
-                    </div>
-                  </label>
-                  <label className="space-y-2">
-                    <span className="text-sm font-medium text-slate-700">Choose a reading passage</span>
-                    <select
-                      value={selectedPassageId ?? ""}
-                      onChange={(event) => setSelectedPassageId(event.target.value)}
-                      className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 shadow-sm"
-                    >
-                      <option value="">Select a passage</option>
-                      {filteredPassages.map((p) => (
-                        <option key={p.id} value={p.id}>
-                          {`Grade ${p.gradeBand === 0 ? "K" : p.gradeBand}: ${p.title}`}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
+                      {gradeLabelFor(g)}
+                    </button>
+                  ))}
                 </div>
+              </div>
+            )}
 
-                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">Passage preview</p>
-                  {selectedPassage ? (
-                    <div className="mt-4 space-y-3">
-                      <p className="text-lg font-semibold text-slate-900">{selectedPassage.title}</p>
-                      <p className="text-sm text-slate-600">Approx. grade {selectedPassage.gradeBand === 0 ? "K" : selectedPassage.gradeBand}</p>
-                      <p className="mt-3 text-sm leading-6 text-slate-700">{selectedPassage.text.slice(0, 260)}...</p>
+            {stage === "select" && selectedGrade !== null && (
+              <div className="mt-6">
+                <button
+                  onClick={() => setSelectedGrade(null)}
+                  className="text-sm font-medium text-emerald-700 transition hover:text-emerald-800"
+                >
+                  ← Choose a different grade
+                </button>
+                <p className="mt-2 text-sm text-slate-600">
+                  Grade {gradeLabelFor(selectedGrade)} passages. Pick the one that fits — shorter passages work well for a
+                  quick check, longer ones give a more thorough read.
+                </p>
+                <div className="mt-4 grid gap-4">
+                  {passagesForGrade(selectedGrade).map((p) => {
+                    const wc = wordCountOf(p.text);
+                    const length = wc < 90 ? "Short" : wc < 220 ? "Medium" : "Long";
+                    return (
                       <button
-                        onClick={() => choosePassage(selectedPassage)}
-                        className="mt-3 inline-flex items-center rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                        key={p.id}
+                        onClick={() => choosePassage(p)}
+                        className="text-left rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-emerald-300 hover:shadow-md"
                       >
-                        Start this passage
+                        <div className="flex items-center justify-between gap-3">
+                          <div>
+                            <p className="font-semibold text-slate-900">{p.title}</p>
+                            <p className="mt-1 text-sm text-slate-500">
+                              {length} · ~{wc} words · {p.questions.length} questions
+                            </p>
+                          </div>
+                          <span className="text-sm font-semibold text-emerald-700">Start →</span>
+                        </div>
                       </button>
-                    </div>
-                  ) : (
-                    <p className="mt-4 text-sm leading-6 text-slate-600">Select a passage above to preview it before starting the assessment.</p>
-                  )}
+                    );
+                  })}
                 </div>
-
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-600">
-                  Pick a grade band and a passage to practice reading comprehension with more than one passage per level.
-                </div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-600">
-                  Try the assessment more than once over time to track improvement and get a clearer sense of the right reading level.
-                </div>
+                <p className="mt-4 text-xs leading-5 text-slate-500">
+                  Pick the passage closest to your current reading level. You can always try another one afterward.
+                </p>
               </div>
             )}
 
@@ -395,67 +348,33 @@ export default function AssessmentPage() {
                   <p className="text-sm leading-7 text-slate-700">{result.recommendation}</p>
                 </div>
 
-                <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">Correct answer review</p>
-                  <div className="mt-4 space-y-3">
-                    {questionResults.map((item, index) => (
-                      <div
-                        key={`${index}-${item.question}`}
-                        className={`rounded-2xl border p-4 transition ${
-                          item.isCorrect
-                            ? "border-emerald-200 bg-emerald-50"
-                            : "border-rose-200 bg-rose-50"
-                        } animate-answer-card`}
-                      >
-                        <p className="text-sm font-medium text-slate-900">{index + 1}. {item.question}</p>
-                        <p className="mt-2 text-sm text-slate-700">
-                          <span className="font-semibold">Your answer:</span> {item.selectedText}
-                        </p>
-                        <p className="mt-1 text-sm text-slate-700">
-                          <span className="font-semibold">Correct answer:</span> {item.correctText}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">Books by level</p>
-                      <p className="mt-2 text-sm text-slate-600">Choose a grade band to see books that match this approximate level.</p>
+                {skillSuggestions.length > 0 && (
+                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">To build the missing skill</p>
+                    <div className="mt-4 space-y-4">
+                      {skillSuggestions.map((suggestion) => (
+                        <div key={suggestion.title} className="rounded-2xl border border-slate-200 bg-white p-4">
+                          <p className="font-semibold text-slate-900">{suggestion.title}</p>
+                          <p className="mt-1 text-sm text-slate-600">{suggestion.reason}</p>
+                        </div>
+                      ))}
                     </div>
-                    <select
-                      value={selectedGradeBand ?? 0}
-                      onChange={(event) => setSelectedGradeBand(Number(event.target.value))}
-                      className="mt-2 rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 shadow-sm"
-                    >
-                      <option value={0}>K</option>
-                      <option value={1}>1</option>
-                      <option value={2}>2</option>
-                      <option value={3}>3</option>
-                      <option value={4}>4</option>
-                      <option value={5}>5</option>
-                      <option value={6}>6</option>
-                      <option value={7}>7</option>
-                      <option value={8}>8</option>
-                      <option value={9}>9</option>
-                      <option value={10}>10</option>
-                      <option value={11}>11</option>
-                      <option value={12}>12</option>
-                    </select>
                   </div>
+                )}
 
-                  <div className="mt-4 space-y-4">
-                    {selectedGradeBooks.map((book) => (
-                      <div key={`${book.title}-${book.gradeBand}`} className="rounded-2xl border border-slate-200 bg-white p-4">
-                        <p className="font-semibold text-slate-900">{book.title}</p>
-                        <p className="mt-1 text-sm text-slate-600">{book.author}</p>
-                        <p className="mt-2 text-sm text-slate-600">{book.description}</p>
-                      </div>
-                    ))}
+                {enjoymentSuggestions.length > 0 && (
+                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">For enjoyment at this level</p>
+                    <div className="mt-4 space-y-4">
+                      {enjoymentSuggestions.map((suggestion) => (
+                        <div key={suggestion.title} className="rounded-2xl border border-slate-200 bg-white p-4">
+                          <p className="font-semibold text-slate-900">{suggestion.title}</p>
+                          <p className="mt-1 text-sm text-slate-600">{suggestion.reason}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
                 <button
                   onClick={reset}
