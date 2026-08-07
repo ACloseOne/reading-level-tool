@@ -7,10 +7,9 @@ import {
   scoreAssessment,
   wordCountOf,
   analyzePassageWords,
-  getBookSuggestions,
+  getBooksForGradeBand,
   AssessmentResult,
   WordInfo,
-  BookSuggestion,
 } from "@/lib/scoring";
 
 type Stage = "select" | "reading" | "questions" | "results";
@@ -32,7 +31,6 @@ export default function AssessmentPage() {
   const [result, setResult] = useState<AssessmentResult | null>(null);
   const [wordInfo, setWordInfo] = useState<WordInfo[]>([]);
   const [markedIncorrect, setMarkedIncorrect] = useState<Set<number>>(new Set());
-  const [bookSuggestions, setBookSuggestions] = useState<BookSuggestion[]>([]);
 
   function choosePassage(p: Passage) {
     setPassage(p);
@@ -83,7 +81,6 @@ export default function AssessmentPage() {
       totalWordTokens || wc
     );
     setResult(r);
-    setBookSuggestions(getBookSuggestions(passage.gradeBand, r));
     setStage("results");
   }
 
@@ -97,11 +94,9 @@ export default function AssessmentPage() {
     setResult(null);
     setWordInfo([]);
     setMarkedIncorrect(new Set());
-    setBookSuggestions([]);
   }
 
-  const skillSuggestions = bookSuggestions.filter((s) => s.category === "skill");
-  const enjoymentSuggestions = bookSuggestions.filter((s) => s.category === "enjoyment");
+  const recommendedBooks = passage ? getBooksForGradeBand(passage.gradeBand) : [];
 
   return (
     <main className="space-y-6">
@@ -348,28 +343,15 @@ export default function AssessmentPage() {
                   <p className="text-sm leading-7 text-slate-700">{result.recommendation}</p>
                 </div>
 
-                {skillSuggestions.length > 0 && (
+                {recommendedBooks.length > 0 && (
                   <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">To build the missing skill</p>
+                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">Recommended books</p>
                     <div className="mt-4 space-y-4">
-                      {skillSuggestions.map((suggestion) => (
-                        <div key={suggestion.title} className="rounded-2xl border border-slate-200 bg-white p-4">
-                          <p className="font-semibold text-slate-900">{suggestion.title}</p>
-                          <p className="mt-1 text-sm text-slate-600">{suggestion.reason}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {enjoymentSuggestions.length > 0 && (
-                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">For enjoyment at this level</p>
-                    <div className="mt-4 space-y-4">
-                      {enjoymentSuggestions.map((suggestion) => (
-                        <div key={suggestion.title} className="rounded-2xl border border-slate-200 bg-white p-4">
-                          <p className="font-semibold text-slate-900">{suggestion.title}</p>
-                          <p className="mt-1 text-sm text-slate-600">{suggestion.reason}</p>
+                      {recommendedBooks.map((book) => (
+                        <div key={`${book.title}-${book.author}`} className="rounded-2xl border border-slate-200 bg-white p-4">
+                          <p className="font-semibold text-slate-900">{book.title}</p>
+                          <p className="mt-1 text-sm font-medium text-slate-700">{book.author}</p>
+                          <p className="mt-2 text-sm text-slate-600">{book.description}</p>
                         </div>
                       ))}
                     </div>
