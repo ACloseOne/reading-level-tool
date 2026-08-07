@@ -1,0 +1,1420 @@
+﻿{"reading_comprehension_tests": [
+    {
+      "grade": "K",
+      "target_age": "5-6",
+      "metadata": {
+        "book_title": "The Tale of Peter Rabbit",
+        "author": "Beatrix Potter",
+        "lexile_estimated": "BR (Beginning Reader)",
+        "focus_standard": "Literal Identification & Detail Recall"
+      },
+      "excerpt": "Once upon a time there were four little Rabbits, and their names were Flopsy, Mopsy, Cotton-tail, and Peter. They lived with their Mother in a sand-bank, underneath the root of a very big fir-tree. 'Now, my dears,' said old Mrs. Rabbit one morning, 'you may go into the fields or down the lane, but don't go into Mr. McGregor's garden: your Father had an accident there; he was put in a pie by Mrs. McGregor.'",
+      "questions": [
+        {
+          "id": "K_V3_Q1",
+          "question_text": "How many little rabbits are in the story?",
+          "options": {
+            "A": "Two",
+            "B": "Three",
+            "C": "Four",
+            "D": "Five"
+          },
+          "correct_answer": "C",
+          "explanation": "The text states 'there were four little Rabbits.'"
+        },
+        {
+          "id": "K_V3_Q2",
+          "question_text": "Where do the rabbits live with their mother?",
+          "options": {
+            "A": "In a tall wooden house",
+            "B": "Underneath the root of a big fir-tree",
+            "C": "Inside a hollow apple tree",
+            "D": "Under a small stone bridge"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage notes they lived 'underneath the root of a very big fir-tree.'"
+        },
+        {
+          "id": "K_V3_Q3",
+          "question_text": "What places did Mrs. Rabbit say the bunnies COULD go?",
+          "options": {
+            "A": "Into the dark woods or up the mountain",
+            "B": "Into Mr. McGregor's garden or the barn",
+            "C": "Into the fields or down the lane",
+            "D": "To the baker's shop or the river"
+          },
+          "correct_answer": "C",
+          "explanation": "Mrs. Rabbit says, 'you may go into the fields or down the lane.'"
+        },
+        {
+          "id": "K_V3_Q4",
+          "question_text": "Whose garden are the rabbits forbidden to visit?",
+          "options": {
+            "A": "Mr. McGregor's garden",
+            "B": "Farmer Brown's garden",
+            "C": "Mrs. Green's garden",
+            "D": "Old John's garden"
+          },
+          "correct_answer": "A",
+          "explanation": "Mrs. Rabbit specifically warns, 'don't go into Mr. McGregor's garden.'"
+        },
+        {
+          "id": "K_V3_Q5",
+          "question_text": "Who is telling the little rabbits where they can go?",
+          "options": {
+            "A": "Their father",
+            "B": "Old Mrs. Rabbit",
+            "C": "Mr. McGregor",
+            "D": "Cotton-tail"
+          },
+          "correct_answer": "B",
+          "explanation": "The text shows that 'old Mrs. Rabbit' is speaking to her young ones."
+        },
+        {
+          "id": "K_V3_Q6",
+          "question_text": "What happened to the rabbits' father in the garden?",
+          "options": {
+            "A": "He got lost in the grass",
+            "B": "He fell asleep in a basket",
+            "C": "He had an accident there",
+            "D": "He found a large carrot"
+          },
+          "correct_answer": "C",
+          "explanation": "Mrs. Rabbit mentions that 'your Father had an accident there.'"
+        },
+        {
+          "id": "K_V3_Q7",
+          "question_text": "Which name belongs to one of the four rabbits?",
+          "options": {
+            "A": "Cotton-tail",
+            "B": "Barnaby",
+            "C": "Spot",
+            "D": "Hazel"
+          },
+          "correct_answer": "A",
+          "explanation": "The four names listed are Flopsy, Mopsy, Cotton-tail, and Peter."
+        },
+        {
+          "id": "K_V3_Q8",
+          "question_text": "When does Mrs. Rabbit talk to her children?",
+          "options": {
+            "A": "At late night",
+            "B": "One morning",
+            "C": "In the evening",
+            "D": "At lunchtime"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage specifies that she spoke to them 'one morning.'"
+        }
+      ]
+    },
+    {
+      "grade": "1",
+      "target_age": "6-7",
+      "metadata": {
+        "book_title": "The Tale of Benjamin Bunny",
+        "author": "Beatrix Potter",
+        "lexile_estimated": "460L",
+        "focus_standard": "Event Tracking & Character Action Identification"
+      },
+      "excerpt": "One morning little Benjamin Bunny sat on a riverbank, and listened to the tramping of a horse's hooves. A gig was coming along the road; it was driven by Mr. McGregor, and beside him sat Mrs. McGregor in her best bonnet. As soon as they had passed, little Benjamin came out of his hiding place, and set off with a hop, skip, and a jump, to go and see his relations who lived in the wood behind Mr. McGregor's garden.",
+      "questions": [
+        {
+          "id": "G1_V3_Q1",
+          "question_text": "Where was Benjamin Bunny sitting at the beginning of the passage?",
+          "options": {
+            "A": "In a big garden",
+            "B": "On a riverbank",
+            "C": "Inside a hollow log",
+            "D": "On a dusty road"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states that 'little Benjamin Bunny sat on a riverbank.'"
+        },
+        {
+          "id": "G1_V3_Q2",
+          "question_text": "What sound did Benjamin listen to?",
+          "options": {
+            "A": "A singing bird",
+            "B": "Rushing river water",
+            "C": "Tramping horse hooves",
+            "D": "A barking dog"
+          },
+          "correct_answer": "C",
+          "explanation": "He 'listened to the tramping of a horse's hooves.'"
+        },
+        {
+          "id": "G1_V3_Q3",
+          "question_text": "Who was driving the carriage on the road?",
+          "options": {
+            "A": "Mr. McGregor",
+            "B": "Benjamin's father",
+            "C": "Old Mrs. Rabbit",
+            "D": "A friendly farmer"
+          },
+          "correct_answer": "A",
+          "explanation": "The passage notes the carriage 'was driven by Mr. McGregor.'"
+        },
+        {
+          "id": "G1_V3_Q4",
+          "question_text": "What was Mrs. McGregor wearing on her head?",
+          "options": {
+            "A": "A red ribbon",
+            "B": "Her best bonnet",
+            "C": "A warm wool hat",
+            "D": "A yellow flower"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states 'beside him sat Mrs. McGregor in her best bonnet.'"
+        },
+        {
+          "id": "G1_V3_Q5",
+          "question_text": "What did Benjamin do while the carriage went past?",
+          "options": {
+            "A": "He hid in a hiding place",
+            "B": "He waved at Mr. McGregor",
+            "C": "He ran across the road",
+            "D": "He fell fast asleep"
+          },
+          "correct_answer": "A",
+          "explanation": "The text mentions that after they passed, 'Benjamin came out of his hiding place.'"
+        },
+        {
+          "id": "G1_V3_Q6",
+          "question_text": "How did Benjamin travel after coming out of hiding?",
+          "options": {
+            "A": "With a slow crawl",
+            "B": "With a hop, skip, and a jump",
+            "C": "By running as fast as lightning",
+            "D": "By marching like a soldier"
+          },
+          "correct_answer": "B",
+          "explanation": "The author describes him moving 'with a hop, skip, and a jump.'"
+        },
+        {
+          "id": "G1_V3_Q7",
+          "question_text": "Where were Benjamin's relatives living?",
+          "options": {
+            "A": "Under the river bridge",
+            "B": "In the wood behind Mr. McGregor's garden",
+            "C": "Inside the farmer's barn",
+            "D": "Across the meadow on a farm"
+          },
+          "correct_answer": "B",
+          "explanation": "Benjamin went 'to see his relations who lived in the wood behind Mr. McGregor's garden.'"
+        },
+        {
+          "id": "G1_V3_Q8",
+          "question_text": "What type of vehicle was coming along the road?",
+          "options": {
+            "A": "A heavy wagon",
+            "B": "A small cart",
+            "C": "A gig",
+            "D": "A sled"
+          },
+          "correct_answer": "C",
+          "explanation": "The passage notes that 'A gig was coming along the road.'"
+        }
+      ]
+    },
+    {
+      "grade": "2",
+      "target_age": "7-8",
+      "metadata": {
+        "book_title": "Pinocchio",
+        "author": "Carlo Collodi",
+        "lexile_estimated": "530L",
+        "focus_standard": "Character Motivation & Sequential Action"
+      },
+      "excerpt": "Geppetto wanted to carve a wonderful wooden puppet that could dance, fence, and turn somersaults. So he took his sharp tools and set to work making the hair, then the forehead, and then the eyes. When the eyes were finished, imagine his surprise when he noticed that they moved, and kept staring straight at him! Geppetto felt almost angry at being stared at so rudely, and said, 'Why do you look at me with such big wooden eyes?' But no answer came.",
+      "questions": [
+        {
+          "id": "G2_V3_Q1",
+          "question_text": "What did Geppetto want to make out of wood?",
+          "options": {
+            "A": "A sturdy wooden chair",
+            "B": "A wonderful puppet",
+            "C": "A small wooden toy boat",
+            "D": "A birdhouse for his yard"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states Geppetto wanted to carve 'a wonderful wooden puppet.'"
+        },
+        {
+          "id": "G2_V3_Q2",
+          "question_text": "Which of these is NOT something Geppetto wanted his creation to do?",
+          "options": {
+            "A": "Fence",
+            "B": "Turn somersaults",
+            "C": "Fly in the air",
+            "D": "Dance"
+          },
+          "correct_answer": "C",
+          "explanation": "The text mentions dancing, fencing, and turning somersaults, but not flying."
+        },
+        {
+          "id": "G2_V3_Q3",
+          "question_text": "What part of the puppet did Geppetto carve FIRST?",
+          "options": {
+            "A": "The eyes",
+            "B": "The forehead",
+            "C": "The hair",
+            "D": "The hands"
+          },
+          "correct_answer": "C",
+          "explanation": "The passage says he set to work 'making the hair, then the forehead, and then the eyes.'"
+        },
+        {
+          "id": "G2_V3_Q4",
+          "question_text": "What surprised Geppetto when he finished the eyes?",
+          "options": {
+            "A": "They changed color",
+            "B": "They moved and stared at him",
+            "C": "They began to cry tears",
+            "D": "They closed tightly shut"
+          },
+          "correct_answer": "B",
+          "explanation": "Geppetto noticed 'that they moved, and kept staring straight at him!'"
+        },
+        {
+          "id": "G2_V3_Q5",
+          "question_text": "How did Geppetto feel when the eyes stared at him?",
+          "options": {
+            "A": "Very happy and joyful",
+            "B": "Almost angry",
+            "C": "Sleepy and bored",
+            "D": "Extremely frightened and hid"
+          },
+          "correct_answer": "B",
+          "explanation": "The text says 'Geppetto felt almost angry at being stared at so rudely.'"
+        },
+        {
+          "id": "G2_V3_Q6",
+          "question_text": "What question did Geppetto ask the wooden head?",
+          "options": {
+            "A": "'What is your name?'",
+            "B": "'Why do you look at me with such big wooden eyes?'",
+            "C": "'Can you dance for me now?'",
+            "D": "'Where are your wooden clothes?'"
+          },
+          "correct_answer": "B",
+          "explanation": "Geppetto asked, 'Why do you look at me with such big wooden eyes?'"
+        },
+        {
+          "id": "G2_V3_Q7",
+          "question_text": "What happened right after Geppetto asked his question?",
+          "options": {
+            "A": "The puppet started talking",
+            "B": "The puppet laughed out loud",
+            "C": "No answer came",
+            "D": "The eyes closed"
+          },
+          "correct_answer": "C",
+          "explanation": "The passage ends with the simple result: 'But no answer came.'"
+        },
+        {
+          "id": "G2_V3_Q8",
+          "question_text": "What tools did Geppetto use to begin carving?",
+          "options": {
+            "A": "Heavy hammers",
+            "B": "Sharp tools",
+            "C": "Saws and glue",
+            "D": "Pencils and paper"
+          },
+          "correct_answer": "B",
+          "explanation": "The text explicitly mentions that 'he took his sharp tools and set to work.'"
+        }
+      ]
+    },
+    {
+      "grade": "3",
+      "target_age": "8-9",
+      "metadata": {
+        "book_title": "The Secret Garden",
+        "author": "Frances Hodgson Burnett",
+        "lexile_estimated": "620L",
+        "focus_standard": "Setting & Context Clues"
+      },
+      "excerpt": "Mary was sitting on the hearth-rug in the nursery when the robin flew up into the tree outside the window and began to sing his cheerful song. The sun was shining brightly, and the cold wind had stopped blowing. Mary looked out at the garden beds where green shoots were pushing up through the dark soil. 'The spring is coming,' she said to herself. 'The winter is over at last.' She put on her hat and coat and ran outdoors into the fresh, crisp air to explore.",
+      "questions": [
+        {
+          "id": "G3_V3_Q1",
+          "question_text": "Where was Mary sitting at the start of the passage?",
+          "options": {
+            "A": "On a chair in the kitchen",
+            "B": "On the hearth-rug in the nursery",
+            "C": "On the grass in the garden",
+            "D": "On a bench by the window"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states 'Mary was sitting on the hearth-rug in the nursery.'"
+        },
+        {
+          "id": "G3_V3_Q2",
+          "question_text": "What animal began singing in the tree outside?",
+          "options": {
+            "A": "A bluebird",
+            "B": "A sparrow",
+            "C": "A robin",
+            "D": "A crow"
+          },
+          "correct_answer": "C",
+          "explanation": "The passage notes that 'the robin flew up into the tree outside... and began to sing.'"
+        },
+        {
+          "id": "G3_V3_Q3",
+          "question_text": "What change had occurred in the weather?",
+          "options": {
+            "A": "It was snowing heavily",
+            "B": "The sun was shining and the cold wind had stopped",
+            "C": "A dark rainstorm was starting",
+            "D": "Thick fog covered the window"
+          },
+          "correct_answer": "B",
+          "explanation": "The text notes 'The sun was shining brightly, and the cold wind had stopped blowing.'"
+        },
+        {
+          "id": "G3_V3_Q4",
+          "question_text": "What could Mary see pushing up through the dark soil?",
+          "options": {
+            "A": "Small earthworms",
+            "B": "Bright red flowers",
+            "C": "Green shoots",
+            "D": "Dry brown leaves"
+          },
+          "correct_answer": "C",
+          "explanation": "Mary observed 'garden beds where green shoots were pushing up through the dark soil.'"
+        },
+        {
+          "id": "G3_V3_Q5",
+          "question_text": "What season does Mary realize is arriving?",
+          "options": {
+            "A": "Summer",
+            "B": "Autumn",
+            "C": "Spring",
+            "D": "Winter"
+          },
+          "correct_answer": "C",
+          "explanation": "Mary says to herself, 'The spring is coming... The winter is over at last.'"
+        },
+        {
+          "id": "G3_V3_Q6",
+          "question_text": "What items of clothing did Mary put on before going outside?",
+          "options": {
+            "A": "Her boots and gloves",
+            "B": "Her hat and coat",
+            "C": "Her apron and shawl",
+            "D": "Her shoes and scarf"
+          },
+          "correct_answer": "B",
+          "explanation": "The text explicitly states 'She put on her hat and coat.'"
+        },
+        {
+          "id": "G3_V3_Q7",
+          "question_text": "Why did Mary run outdoors?",
+          "options": {
+            "A": "To feed the hungry bird",
+            "B": "To call her family for dinner",
+            "C": "To explore in the fresh air",
+            "D": "To escape from the hot room"
+          },
+          "correct_answer": "C",
+          "explanation": "The passage finishes by saying she 'ran outdoors into the fresh, crisp air to explore.'"
+        },
+        {
+          "id": "G3_V3_Q8",
+          "question_text": "What adjective is used to describe the robin's song?",
+          "options": {
+            "A": "Loud",
+            "B": "Cheerful",
+            "C": "Sad",
+            "D": "Soft"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage describes the bird beginning to 'sing his cheerful song.'"
+        }
+      ]
+    },
+    {
+      "grade": "4",
+      "target_age": "9-10",
+      "metadata": {
+        "book_title": "The Swiss Family Robinson",
+        "author": "Johann David Wyss",
+        "lexile_estimated": "730L",
+        "focus_standard": "Inference & Problem-Solving Details"
+      },
+      "excerpt": "We realized that our primary task was to secure our position on the island before nightfall. My eldest son Fritz loaded his gun, while Ernest prepared fish hooks and lines. Little Francis was given the job of searching for dry driftwood along the shoreline so we could light a campfire. Meanwhile, my wife examined our supplies to see what food remained undamaged by sea water. Working together with steady courage, we transformed the wild beach into a safe shelter.",
+      "questions": [
+        {
+          "id": "G4_V3_Q1",
+          "question_text": "What was the family's most urgent goal?",
+          "options": {
+            "A": "To build a large wooden ship",
+            "B": "To secure their position on the island before nightfall",
+            "C": "To map out the entire forest",
+            "D": "To look for other human inhabitants"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage opens stating 'our primary task was to secure our position on the island before nightfall.'"
+        },
+        {
+          "id": "G4_V3_Q2",
+          "question_text": "What task was assigned to the eldest son, Fritz?",
+          "options": {
+            "A": "Searching for dry driftwood",
+            "B": "Preparing fishing hooks and lines",
+            "C": "Loading his gun",
+            "D": "Checking the food supplies"
+          },
+          "correct_answer": "C",
+          "explanation": "The text states 'My eldest son Fritz loaded his gun.'"
+        },
+        {
+          "id": "G4_V3_Q3",
+          "question_text": "What was Ernest preparing to do?",
+          "options": {
+            "A": "Fish, by preparing hooks and lines",
+            "B": "Build a wooden table",
+            "C": "Collect water from a stream",
+            "D": "Guard the camp with a weapon"
+          },
+          "correct_answer": "A",
+          "explanation": "Ernest 'prepared fish hooks and lines,' signaling an intention to fish."
+        },
+        {
+          "id": "G4_V3_Q4",
+          "question_text": "Why was little Francis collecting dry driftwood?",
+          "options": {
+            "A": "To build a small raft",
+            "B": "To light a campfire",
+            "C": "To build a defensive fence",
+            "D": "To play games with his brothers"
+          },
+          "correct_answer": "B",
+          "explanation": "Francis searched for driftwood 'so we could light a campfire.'"
+        },
+        {
+          "id": "G4_V3_Q5",
+          "question_text": "What problem had affected some of their food supplies?",
+          "options": {
+            "A": "Wild animals had eaten it",
+            "B": "It had been spoiled by sea water",
+            "C": "It was left behind on the boat",
+            "D": "It had burned in a fire"
+          },
+          "correct_answer": "B",
+          "explanation": "The mother examined supplies 'to see what food remained undamaged by sea water.'"
+        },
+        {
+          "id": "G4_V3_Q6",
+          "question_text": "What attitude helped the family turn the wild beach into a shelter?",
+          "options": {
+            "A": "Fearful obedience",
+            "B": "Steady courage and working together",
+            "C": "Silent anger and competition",
+            "D": "Careless speed"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage highlights them 'Working together with steady courage.'"
+        },
+        {
+          "id": "G4_V3_Q7",
+          "question_text": "Where was Francis told to look for wood?",
+          "options": {
+            "A": "Deep inside the dark woods",
+            "B": "Along the shoreline",
+            "C": "Up on the high cliffs",
+            "D": "Near the broken boat"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states Francis searched 'along the shoreline.'"
+        },
+        {
+          "id": "G4_V3_Q8",
+          "question_text": "Who is narrating this story excerpt?",
+          "options": {
+            "A": "Fritz",
+            "B": "The mother",
+            "C": "The father",
+            "D": "Francis"
+          },
+          "correct_answer": "C",
+          "explanation": "The narrator mentions 'my eldest son Fritz' and 'my wife,' identifying himself as the father."
+        }
+      ]
+    },
+    {
+      "grade": "5",
+      "target_age": "10-11",
+      "metadata": {
+        "book_title": "The Wind in the Willows",
+        "author": "Kenneth Grahame",
+        "lexile_estimated": "820L",
+        "focus_standard": "Atmospheric Description & Vocabulary in Context"
+      },
+      "excerpt": "The river bank was bright with life and activity. The Mole sat in the warm grass, watching the water slip smoothly past, carrying bubbles and sparkling bits of sunlight upon its surface. Never in his life had he seen a real river before. It fascinated him; it chattered and gurgled as it flowed, full of mystery and endless stories. The Water Rat leaned out from his hole in the bank, his dark face framed by neat whiskers, and invited the Mole aboard his little blue boat for an afternoon journey.",
+      "questions": [
+        {
+          "id": "G5_V3_Q1",
+          "question_text": "Had the Mole ever seen a real river prior to this moment?",
+          "options": {
+            "A": "Yes, he lived on one as a child",
+            "B": "No, he had never seen one in his life",
+            "C": "Yes, he visited one every summer",
+            "D": "The passage does not state"
+          },
+          "correct_answer": "B",
+          "explanation": "The text explicitly states: 'Never in his life had he seen a real river before.'"
+        },
+        {
+          "id": "G5_V3_Q2",
+          "question_text": "How is the motion of the river water described?",
+          "options": {
+            "A": "It rushed wildly and tore down trees",
+            "B": "It slipped smoothly, carrying bubbles and sparkling sunlight",
+            "C": "It stood completely still like a frozen lake",
+            "D": "It dried up into mud in the afternoon heat"
+          },
+          "correct_answer": "B",
+          "explanation": "The text details 'watching the water slip smoothly past, carrying bubbles and sparkling bits of sunlight.'"
+        },
+        {
+          "id": "G5_V3_Q3",
+          "question_text": "What action words are used to describe the sound of the river?",
+          "options": {
+            "A": "Roared and thundered",
+            "B": "Whispered and sighed",
+            "C": "Chattered and gurgled",
+            "D": "Hissed and splashed"
+          },
+          "correct_answer": "C",
+          "explanation": "The excerpt notes that the river 'chattered and gurgled as it flowed.'"
+        },
+        {
+          "id": "G5_V3_Q4",
+          "question_text": "Where does the Water Rat emerge from?",
+          "options": {
+            "A": "From behind a large oak tree",
+            "B": "From his hole in the river bank",
+            "C": "From under the wooden bridge",
+            "D": "From inside a patch of tall reeds"
+          },
+          "correct_answer": "B",
+          "explanation": "The text observes that 'The Water Rat leaned out from his hole in the bank.'"
+        },
+        {
+          "id": "G5_V3_Q5",
+          "question_text": "What color is the Water Rat's boat?",
+          "options": {
+            "A": "Green",
+            "B": "Red",
+            "C": "Blue",
+            "D": "White"
+          },
+          "correct_answer": "C",
+          "explanation": "The Water Rat invited Mole 'aboard his little blue boat.'"
+        },
+        {
+          "id": "G5_V3_Q6",
+          "question_text": "What does the river feel full of to the Mole?",
+          "options": {
+            "A": "Mud and heavy rocks",
+            "B": "Danger and fear",
+            "C": "Mystery and endless stories",
+            "D": "Fish and weeds"
+          },
+          "correct_answer": "C",
+          "explanation": "The passage notes the river was 'full of mystery and endless stories.'"
+        },
+        {
+          "id": "G5_V3_Q7",
+          "question_text": "What physical features are noted on the Water Rat's face?",
+          "options": {
+            "A": "A pale snout and wide eyes",
+            "B": "A dark face framed by neat whiskers",
+            "C": "Long grey fur and sharp teeth",
+            "D": "A scarred chin and small ears"
+          },
+          "correct_answer": "B",
+          "explanation": "The Rat is described with 'his dark face framed by neat whiskers.'"
+        },
+        {
+          "id": "G5_V3_Q8",
+          "question_text": "What does the word 'fascinated' mean as used in this context?",
+          "options": {
+            "A": "Deeply interested and enchanted",
+            "B": "Bored and ready to sleep",
+            "C": "Confused and angry",
+            "D": "Slightly annoyed"
+          },
+          "correct_answer": "A",
+          "explanation": "'Fascinated' indicates that the river captured Mole's full, captivated interest."
+        }
+      ]
+    },
+    {
+      "grade": "6",
+      "target_age": "11-12",
+      "metadata": {
+        "book_title": "20,000 Leagues Under the Sea",
+        "author": "Jules Verne",
+        "lexile_estimated": "920L",
+        "focus_standard": "Technical Vocabulary & Character Interaction Analysis"
+      },
+      "excerpt": "Captain Nemo motioned for me to look through the thick glass panel of the Nautilus's saloon. Below us stretched an underwater plain of coral, illuminated by an artificial light that radiated from our vessel. Phosphorescent creatures darted through the crystalline water like streaks of silver fire. Professor Aronnax, my companion, could not contain his amazement, marveling aloud at the unknown species drifting past. Yet Nemo remained silent and motionless, his gaze fixed upon the boundless abyss with an unreadable, solemn intensity.",
+      "questions": [
+        {
+          "id": "G6_V3_Q1",
+          "question_text": "Through what object did Captain Nemo invite the narrator to look?",
+          "options": {
+            "A": "A brass telescope",
+            "B": "The thick glass panel of the saloon",
+            "C": "A small porthole in his cabin",
+            "D": "A specialized diving helmet"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states Nemo motioned to look 'through the thick glass panel of the Nautilus's saloon.'"
+        },
+        {
+          "id": "G6_V3_Q2",
+          "question_text": "How was the underwater plain of coral lit up?",
+          "options": {
+            "A": "By natural rays from the sun above",
+            "B": "By burning oil lamps",
+            "C": "By an artificial light radiating from their vessel",
+            "D": "By volcanic vents on the ocean floor"
+          },
+          "correct_answer": "C",
+          "explanation": "The coral plain was 'illuminated by an artificial light that radiated from our vessel.'"
+        },
+        {
+          "id": "G6_V3_Q3",
+          "question_text": "What simile is used to describe the moving phosphorescent creatures?",
+          "options": {
+            "A": "Like drifting autumn leaves",
+            "B": "Like streaks of silver fire",
+            "C": "Like glowing stars in the night",
+            "D": "Like arrows shot from a bow"
+          },
+          "correct_answer": "B",
+          "explanation": "The creatures darted 'like streaks of silver fire.'"
+        },
+        {
+          "id": "G6_V3_Q4",
+          "question_text": "How did Professor Aronnax react to the view?",
+          "options": {
+            "A": "He expressed horror and demanded to surface",
+            "B": "He fell asleep from exhaustion",
+            "C": "He could not contain his amazement, marveling aloud",
+            "D": "He began taking notes in complete silence"
+          },
+          "correct_answer": "C",
+          "explanation": "The text describes Aronnax as unable to 'contain his amazement, marveling aloud.'"
+        },
+        {
+          "id": "G6_V3_Q5",
+          "question_text": "In contrast to Aronnax, how did Captain Nemo behave?",
+          "options": {
+            "A": "He laughed heartily at Aronnax's reaction",
+            "B": "He remained silent and motionless with a solemn intensity",
+            "C": "He paced back and forth nervously",
+            "D": "He steered the ship away from the coral"
+          },
+          "correct_answer": "B",
+          "explanation": "Nemo 'remained silent and motionless, his gaze fixed... with an unreadable, solemn intensity.'"
+        },
+        {
+          "id": "G6_V3_Q6",
+          "question_text": "What does the word 'phosphorescent' mean in the passage?",
+          "options": {
+            "A": "Dangerous and venomous",
+            "B": "Emitting light without heat / glowing in the dark",
+            "C": "Moving extremely fast",
+            "D": "Microscopic in size"
+          },
+          "correct_answer": "B",
+          "explanation": "'Phosphorescent' refers to organisms that naturally glow or emit light."
+        },
+        {
+          "id": "G6_V3_Q7",
+          "question_text": "What vessel are the characters traveling on?",
+          "options": {
+            "A": "The Abraham Lincoln",
+            "B": "The Nautilus",
+            "C": "The Sea Venture",
+            "D": "The Endeavour"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage directly mentions 'the Nautilus's saloon.'"
+        },
+        {
+          "id": "G6_V3_Q8",
+          "question_text": "What was Captain Nemo staring at so intently?",
+          "options": {
+            "A": "A sunken shipwreck",
+            "B": "The boundless abyss",
+            "C": "A sea monster",
+            "D": "His navigation maps"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage specifies 'his gaze fixed upon the boundless abyss.'"
+        }
+      ]
+    },
+    {
+      "grade": "7",
+      "target_age": "12-13",
+      "metadata": {
+        "book_title": "The Red Badge of Courage",
+        "author": "Stephen Crane",
+        "lexile_estimated": "1010L",
+        "focus_standard": "Figurative Language & Psychological State Analysis"
+      },
+      "excerpt": "The youth stared into the red fog of battle that swirled across the open field. The continuous roar of musketry sounded like the crashing of heavy timber in a storm. His regiment stood in a ragged line, choked by the acrid yellow smoke that rolled over them in thick clouds. Men around him shouted commands, but their voices seemed distant, muffled by the relentless din. A wave of panic surged through his chest, cold and paralyzing, making his hands tremble against the stock of his rifle as he waited for the next charge.",
+      "questions": [
+        {
+          "id": "G7_V3_Q1",
+          "question_text": "What metaphor/imagery is used to describe the atmosphere of battle?",
+          "options": {
+            "A": "A dark ocean wave",
+            "B": "A red fog swirling across the field",
+            "C": "A burning forest",
+            "D": "A blinding blizzard"
+          },
+          "correct_answer": "B",
+          "explanation": "The text describes 'the red fog of battle that swirled across the open field.'"
+        },
+        {
+          "id": "G7_V3_Q2",
+          "question_text": "What does the author compare the roar of musketry to?",
+          "options": {
+            "A": "Rolling thunder over mountains",
+            "B": "The crashing of heavy timber in a storm",
+            "C": "The sound of hundreds of iron drums",
+            "D": "A roaring waterfall"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states it 'sounded like the crashing of heavy timber in a storm.'"
+        },
+        {
+          "id": "G7_V3_Q3",
+          "question_text": "What physical element is choking the regiment?",
+          "options": {
+            "A": "Thick dust from the road",
+            "B": "Acrid yellow smoke rolling in clouds",
+            "C": "Freezing winter mist",
+            "D": "Black soot from burning houses"
+          },
+          "correct_answer": "B",
+          "explanation": "The regiment was 'choked by the acrid yellow smoke that rolled over them.'"
+        },
+        {
+          "id": "G7_V3_Q4",
+          "question_text": "Why do the shouted commands sound distant to the youth?",
+          "options": {
+            "A": "Because the officers are far away",
+            "B": "Because they are muffled by the relentless din",
+            "C": "Because he is losing his hearing completely",
+            "D": "Because the men are whispering"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states 'their voices seemed distant, muffled by the relentless din.'"
+        },
+        {
+          "id": "G7_V3_Q5",
+          "question_text": "How is the surge of panic in the youth's chest described?",
+          "options": {
+            "A": "Hot and raging",
+            "B": "Cold and paralyzing",
+            "C": "Brief and minor",
+            "D": "Slow and subtle"
+          },
+          "correct_answer": "B",
+          "explanation": "Panic surged 'cold and paralyzing' through his chest."
+        },
+        {
+          "id": "G7_V3_Q6",
+          "question_text": "What physical reaction does the youth have to his fear?",
+          "options": {
+            "A": "He drops his rifle on the ground",
+            "B": "His hands tremble against his rifle stock",
+            "C": "He turns and runs into the woods",
+            "D": "He falls to his knees"
+          },
+          "correct_answer": "B",
+          "explanation": "Fear made 'his hands tremble against the stock of his rifle.'"
+        },
+        {
+          "id": "G7_V3_Q7",
+          "question_text": "What does the word 'acrid' mean in reference to the smoke?",
+          "options": {
+            "A": "Sweet and pleasant",
+            "B": "Harsh, pungent, and irritating to inhale",
+            "C": "Clear and invisible",
+            "D": "Cool and damp"
+          },
+          "correct_answer": "B",
+          "explanation": "'Acrid' describes a sharp, bitter, and burning smell or taste, typical of gun smoke."
+        },
+        {
+          "id": "G7_V3_Q8",
+          "question_text": "What formation is the regiment standing in?",
+          "options": {
+            "A": "A tight square",
+            "B": "A ragged line",
+            "C": "A perfect circle",
+            "D": "A double column"
+          },
+          "correct_answer": "B",
+          "explanation": "The text explicitly observes that 'His regiment stood in a ragged line.'"
+        }
+      ]
+    },
+    {
+      "grade": "8",
+      "target_age": "13-14",
+      "metadata": {
+        "book_title": "The Hound of the Baskervilles",
+        "author": "Arthur Conan Doyle",
+        "lexile_estimated": "1090L",
+        "focus_standard": "Atmospheric Mood Construction & Narrative Inference"
+      },
+      "excerpt": "The moor was eerie in its vast solitude, stretching endlessly under a low, leaden sky. A cold wind swept across the barren expanse, driving thin wisps of mist over the black bog holes and granite tors that rose like jagged teeth against the horizon. Somewhere in the distance, a sound broke the silenceâ€”a long, low moan, rising to a dismal howl that seemed to vibrate through the very earth beneath our feet. Watson glanced at me, his face pale in the twilight, as the chilling cry died away into the darkness.",
+      "questions": [
+        {
+          "id": "G8_V3_Q1",
+          "question_text": "How is the sky described over the moor?",
+          "options": {
+            "A": "Clear and star-filled",
+            "B": "Low and leaden",
+            "C": "Bright blue with fluffy white clouds",
+            "D": "Red with the setting sun"
+          },
+          "correct_answer": "B",
+          "explanation": "The text specifies that the moor stretched 'under a low, leaden sky.'"
+        },
+        {
+          "id": "G8_V3_Q2",
+          "question_text": "What simile describes the granite tors on the horizon?",
+          "options": {
+            "A": "Like ancient castles",
+            "B": "Like towering giants",
+            "C": "Like jagged teeth",
+            "D": "Like dark pillars"
+          },
+          "correct_answer": "C",
+          "explanation": "The passage notes tors 'that rose like jagged teeth against the horizon.'"
+        },
+        {
+          "id": "G8_V3_Q3",
+          "question_text": "What sound interrupts the solitude of the moor?",
+          "options": {
+            "A": "A sudden crack of thunder",
+            "B": "A long, low moan rising to a dismal howl",
+            "C": "The galloping of a runaway horse",
+            "D": "A distant gunshot"
+          },
+          "correct_answer": "B",
+          "explanation": "The text describes 'a long, low moan, rising to a dismal howl.'"
+        },
+        {
+          "id": "G8_V3_Q4",
+          "question_text": "How intense is the howl according to the narrator?",
+          "options": {
+            "A": "It was faint and barely audible",
+            "B": "It seemed to vibrate through the very earth beneath their feet",
+            "C": "It sounded like a pleasant musical song",
+            "D": "It caused the birds to fly out of the trees"
+          },
+          "correct_answer": "B",
+          "explanation": "The howl 'seemed to vibrate through the very earth beneath our feet.'"
+        },
+        {
+          "id": "G8_V3_Q5",
+          "question_text": "What is Watson's visual reaction to the sound?",
+          "options": {
+            "A": "He smiled bravely at the narrator",
+            "B": "His face went pale in the twilight",
+            "C": "He pointed his pistol into the fog",
+            "D": "He began running back to the house"
+          },
+          "correct_answer": "B",
+          "explanation": "The narrator notes 'Watson glanced at me, his face pale in the twilight.'"
+        },
+        {
+          "id": "G8_V3_Q6",
+          "question_text": "What does the word 'leaden' suggest about the sky?",
+          "options": {
+            "A": "Heavy, dull, grey, and oppressive",
+            "B": "Light and airy",
+            "C": "Full of bright lightning",
+            "D": "Warm and inviting"
+          },
+          "correct_answer": "A",
+          "explanation": "'Leaden' refers to the color and heavy, gloomy feel of lead, building a bleak mood."
+        },
+        {
+          "id": "G8_V3_Q7",
+          "question_text": "What terrain elements are swept by the cold wind?",
+          "options": {
+            "A": "Sand dunes and palm trees",
+            "B": "Black bog holes and granite tors",
+            "C": "Grassy meadows and pine forests",
+            "D": "Cornfields and stone walls"
+          },
+          "correct_answer": "B",
+          "explanation": "Wind drove mist over 'the black bog holes and granite tors.'"
+        },
+        {
+          "id": "G8_V3_Q8",
+          "question_text": "What overall mood is established by the author in this passage?",
+          "options": {
+            "A": "Joyful and triumphant",
+            "B": "Foreboding, tense, and eerie",
+            "C": "Peaceful and relaxing",
+            "D": "Humorous and lighthearted"
+          },
+          "correct_answer": "B",
+          "explanation": "Describing barren land, leaden sky, dismal howls, and pale faces creates an ominous, foreboding mood."
+        }
+      ]
+    },
+    {
+      "grade": "9",
+      "target_age": "14-15",
+      "metadata": {
+        "book_title": "The Metamorphosis",
+        "author": "Franz Kafka (Translated by David Wyllie)",
+        "lexile_estimated": "1150L",
+        "focus_standard": "Absurdist Premise, Reaction Analysis, & Textual Details"
+      },
+      "excerpt": "One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His numerous legs, pitifully thin compared with the size of the rest of him, waved helplessly before his eyes. 'What's happened to me?' he thought. It was no dream.",
+      "questions": [
+        {
+          "id": "G9_V3_Q1",
+          "question_text": "What condition does Gregor Samsa discover upon waking?",
+          "options": {
+            "A": "He has fallen severely ill with a fever",
+            "B": "He has been transformed into a horrible vermin",
+            "C": "He has been locked inside his bedroom",
+            "D": "He has lost his memory entirely"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states he 'found himself transformed in his bed into a horrible vermin.'"
+        },
+        {
+          "id": "G9_V3_Q2",
+          "question_text": "How is Gregor's back described after his transformation?",
+          "options": {
+            "A": "Soft and woolly",
+            "B": "Armour-like",
+            "C": "Covered in green scales",
+            "D": "Completely flat and smooth"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage states 'He lay on his armour-like back.'"
+        },
+        {
+          "id": "G9_V3_Q3",
+          "question_text": "What physical feature does Gregor see when he lifts his head?",
+          "options": {
+            "A": "His long feather antennae",
+            "B": "His domed brown belly divided into stiff sections",
+            "C": "A pair of large transparent wings",
+            "D": "His sharp new claws"
+          },
+          "correct_answer": "B",
+          "explanation": "He sees 'his brown belly, slightly domed and divided by arches into stiff sections.'"
+        },
+        {
+          "id": "G9_V3_Q4",
+          "question_text": "What issue is present with the bed cover/bedding?",
+          "options": {
+            "A": "It is torn into pieces",
+            "B": "It is hardly able to cover his belly and seems ready to slide off",
+            "C": "It is far too heavy for him to lift",
+            "D": "It has been stained with dark ink"
+          },
+          "correct_answer": "B",
+          "explanation": "The bedding 'was hardly able to cover it and seemed ready to slide off any moment.'"
+        },
+        {
+          "id": "G9_V3_Q5",
+          "question_text": "How are Gregor's legs described in comparison to his body?",
+          "options": {
+            "A": "Thick and powerful",
+            "B": "Pitifully thin and waving helplessly",
+            "C": "Long and graceful",
+            "D": "Completely frozen and motionless"
+          },
+          "correct_answer": "B",
+          "explanation": "The text highlights 'His numerous legs, pitifully thin... waved helplessly.'"
+        },
+        {
+          "id": "G9_V3_Q6",
+          "question_text": "What explicit realization does the narrator state at the end of the excerpt?",
+          "options": {
+            "A": "That he was still trapped in a nightmare",
+            "B": "That it was no dream",
+            "C": "That his family would arrive soon",
+            "D": "That he was late for work"
+          },
+          "correct_answer": "B",
+          "explanation": "The excerpt concludes firmly: 'It was no dream.'"
+        },
+        {
+          "id": "G9_V3_Q7",
+          "question_text": "What kind of state did Gregor wake up from?",
+          "options": {
+            "A": "A deep, peaceful sleep",
+            "B": "Troubled dreams",
+            "C": "A sudden loud alarm clock",
+            "D": "A fainting spell"
+          },
+          "correct_answer": "B",
+          "explanation": "The opening line notes he 'woke from troubled dreams.'"
+        },
+        {
+          "id": "G9_V3_Q8",
+          "question_text": "What tone does Kafka create by juxtaposing the bizarre transformation with Gregor's mild internal thought?",
+          "options": {
+            "A": "Absurdist and surreal",
+            "B": "Lighthearted and comical",
+            "C": "Historically accurate",
+            "D": "Romantic and passionate"
+          },
+          "correct_answer": "A",
+          "explanation": "Pairing a grotesque physical metamorphosis with a matter-of-fact internal question ('What's happened to me?') generates a quintessential absurdist/surreal tone."
+        }
+      ]
+    },
+    {
+      "grade": "10",
+      "target_age": "15-16",
+      "metadata": {
+        "book_title": "Jane Eyre",
+        "author": "Charlotte BrontÃ«",
+        "lexile_estimated": "1210L",
+        "focus_standard": "Character Isolation, Social Critique, & Setting Significance"
+      },
+      "excerpt": "There was no possibility of taking a walk that day. We had been wandering, indeed, in the leafless shrubbery an hour in the morning; but since dinner (Mrs. Reed, when there was no company, dined early) the cold winter wind had brought with it clouds so sombre, and a rain so penetrating, that further outdoor exercise was now out of the question. I was glad of it: I never liked long walks, especially on chilly afternoons; dreadful to me was the coming home in the raw twilight, with nipped fingers and toes, and a heart humbled by the chidings of Bessie, the nurse, and humbled by the consciousness of my physical inferiority to Eliza, John, and Georgiana Reed.",
+      "questions": [
+        {
+          "id": "G10_V3_Q1",
+          "question_text": "Why was outdoor exercise ruled out in the afternoon?",
+          "options": {
+            "A": "Mrs. Reed ordered the children to stay inside to study",
+            "B": "Sombre clouds and penetrating rain arrived with a cold winter wind",
+            "C": "The gates to the estate garden were locked for repair",
+            "D": "Darkness had fallen completely before dinner ended"
+          },
+          "correct_answer": "B",
+          "explanation": "The text cites 'clouds so sombre, and a rain so penetrating' brought by the cold winter wind."
+        },
+        {
+          "id": "G10_V3_Q2",
+          "question_text": "What is Jane's personal reaction to being unable to go outside?",
+          "options": {
+            "A": "She is deeply disappointed and frustrated",
+            "B": "She is glad, because she dislikes long chilly walks",
+            "C": "She is indifferent and ignores the weather",
+            "D": "She becomes angry at Mrs. Reed"
+          },
+          "correct_answer": "B",
+          "explanation": "Jane explicitly states: 'I was glad of it: I never liked long walks...'"
+        },
+        {
+          "id": "G10_V3_Q3",
+          "question_text": "What detail is provided regarding Mrs. Reed's dining habits?",
+          "options": {
+            "A": "She only eats dinner when company visits",
+            "B": "She dines early when there is no company",
+            "C": "She eats dinner in her private bedchamber",
+            "D": "She skips dinner during winter days"
+          },
+          "correct_answer": "B",
+          "explanation": "Parenthetically, the text notes '(Mrs. Reed, when there was no company, dined early)'."
+        },
+        {
+          "id": "G10_V3_Q4",
+          "question_text": "Who is Bessie in the context of the household?",
+          "options": {
+            "A": "Jane's aunt",
+            "B": "The cook",
+            "C": "The nurse",
+            "D": "A cousin"
+          },
+          "correct_answer": "C",
+          "explanation": "The passage explicitly names her 'Bessie, the nurse.'"
+        },
+        {
+          "id": "G10_V3_Q5",
+          "question_text": "What emotional toll does returning from walks take on Jane?",
+          "options": {
+            "A": "Her spirit is uplifted by nature",
+            "B": "Her heart is humbled by scoldings and feelings of physical inferiority",
+            "C": "She feels energized to compete with her cousins",
+            "D": "She feels resentment toward the servants"
+          },
+          "correct_answer": "B",
+          "explanation": "Jane describes her heart as 'humbled by the chidings of Bessie... and humbled by the consciousness of my physical inferiority.'"
+        },
+        {
+          "id": "G10_V3_Q6",
+          "question_text": "What does the word 'chidings' mean as used in the passage?",
+          "options": {
+            "A": "Warm praise and encouragement",
+            "B": "Scoldings or sharp rebukes",
+            "C": "Quiet whispers",
+            "D": "Storytelling sessions"
+          },
+          "correct_answer": "B",
+          "explanation": "'Chidings' refers to scolding, reprimanding, or nagging rebukes from an authority figure."
+        },
+        {
+          "id": "G10_V3_Q7",
+          "question_text": "Who are Eliza, John, and Georgiana?",
+          "options": {
+            "A": "Servants in the Reed household",
+            "B": "Jane's cousins / Mrs. Reed's children",
+            "C": "Neighbors who live across the lane",
+            "D": "Jane's siblings"
+          },
+          "correct_answer": "B",
+          "explanation": "They are the Reed children with whom Jane is raised and to whom she feels physically inferior."
+        },
+        {
+          "id": "G10_V3_Q8",
+          "question_text": "Where had the children walked for an hour in the morning?",
+          "options": {
+            "A": "Down the town high street",
+            "B": "In the leafless shrubbery",
+            "C": "Along the river bank",
+            "D": "Through the orchard"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage specifies 'wandering, indeed, in the leafless shrubbery an hour in the morning.'"
+        }
+      ]
+    },
+    {
+      "grade": "11",
+      "target_age": "16-17",
+      "metadata": {
+        "book_title": "The Red Badge of Courage",
+        "author": "Stephen Crane",
+        "lexile_estimated": "1260L",
+        "focus_standard": "Complex Syntax, Psychological Naturalism, & Metaphorical Analysis"
+      },
+      "excerpt": "The cold passed reluctantly from the earth, and the retiring fogs revealed an army stretched out on the hills, resting. As the landscape changed from brown to green, the army awakened, and began to tremble with eagerness at the noise of rumors. It cast its eyes upon the roads, which were growing from long troughs of liquid mud to proper thoroughfares upon which troops could march. Campfires glowed like red eyes through the night, while distant batteries of guns grumbled endlessly like sullen dogs guarding an entrance. The youth lay in his hut, listening to the debates of his comrades while wrestling with his own private dread of cowardice.",
+      "questions": [
+        {
+          "id": "G11_V3_Q1",
+          "question_text": "How does the passage personify the transition of seasons?",
+          "options": {
+            "A": "The sun conquers the winter frost with violence",
+            "B": "The cold passes reluctantly from the earth as fogs retire",
+            "C": "Spring bursts forth in a sudden flood of joy",
+            "D": "The earth sleeps peacefully beneath a blanket of white snow"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states 'The cold passed reluctantly from the earth, and the retiring fogs revealed an army...'"
+        },
+        {
+          "id": "G11_V3_Q2",
+          "question_text": "What change in the roads enables military movement?",
+          "options": {
+            "A": "Paved stones are laid down by engineers",
+            "B": "They transform from troughs of liquid mud into proper thoroughfares",
+            "C": "The river freezes over to form a natural bridge",
+            "D": "Fallen trees are cleared away by the vanguard"
+          },
+          "correct_answer": "B",
+          "explanation": "Roads were 'growing from long troughs of liquid mud to proper thoroughfares upon which troops could march.'"
+        },
+        {
+          "id": "G11_V3_Q3",
+          "question_text": "What simile is used to depict the campfires in the night?",
+          "options": {
+            "A": "Like flickering stars fell to earth",
+            "B": "Like red eyes glowing through the night",
+            "C": "Like small beacons of hope",
+            "D": "Like sparks from a blacksmith's anvil"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states 'Campfires glowed like red eyes through the night.'"
+        },
+        {
+          "id": "G11_V3_Q4",
+          "question_text": "What figure of speech describes the distant gun batteries?",
+          "options": {
+            "A": "They roared like lions hunting prey",
+            "B": "They grumbled endlessly like sullen dogs guarding an entrance",
+            "C": "They cracked like whips across the sky",
+            "D": "They whispered like wind through dry leaves"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage notes batteries 'grumbled endlessly like sullen dogs guarding an entrance.'"
+        },
+        {
+          "id": "G11_V3_Q5",
+          "question_text": "What internal conflict plagues 'the youth' inside his hut?",
+          "options": {
+            "A": "A desire to desert to the enemy camp",
+            "B": "A private dread of his own potential cowardice",
+            "C": "Anger over the poor quality of army rations",
+            "D": "Grief over the loss of a close childhood friend"
+          },
+          "correct_answer": "B",
+          "explanation": "The youth was 'wrestling with his own private dread of cowardice.'"
+        },
+        {
+          "id": "G11_V3_Q6",
+          "question_text": "What triggers the awakening army to 'tremble with eagerness'?",
+          "options": {
+            "A": "The direct orders of their general",
+            "B": "The noise of circulating rumors",
+            "C": "The arrival of fresh supplies",
+            "D": "The sound of distant bugles"
+          },
+          "correct_answer": "B",
+          "explanation": "The text notes the army 'began to tremble with eagerness at the noise of rumors.'"
+        },
+        {
+          "id": "G11_V3_Q7",
+          "question_text": "What visual shift signals the arrival of spring on the landscape?",
+          "options": {
+            "A": "From white to yellow",
+            "B": "From brown to green",
+            "C": "From grey to gold",
+            "D": "From black to red"
+          },
+          "correct_answer": "B",
+          "explanation": "The text notes 'As the landscape changed from brown to green...'"
+        },
+        {
+          "id": "G11_V3_Q8",
+          "question_text": "What does the word 'thoroughfares' mean in this context?",
+          "options": {
+            "A": "Obstacles or blockades",
+            "B": "Main roads or usable passageways for travel",
+            "C": "Temporary military camps",
+            "D": "Deep defensive trenches"
+          },
+          "correct_answer": "B",
+          "explanation": "'Thoroughfares' refers to clear, usable public roads suitable for passage and marching."
+        }
+      ]
+    },
+    {
+      "grade": "12",
+      "target_age": "17-18",
+      "metadata": {
+        "book_title": "Moby-Dick",
+        "author": "Herman Melville",
+        "lexile_estimated": "1340L",
+        "focus_standard": "Philosophical Allegory, Syntactical Complexity, & Tone Parsing"
+      },
+      "excerpt": "Call me Ishmael. Some years agoâ€”never mind how long preciselyâ€”having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking peopleâ€™s hats offâ€”then, I account it high time to get to sea as soon as I can.",
+      "questions": [
+        {
+          "id": "G12_V3_Q1",
+          "question_text": "What primary motivation drives Ishmael to go to sea?",
+          "options": {
+            "A": "A desire to gain immense wealth through whaling",
+            "B": "An escape from poverty, existential melancholy, and dark psychological impulses",
+            "C": "A obligation to fulfill a military draft",
+            "D": "A scientific ambition to study ocean life"
+          },
+          "correct_answer": "B",
+          "explanation": "Ishmael explicitly links going to sea with having no money, nothing on shore, and driving away grimness, melancholy ('November in my soul'), and erratic impulses."
+        },
+        {
+          "id": "G12_V3_Q2",
+          "question_text": "What metaphor does Ishmael use to describe his profound psychological depression?",
+          "options": {
+            "A": "A dark tempest on the ocean",
+            "B": "A damp, drizzly November in his soul",
+            "C": "A barren desert of intellect",
+            "D": "An iron cage around his heart"
+          },
+          "correct_answer": "B",
+          "explanation": "He explicitly calls his inner mood 'a damp, drizzly November in my soul.'"
+        },
+        {
+          "id": "G12_V3_Q3",
+          "question_text": "What morbid physical habit does Ishmael engage in when his dark mood takes over?",
+          "options": {
+            "A": "Visiting ruined graveyards at midnight",
+            "B": "Pausing before coffin warehouses and joining the back of funerals",
+            "C": "Writing tragic poetry about death",
+            "D": "Staring at dead leaves falling from trees"
+          },
+          "correct_answer": "B",
+          "explanation": "He notes 'involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet.'"
+        },
+        {
+          "id": "G12_V3_Q4",
+          "question_text": "What absurd impulse must Ishmael exercise 'strong moral principle' to restrain?",
+          "options": {
+            "A": "Stealing money from purse shops",
+            "B": "Methodically knocking people's hats off in the street",
+            "C": "Screaming loudly in quiet public places",
+            "D": "Jumping off the docks into icy water"
+          },
+          "correct_answer": "B",
+          "explanation": "He states it requires moral restraint 'to prevent me from deliberately stepping into the street, and methodically knocking peopleâ€™s hats off.'"
+        },
+        {
+          "id": "G12_V3_Q5",
+          "question_text": "What idiom/phrase does Ishmael use to refer to his bouts of depression or low spirits?",
+          "options": {
+            "A": "My hypos",
+            "B": "The black dog",
+            "C": "The cold tide",
+            "D": "My shadows"
+          },
+          "correct_answer": "A",
+          "explanation": "He refers to when 'my hypos get such an upper hand of me' ('hypos' being short for hypochondria/melancholy)."
+        },
+        {
+          "id": "G12_V3_Q6",
+          "question_text": "What physical benefits does Ishmael humorously attribute to going to sea?",
+          "options": {
+            "A": "Curing sea-sickness and strengthening muscles",
+            "B": "Driving off the spleen and regulating the circulation",
+            "C": "Improving eyesight and sharpening the mind",
+            "D": "Clearing the lungs and soothing joints"
+          },
+          "correct_answer": "B",
+          "explanation": "The text states: 'It is a way I have of driving off the spleen and regulating the circulation.'"
+        },
+        {
+          "id": "G12_V3_Q7",
+          "question_text": "How does the narrator describe his financial situation prior to his journey?",
+          "options": {
+            "A": "He was wealthy but greedy for more",
+            "B": "He had little or no money in his purse",
+            "C": "He was deeply in debt to merchants",
+            "D": "He lived comfortably on an inheritance"
+          },
+          "correct_answer": "B",
+          "explanation": "The opening lines state he had 'little or no money in my purse.'"
+        },
+        {
+          "id": "G12_V3_Q8",
+          "question_text": "How would you characterize the tone of Ishmael's opening narrative voice?",
+          "options": {
+            "A": "Strictly objective and scientific",
+            "B": "Wry, introspective, eccentric, and dark-humored",
+            "C": "Terrified, frantic, and desperate",
+            "D": "Formal, aristocratic, and arrogant"
+          },
+          "correct_answer": "B",
+          "explanation": "Ishmael balances deep existential melancholy with deadpan self-awareness and absurd humor (e.g., knocking off hats), producing a wry, introspective, eccentric tone."
+        }
+      ]
+    }
+  ]
+}
